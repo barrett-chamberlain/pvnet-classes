@@ -45,7 +45,7 @@ if ($_GET['inserted'] == 1) { ?>
 	<p style="float: left; margin: 0px 5px;">Class inserted.</p><br /><br />
 </div>
 <?php } ?>
-<a href="insertclass.php">Insert new class</a><br /><br />
+<a href="insertclass.php">Insert new class</a> | <a href="spreadsheet.php">Download spreadsheet of classes</a><br /><br />
 <?php while ($classes = $result->fetch_assoc()) {
     echo '# ' . $classes['id'] . ' ' . '<a href=editclass.php?id=' . $classes['id'] . '>EDIT</a>' . ' | ' . $classes['class_id'] . ' | ' . $classes['class_name'] . ' | ' . '<a href=confirmdelete.php?id=' . $classes['id'] . '># DELETE #</a>' . '<br /><br />';
 }
