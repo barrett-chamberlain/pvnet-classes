@@ -1,0 +1,461 @@
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: new group: name=ubuntu, GID=1000
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: new user: name=ubuntu, UID=1000, GID=1000, home=/home/ubuntu, shell=/bin/bash
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'adm'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'dialout'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'cdrom'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'floppy'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'sudo'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'audio'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'dip'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'video'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'plugdev'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'lxd'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to group 'netdev'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'adm'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'dialout'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'cdrom'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'floppy'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'sudo'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'audio'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'dip'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'video'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'plugdev'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'lxd'
+Jan 27 00:24:55 ip-172-31-3-8 useradd[643]: add 'ubuntu' to shadow group 'netdev'
+Jan 27 00:24:55 ip-172-31-3-8 passwd[651]: password for 'ubuntu' changed by 'root'
+Jan 27 00:24:56 ip-172-31-3-8 systemd-logind[702]: Watching system buttons on /dev/input/event0 (Power Button)
+Jan 27 00:24:56 ip-172-31-3-8 systemd-logind[702]: Watching system buttons on /dev/input/event1 (Sleep Button)
+Jan 27 00:24:56 ip-172-31-3-8 systemd-logind[702]: Watching system buttons on /dev/input/event2 (AT Translated Set 2 keyboard)
+Jan 27 00:24:56 ip-172-31-3-8 systemd-logind[702]: New seat seat0.
+Jan 27 00:24:56 ip-172-31-3-8 sshd[828]: Server listening on 0.0.0.0 port 22.
+Jan 27 00:24:56 ip-172-31-3-8 sshd[828]: Server listening on :: port 22.
+Jan 27 00:28:19 ip-172-31-3-8 sshd[1285]: Accepted publickey for ubuntu from 47.180.81.17 port 62501 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 00:28:19 ip-172-31-3-8 sshd[1285]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 00:28:19 ip-172-31-3-8 systemd: pam_unix(systemd-user:session): session opened for user ubuntu by (uid=0)
+Jan 27 00:28:19 ip-172-31-3-8 systemd-logind[702]: New session 1 of user ubuntu.
+Jan 27 00:28:48 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/apt update
+Jan 27 00:28:48 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:28:57 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:31:31 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/apt install apache2
+Jan 27 00:31:31 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:31:35 ip-172-31-3-8 groupadd[1821]: group added to /etc/group: name=ssl-cert, GID=115
+Jan 27 00:31:35 ip-172-31-3-8 groupadd[1821]: group added to /etc/gshadow: name=ssl-cert
+Jan 27 00:31:35 ip-172-31-3-8 groupadd[1821]: new group: name=ssl-cert, GID=115
+Jan 27 00:31:41 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:31:58 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/sbin/apache2 start
+Jan 27 00:31:58 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:31:58 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:32:16 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/etc/init.d/apache2 start
+Jan 27 00:32:16 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:32:16 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:32:52 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/sbin/ufw app list
+Jan 27 00:32:52 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:32:52 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:33:01 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/sbin/ufw allow Apache Full
+Jan 27 00:33:01 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:33:01 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:33:10 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/systemctl status apache2
+Jan 27 00:33:10 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:33:15 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:33:31 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/su
+Jan 27 00:33:31 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:33:31 ip-172-31-3-8 su[2631]: Successful su for root by root
+Jan 27 00:33:31 ip-172-31-3-8 su[2631]: + /dev/pts/0 root:root
+Jan 27 00:33:31 ip-172-31-3-8 su[2631]: pam_unix(su:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:33:31 ip-172-31-3-8 su[2631]: pam_systemd(su:session): Cannot create session: Already running in a session
+Jan 27 00:34:07 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/var/www/html ; USER=root ; COMMAND=/usr/bin/apt-get install nginx
+Jan 27 00:34:07 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:34:13 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:34:21 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/var/www/html ; USER=root ; COMMAND=/usr/sbin/ufw allow Nginx HTTP
+Jan 27 00:34:21 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:34:21 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:34:46 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/var/www/html ; USER=root ; COMMAND=/bin/systemctl apache2 start
+Jan 27 00:34:46 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:34:46 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:34:51 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/var/www/html ; USER=root ; COMMAND=/bin/systemctl apache2
+Jan 27 00:34:51 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:34:51 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:35:12 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/systemctl apache
+Jan 27 00:35:12 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:35:12 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:36:09 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/systemctl status apache2
+Jan 27 00:36:09 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:36:13 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:37:10 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/systemctl restart apache2
+Jan 27 00:37:10 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:37:10 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:39:50 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/apt-get install php5 libapache2-mod-php5
+Jan 27 00:39:50 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:39:50 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:40:31 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/apt-get install php
+Jan 27 00:40:31 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:40:45 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:42:02 ip-172-31-3-8 sshd[9472]: Accepted publickey for ubuntu from 47.180.81.17 port 5651 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 00:42:02 ip-172-31-3-8 sshd[9472]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 00:42:02 ip-172-31-3-8 systemd-logind[702]: New session 3 of user ubuntu.
+Jan 27 00:42:22 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/etc/init.d/apache2 restart
+Jan 27 00:42:22 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:42:22 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:43:34 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/apt-get install gedit
+Jan 27 00:43:34 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:44:13 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:44:17 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/gedit /var/www/html/testphp.php
+Jan 27 00:44:17 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:44:17 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:44:55 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/nano /etc/network/interfaces
+Jan 27 00:44:55 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:45:02 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:56:15 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/var/www/html ; USER=root ; COMMAND=/usr/bin/apt-get install mysql-server
+Jan 27 00:56:15 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:56:22 ip-172-31-3-8 groupadd[12235]: group added to /etc/group: name=mysql, GID=116
+Jan 27 00:56:22 ip-172-31-3-8 groupadd[12235]: group added to /etc/gshadow: name=mysql
+Jan 27 00:56:22 ip-172-31-3-8 groupadd[12235]: new group: name=mysql, GID=116
+Jan 27 00:56:22 ip-172-31-3-8 useradd[12241]: new user: name=mysql, UID=111, GID=116, home=/nonexistent, shell=/bin/false
+Jan 27 00:56:22 ip-172-31-3-8 chage[12247]: changed password expiry for mysql
+Jan 27 00:56:22 ip-172-31-3-8 chfn[12250]: changed user 'mysql' information
+Jan 27 00:56:40 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:56:45 ip-172-31-3-8 sudo:     root : TTY=pts/0 ; PWD=/var/www/html ; USER=root ; COMMAND=/usr/sbin/ufw allow mysql
+Jan 27 00:56:45 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 00:56:45 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 00:57:01 ip-172-31-3-8 CRON[13303]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 00:57:01 ip-172-31-3-8 CRON[13303]: pam_unix(cron:session): session closed for user root
+Jan 27 01:02:53 ip-172-31-3-8 sshd[9472]: pam_unix(sshd:session): session closed for user ubuntu
+Jan 27 01:02:53 ip-172-31-3-8 systemd-logind[702]: Removed session 3.
+Jan 27 01:09:01 ip-172-31-3-8 CRON[13320]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 01:09:01 ip-172-31-3-8 CRON[13320]: pam_unix(cron:session): session closed for user root
+Jan 27 01:11:36 ip-172-31-3-8 sshd[1406]: Received disconnect from 47.180.81.17 port 62501:11: disconnected by user
+Jan 27 01:11:36 ip-172-31-3-8 sshd[1406]: Disconnected from user ubuntu 47.180.81.17 port 62501
+Jan 27 01:11:36 ip-172-31-3-8 sshd[1285]: pam_unix(sshd:session): session closed for user ubuntu
+Jan 27 01:11:36 ip-172-31-3-8 su[2631]: pam_unix(su:session): session closed for user root
+Jan 27 01:11:36 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 01:11:36 ip-172-31-3-8 systemd-logind[702]: Removed session 1.
+Jan 27 01:17:01 ip-172-31-3-8 CRON[13396]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 01:17:01 ip-172-31-3-8 CRON[13396]: pam_unix(cron:session): session closed for user root
+Jan 27 01:34:47 ip-172-31-3-8 sshd[13404]: Accepted publickey for ubuntu from 47.180.81.17 port 20166 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 01:34:47 ip-172-31-3-8 sshd[13404]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 01:34:47 ip-172-31-3-8 systemd: pam_unix(systemd-user:session): session opened for user ubuntu by (uid=0)
+Jan 27 01:34:47 ip-172-31-3-8 systemd-logind[702]: New session 7 of user ubuntu.
+Jan 27 01:35:01 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/mysql
+Jan 27 01:35:01 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 01:39:02 ip-172-31-3-8 CRON[13543]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 01:39:02 ip-172-31-3-8 CRON[13543]: pam_unix(cron:session): session closed for user root
+Jan 27 02:06:47 ip-172-31-3-8 sshd[13404]: pam_unix(sshd:session): session closed for user ubuntu
+Jan 27 02:06:47 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 02:06:47 ip-172-31-3-8 systemd-logind[702]: Removed session 7.
+Jan 27 02:09:01 ip-172-31-3-8 CRON[13626]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 02:09:01 ip-172-31-3-8 CRON[13626]: pam_unix(cron:session): session closed for user root
+Jan 27 02:17:01 ip-172-31-3-8 CRON[13700]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 02:17:01 ip-172-31-3-8 CRON[13700]: pam_unix(cron:session): session closed for user root
+Jan 27 02:39:01 ip-172-31-3-8 CRON[13710]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 02:39:01 ip-172-31-3-8 CRON[13710]: pam_unix(cron:session): session closed for user root
+Jan 27 02:48:55 ip-172-31-3-8 sshd[13782]: error: maximum authentication attempts exceeded for root from 114.240.97.233 port 39336 ssh2 [preauth]
+Jan 27 02:48:55 ip-172-31-3-8 sshd[13782]: Disconnecting authenticating user root 114.240.97.233 port 39336: Too many authentication failures [preauth]
+Jan 27 02:51:48 ip-172-31-3-8 sshd[13785]: Accepted publickey for ubuntu from 47.180.81.17 port 53253 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 02:51:48 ip-172-31-3-8 sshd[13785]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 02:51:48 ip-172-31-3-8 systemd: pam_unix(systemd-user:session): session opened for user ubuntu by (uid=0)
+Jan 27 02:51:48 ip-172-31-3-8 systemd-logind[702]: New session 13 of user ubuntu.
+Jan 27 02:51:51 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/usr/bin/mysql
+Jan 27 02:51:51 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 02:58:02 ip-172-31-3-8 sshd[13885]: Received disconnect from 47.180.81.17 port 53253:11: disconnected by user
+Jan 27 02:58:02 ip-172-31-3-8 sshd[13885]: Disconnected from user ubuntu 47.180.81.17 port 53253
+Jan 27 02:58:02 ip-172-31-3-8 sshd[13785]: pam_unix(sshd:session): session closed for user ubuntu
+Jan 27 02:58:02 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 02:58:02 ip-172-31-3-8 systemd-logind[702]: Removed session 13.
+Jan 27 03:02:02 ip-172-31-3-8 sshd[13908]: Did not receive identification string from 46.18.3.47 port 52016
+Jan 27 03:02:03 ip-172-31-3-8 sshd[13909]: Unable to negotiate with 46.18.3.47 port 52184: no matching cipher found. Their offer: aes128-cbc,3des-cbc,aes256-cbc,aes192-cbc [preauth]
+Jan 27 03:09:01 ip-172-31-3-8 CRON[13912]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 03:09:01 ip-172-31-3-8 CRON[13912]: pam_unix(cron:session): session closed for user root
+Jan 27 03:17:01 ip-172-31-3-8 CRON[13986]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 03:17:01 ip-172-31-3-8 CRON[13986]: pam_unix(cron:session): session closed for user root
+Jan 27 03:17:34 ip-172-31-3-8 sshd[13990]: Received disconnect from 157.230.51.248 port 39466:11: Bye Bye [preauth]
+Jan 27 03:17:34 ip-172-31-3-8 sshd[13990]: Disconnected from 157.230.51.248 port 39466 [preauth]
+Jan 27 03:39:01 ip-172-31-3-8 CRON[13996]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 03:39:01 ip-172-31-3-8 CRON[13996]: pam_unix(cron:session): session closed for user root
+Jan 27 04:09:01 ip-172-31-3-8 CRON[14076]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 04:09:01 ip-172-31-3-8 CRON[14076]: pam_unix(cron:session): session closed for user root
+Jan 27 04:13:51 ip-172-31-3-8 sshd[14149]: Did not receive identification string from 45.119.212.105 port 36780
+Jan 27 04:17:01 ip-172-31-3-8 CRON[14151]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 04:17:01 ip-172-31-3-8 CRON[14151]: pam_unix(cron:session): session closed for user root
+Jan 27 04:22:46 ip-172-31-3-8 sshd[14157]: Received disconnect from 45.119.212.105 port 53080:11: Normal Shutdown, Thank you for playing [preauth]
+Jan 27 04:22:46 ip-172-31-3-8 sshd[14157]: Disconnected from authenticating user root 45.119.212.105 port 53080 [preauth]
+Jan 27 04:26:16 ip-172-31-3-8 sshd[14164]: Received disconnect from 45.119.212.105 port 33720:11: Normal Shutdown, Thank you for playing [preauth]
+Jan 27 04:26:16 ip-172-31-3-8 sshd[14164]: Disconnected from authenticating user root 45.119.212.105 port 33720 [preauth]
+Jan 27 04:29:48 ip-172-31-3-8 sshd[14167]: Received disconnect from 45.119.212.105 port 42568:11: Normal Shutdown, Thank you for playing [preauth]
+Jan 27 04:29:48 ip-172-31-3-8 sshd[14167]: Disconnected from authenticating user root 45.119.212.105 port 42568 [preauth]
+Jan 27 04:33:20 ip-172-31-3-8 sshd[14170]: Received disconnect from 45.119.212.105 port 51282:11: Normal Shutdown, Thank you for playing [preauth]
+Jan 27 04:33:20 ip-172-31-3-8 sshd[14170]: Disconnected from authenticating user root 45.119.212.105 port 51282 [preauth]
+Jan 27 04:39:01 ip-172-31-3-8 CRON[14173]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 04:39:01 ip-172-31-3-8 CRON[14173]: pam_unix(cron:session): session closed for user root
+Jan 27 05:09:01 ip-172-31-3-8 CRON[14251]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 05:09:01 ip-172-31-3-8 CRON[14251]: pam_unix(cron:session): session closed for user root
+Jan 27 05:17:01 ip-172-31-3-8 CRON[14323]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 05:17:01 ip-172-31-3-8 CRON[14323]: pam_unix(cron:session): session closed for user root
+Jan 27 05:24:01 ip-172-31-3-8 CRON[14328]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 05:24:01 ip-172-31-3-8 CRON[14328]: pam_unix(cron:session): session closed for user root
+Jan 27 05:39:01 ip-172-31-3-8 CRON[14334]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 05:39:01 ip-172-31-3-8 CRON[14334]: pam_unix(cron:session): session closed for user root
+Jan 27 05:42:32 ip-172-31-3-8 sshd[14406]: Invalid user admin from 211.117.196.218 port 48690
+Jan 27 05:42:33 ip-172-31-3-8 sshd[14406]: error: maximum authentication attempts exceeded for invalid user admin from 211.117.196.218 port 48690 ssh2 [preauth]
+Jan 27 05:42:33 ip-172-31-3-8 sshd[14406]: Disconnecting invalid user admin 211.117.196.218 port 48690: Too many authentication failures [preauth]
+Jan 27 05:43:23 ip-172-31-3-8 sshd[14408]: Received disconnect from 185.244.25.112 port 49294:11: Bye Bye [preauth]
+Jan 27 05:43:23 ip-172-31-3-8 sshd[14408]: Disconnected from 185.244.25.112 port 49294 [preauth]
+Jan 27 06:09:01 ip-172-31-3-8 CRON[14416]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 06:09:01 ip-172-31-3-8 CRON[14416]: pam_unix(cron:session): session closed for user root
+Jan 27 06:17:01 ip-172-31-3-8 CRON[14490]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 06:17:01 ip-172-31-3-8 CRON[14490]: pam_unix(cron:session): session closed for user root
+Jan 27 06:21:58 ip-172-31-3-8 sshd[828]: Received signal 15; terminating.
+Jan 27 06:21:58 ip-172-31-3-8 sshd[27923]: Server listening on 0.0.0.0 port 22.
+Jan 27 06:21:58 ip-172-31-3-8 sshd[27923]: Server listening on :: port 22.
+Jan 27 06:25:01 ip-172-31-3-8 CRON[3443]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 06:25:09 ip-172-31-3-8 CRON[3443]: pam_unix(cron:session): session closed for user root
+Jan 27 06:39:01 ip-172-31-3-8 CRON[3594]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 06:39:01 ip-172-31-3-8 CRON[3594]: pam_unix(cron:session): session closed for user root
+Jan 27 06:47:01 ip-172-31-3-8 CRON[3668]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 06:47:01 ip-172-31-3-8 CRON[3668]: pam_unix(cron:session): session closed for user root
+Jan 27 06:57:59 ip-172-31-3-8 sshd[3684]: error: maximum authentication attempts exceeded for root from 117.82.101.140 port 33015 ssh2 [preauth]
+Jan 27 06:57:59 ip-172-31-3-8 sshd[3684]: Disconnecting authenticating user root 117.82.101.140 port 33015: Too many authentication failures [preauth]
+Jan 27 07:09:01 ip-172-31-3-8 CRON[3695]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 07:09:01 ip-172-31-3-8 CRON[3695]: pam_unix(cron:session): session closed for user root
+Jan 27 07:17:01 ip-172-31-3-8 CRON[3769]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 07:17:01 ip-172-31-3-8 CRON[3769]: pam_unix(cron:session): session closed for user root
+Jan 27 07:39:01 ip-172-31-3-8 CRON[3775]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 07:39:01 ip-172-31-3-8 CRON[3775]: pam_unix(cron:session): session closed for user root
+Jan 27 07:53:40 ip-172-31-3-8 sshd[3850]: Received disconnect from 219.135.194.73 port 46697:11: Bye Bye [preauth]
+Jan 27 07:53:40 ip-172-31-3-8 sshd[3850]: Disconnected from 219.135.194.73 port 46697 [preauth]
+Jan 27 08:09:01 ip-172-31-3-8 CRON[3855]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 08:09:01 ip-172-31-3-8 CRON[3855]: pam_unix(cron:session): session closed for user root
+Jan 27 08:17:01 ip-172-31-3-8 CRON[3931]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 08:17:01 ip-172-31-3-8 CRON[3931]: pam_unix(cron:session): session closed for user root
+Jan 27 08:28:43 ip-172-31-3-8 sshd[3936]: Received disconnect from 221.210.237.5 port 37764:11: Bye Bye [preauth]
+Jan 27 08:28:43 ip-172-31-3-8 sshd[3936]: Disconnected from 221.210.237.5 port 37764 [preauth]
+Jan 27 08:39:01 ip-172-31-3-8 CRON[3942]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 08:39:01 ip-172-31-3-8 CRON[3942]: pam_unix(cron:session): session closed for user root
+Jan 27 08:43:31 ip-172-31-3-8 sshd[4015]: Did not receive identification string from 85.203.44.112 port 58817
+Jan 27 09:09:01 ip-172-31-3-8 CRON[4019]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 09:09:01 ip-172-31-3-8 CRON[4019]: pam_unix(cron:session): session closed for user root
+Jan 27 09:17:01 ip-172-31-3-8 CRON[4095]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 09:17:01 ip-172-31-3-8 CRON[4095]: pam_unix(cron:session): session closed for user root
+Jan 27 09:39:01 ip-172-31-3-8 CRON[4101]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 09:39:01 ip-172-31-3-8 CRON[4101]: pam_unix(cron:session): session closed for user root
+Jan 27 10:09:01 ip-172-31-3-8 CRON[4178]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 10:09:01 ip-172-31-3-8 CRON[4178]: pam_unix(cron:session): session closed for user root
+Jan 27 10:17:01 ip-172-31-3-8 CRON[4257]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 10:17:01 ip-172-31-3-8 CRON[4257]: pam_unix(cron:session): session closed for user root
+Jan 27 10:36:03 ip-172-31-3-8 sshd[4263]: Invalid user admin from 201.71.39.228 port 60255
+Jan 27 10:36:04 ip-172-31-3-8 sshd[4263]: Connection closed by invalid user admin 201.71.39.228 port 60255 [preauth]
+Jan 27 10:39:01 ip-172-31-3-8 CRON[4266]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 10:39:01 ip-172-31-3-8 CRON[4266]: pam_unix(cron:session): session closed for user root
+Jan 27 11:09:01 ip-172-31-3-8 CRON[4342]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 11:09:01 ip-172-31-3-8 CRON[4342]: pam_unix(cron:session): session closed for user root
+Jan 27 11:13:36 ip-172-31-3-8 sshd[4415]: Invalid user admin from 178.129.138.146 port 54381
+Jan 27 11:13:37 ip-172-31-3-8 sshd[4415]: error: maximum authentication attempts exceeded for invalid user admin from 178.129.138.146 port 54381 ssh2 [preauth]
+Jan 27 11:13:37 ip-172-31-3-8 sshd[4415]: Disconnecting invalid user admin 178.129.138.146 port 54381: Too many authentication failures [preauth]
+Jan 27 11:17:01 ip-172-31-3-8 CRON[4419]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 11:17:01 ip-172-31-3-8 CRON[4419]: pam_unix(cron:session): session closed for user root
+Jan 27 11:24:10 ip-172-31-3-8 sshd[4426]: Did not receive identification string from 103.207.38.192 port 52296
+Jan 27 11:26:15 ip-172-31-3-8 sshd[4428]: Unable to negotiate with 103.207.38.192 port 61096: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1 [preauth]
+Jan 27 11:26:32 ip-172-31-3-8 sshd[4430]: Unable to negotiate with 103.207.38.192 port 62303: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1 [preauth]
+Jan 27 11:26:34 ip-172-31-3-8 sshd[4432]: Unable to negotiate with 103.207.38.192 port 62559: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1 [preauth]
+Jan 27 11:26:58 ip-172-31-3-8 sshd[4434]: Unable to negotiate with 103.207.38.192 port 63884: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1 [preauth]
+Jan 27 11:26:59 ip-172-31-3-8 sshd[4435]: Unable to negotiate with 103.207.38.192 port 64188: no matching key exchange method found. Their offer: diffie-hellman-group1-sha1 [preauth]
+Jan 27 11:39:01 ip-172-31-3-8 CRON[4439]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 11:39:01 ip-172-31-3-8 CRON[4439]: pam_unix(cron:session): session closed for user root
+Jan 27 12:09:01 ip-172-31-3-8 CRON[4519]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 12:09:01 ip-172-31-3-8 CRON[4519]: pam_unix(cron:session): session closed for user root
+Jan 27 12:17:01 ip-172-31-3-8 CRON[4590]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 12:17:01 ip-172-31-3-8 CRON[4590]: pam_unix(cron:session): session closed for user root
+Jan 27 12:25:40 ip-172-31-3-8 sshd[4596]: Received disconnect from 223.111.139.210 port 38161:11:  [preauth]
+Jan 27 12:25:40 ip-172-31-3-8 sshd[4596]: Disconnected from authenticating user root 223.111.139.210 port 38161 [preauth]
+Jan 27 12:25:51 ip-172-31-3-8 sshd[4598]: Received disconnect from 36.156.24.96 port 41826:11:  [preauth]
+Jan 27 12:25:51 ip-172-31-3-8 sshd[4598]: Disconnected from authenticating user root 36.156.24.96 port 41826 [preauth]
+Jan 27 12:25:52 ip-172-31-3-8 sshd[4600]: Received disconnect from 36.156.24.97 port 46074:11:  [preauth]
+Jan 27 12:25:52 ip-172-31-3-8 sshd[4600]: Disconnected from authenticating user root 36.156.24.97 port 46074 [preauth]
+Jan 27 12:25:58 ip-172-31-3-8 sshd[4604]: Received disconnect from 61.184.247.6 port 41114:11:  [preauth]
+Jan 27 12:25:58 ip-172-31-3-8 sshd[4604]: Disconnected from authenticating user root 61.184.247.6 port 41114 [preauth]
+Jan 27 12:26:02 ip-172-31-3-8 sshd[4602]: Received disconnect from 36.156.24.95 port 39216:11:  [preauth]
+Jan 27 12:26:02 ip-172-31-3-8 sshd[4602]: Disconnected from authenticating user root 36.156.24.95 port 39216 [preauth]
+Jan 27 12:26:28 ip-172-31-3-8 sshd[4607]: Received disconnect from 61.184.247.11 port 49661:11:  [preauth]
+Jan 27 12:26:28 ip-172-31-3-8 sshd[4607]: Disconnected from authenticating user root 61.184.247.11 port 49661 [preauth]
+Jan 27 12:26:36 ip-172-31-3-8 sshd[4609]: Received disconnect from 223.111.139.211 port 50380:11:  [preauth]
+Jan 27 12:26:36 ip-172-31-3-8 sshd[4609]: Disconnected from authenticating user root 223.111.139.211 port 50380 [preauth]
+Jan 27 12:26:42 ip-172-31-3-8 sshd[4611]: Received disconnect from 61.184.247.8 port 54812:11:  [preauth]
+Jan 27 12:26:42 ip-172-31-3-8 sshd[4611]: Disconnected from authenticating user root 61.184.247.8 port 54812 [preauth]
+Jan 27 12:27:16 ip-172-31-3-8 sshd[4613]: Received disconnect from 36.156.24.98 port 43661:11:  [preauth]
+Jan 27 12:27:16 ip-172-31-3-8 sshd[4613]: Disconnected from authenticating user root 36.156.24.98 port 43661 [preauth]
+Jan 27 12:27:20 ip-172-31-3-8 sshd[4615]: Received disconnect from 36.156.24.95 port 44312:11:  [preauth]
+Jan 27 12:27:20 ip-172-31-3-8 sshd[4615]: Disconnected from authenticating user root 36.156.24.95 port 44312 [preauth]
+Jan 27 12:27:29 ip-172-31-3-8 sshd[4617]: Received disconnect from 118.123.15.142 port 49798:11:  [preauth]
+Jan 27 12:27:29 ip-172-31-3-8 sshd[4617]: Disconnected from 118.123.15.142 port 49798 [preauth]
+Jan 27 12:27:45 ip-172-31-3-8 sshd[4619]: Received disconnect from 61.184.247.11 port 60070:11:  [preauth]
+Jan 27 12:27:45 ip-172-31-3-8 sshd[4619]: Disconnected from authenticating user root 61.184.247.11 port 60070 [preauth]
+Jan 27 12:28:06 ip-172-31-3-8 sshd[4621]: Received disconnect from 61.184.247.6 port 54156:11:  [preauth]
+Jan 27 12:28:06 ip-172-31-3-8 sshd[4621]: Disconnected from authenticating user root 61.184.247.6 port 54156 [preauth]
+Jan 27 12:28:07 ip-172-31-3-8 sshd[4623]: Received disconnect from 223.111.139.247 port 39378:11:  [preauth]
+Jan 27 12:28:07 ip-172-31-3-8 sshd[4623]: Disconnected from authenticating user root 223.111.139.247 port 39378 [preauth]
+Jan 27 12:29:01 ip-172-31-3-8 sshd[4625]: Received disconnect from 36.156.24.94 port 35300:11:  [preauth]
+Jan 27 12:29:01 ip-172-31-3-8 sshd[4625]: Disconnected from authenticating user root 36.156.24.94 port 35300 [preauth]
+Jan 27 12:29:03 ip-172-31-3-8 sshd[4629]: Received disconnect from 223.111.139.210 port 47951:11:  [preauth]
+Jan 27 12:29:03 ip-172-31-3-8 sshd[4629]: Disconnected from authenticating user root 223.111.139.210 port 47951 [preauth]
+Jan 27 12:29:03 ip-172-31-3-8 sshd[4627]: Received disconnect from 115.238.245.2 port 44535:11:  [preauth]
+Jan 27 12:29:03 ip-172-31-3-8 sshd[4627]: Disconnected from authenticating user root 115.238.245.2 port 44535 [preauth]
+Jan 27 12:30:01 ip-172-31-3-8 sshd[4631]: Received disconnect from 36.156.24.97 port 54243:11:  [preauth]
+Jan 27 12:30:01 ip-172-31-3-8 sshd[4631]: Disconnected from authenticating user root 36.156.24.97 port 54243 [preauth]
+Jan 27 12:30:49 ip-172-31-3-8 sshd[4634]: Received disconnect from 36.156.24.96 port 49980:11:  [preauth]
+Jan 27 12:30:49 ip-172-31-3-8 sshd[4634]: Disconnected from authenticating user root 36.156.24.96 port 49980 [preauth]
+Jan 27 12:31:09 ip-172-31-3-8 sshd[4638]: Received disconnect from 36.156.24.95 port 35350:11:  [preauth]
+Jan 27 12:31:09 ip-172-31-3-8 sshd[4638]: Disconnected from authenticating user root 36.156.24.95 port 35350 [preauth]
+Jan 27 12:31:11 ip-172-31-3-8 sshd[4636]: Received disconnect from 115.238.245.4 port 48321:11:  [preauth]
+Jan 27 12:31:11 ip-172-31-3-8 sshd[4636]: Disconnected from authenticating user root 115.238.245.4 port 48321 [preauth]
+Jan 27 12:31:16 ip-172-31-3-8 sshd[4640]: Received disconnect from 61.184.247.3 port 50884:11:  [preauth]
+Jan 27 12:31:16 ip-172-31-3-8 sshd[4640]: Disconnected from authenticating user root 61.184.247.3 port 50884 [preauth]
+Jan 27 12:32:20 ip-172-31-3-8 sshd[4642]: Received disconnect from 223.111.139.211 port 55942:11:  [preauth]
+Jan 27 12:32:20 ip-172-31-3-8 sshd[4642]: Disconnected from authenticating user root 223.111.139.211 port 55942 [preauth]
+Jan 27 12:33:27 ip-172-31-3-8 sshd[4644]: Received disconnect from 61.184.247.6 port 48126:11:  [preauth]
+Jan 27 12:33:27 ip-172-31-3-8 sshd[4644]: Disconnected from authenticating user root 61.184.247.6 port 48126 [preauth]
+Jan 27 12:35:40 ip-172-31-3-8 sshd[4646]: Received disconnect from 115.238.245.4 port 56052:11:  [preauth]
+Jan 27 12:35:40 ip-172-31-3-8 sshd[4646]: Disconnected from authenticating user root 115.238.245.4 port 56052 [preauth]
+Jan 27 12:36:19 ip-172-31-3-8 sshd[4649]: Received disconnect from 36.156.24.96 port 40386:11:  [preauth]
+Jan 27 12:36:19 ip-172-31-3-8 sshd[4649]: Disconnected from authenticating user root 36.156.24.96 port 40386 [preauth]
+Jan 27 12:36:52 ip-172-31-3-8 sshd[4651]: Received disconnect from 222.186.30.71 port 43740:11:  [preauth]
+Jan 27 12:36:52 ip-172-31-3-8 sshd[4651]: Disconnected from authenticating user root 222.186.30.71 port 43740 [preauth]
+Jan 27 12:37:15 ip-172-31-3-8 sshd[4653]: Received disconnect from 61.184.247.11 port 53952:11:  [preauth]
+Jan 27 12:37:15 ip-172-31-3-8 sshd[4653]: Disconnected from authenticating user root 61.184.247.11 port 53952 [preauth]
+Jan 27 12:38:11 ip-172-31-3-8 sshd[4655]: Received disconnect from 118.123.15.142 port 41914:11:  [preauth]
+Jan 27 12:38:11 ip-172-31-3-8 sshd[4655]: Disconnected from authenticating user root 118.123.15.142 port 41914 [preauth]
+Jan 27 12:38:50 ip-172-31-3-8 sshd[4657]: Received disconnect from 36.156.24.95 port 50773:11:  [preauth]
+Jan 27 12:38:50 ip-172-31-3-8 sshd[4657]: Disconnected from authenticating user root 36.156.24.95 port 50773 [preauth]
+Jan 27 12:39:01 ip-172-31-3-8 CRON[4659]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 12:39:01 ip-172-31-3-8 CRON[4659]: pam_unix(cron:session): session closed for user root
+Jan 27 12:39:23 ip-172-31-3-8 sshd[4731]: Received disconnect from 61.184.247.8 port 57411:11:  [preauth]
+Jan 27 12:39:23 ip-172-31-3-8 sshd[4731]: Disconnected from authenticating user root 61.184.247.8 port 57411 [preauth]
+Jan 27 12:41:54 ip-172-31-3-8 sshd[4734]: Received disconnect from 36.156.24.94 port 59974:11:  [preauth]
+Jan 27 12:41:54 ip-172-31-3-8 sshd[4734]: Disconnected from authenticating user root 36.156.24.94 port 59974 [preauth]
+Jan 27 12:42:05 ip-172-31-3-8 sshd[4736]: Received disconnect from 115.238.245.2 port 52265:11:  [preauth]
+Jan 27 12:42:05 ip-172-31-3-8 sshd[4736]: Disconnected from authenticating user root 115.238.245.2 port 52265 [preauth]
+Jan 27 12:42:34 ip-172-31-3-8 sshd[4738]: Received disconnect from 36.156.24.96 port 58392:11:  [preauth]
+Jan 27 12:42:34 ip-172-31-3-8 sshd[4738]: Disconnected from authenticating user root 36.156.24.96 port 58392 [preauth]
+Jan 27 12:42:59 ip-172-31-3-8 sshd[4740]: Received disconnect from 61.184.247.11 port 43258:11:  [preauth]
+Jan 27 12:42:59 ip-172-31-3-8 sshd[4740]: Disconnected from authenticating user root 61.184.247.11 port 43258 [preauth]
+Jan 27 12:45:43 ip-172-31-3-8 sshd[4744]: Received disconnect from 61.184.247.6 port 47522:11:  [preauth]
+Jan 27 12:45:43 ip-172-31-3-8 sshd[4744]: Disconnected from authenticating user root 61.184.247.6 port 47522 [preauth]
+Jan 27 12:46:09 ip-172-31-3-8 sshd[4746]: Received disconnect from 118.123.15.142 port 51644:11:  [preauth]
+Jan 27 12:46:09 ip-172-31-3-8 sshd[4746]: Disconnected from authenticating user root 118.123.15.142 port 51644 [preauth]
+Jan 27 12:46:35 ip-172-31-3-8 sshd[4749]: Received disconnect from 223.111.139.247 port 38674:11:  [preauth]
+Jan 27 12:46:35 ip-172-31-3-8 sshd[4749]: Disconnected from authenticating user root 223.111.139.247 port 38674 [preauth]
+Jan 27 12:47:56 ip-172-31-3-8 sshd[4752]: Received disconnect from 115.238.245.2 port 53657:11:  [preauth]
+Jan 27 12:47:56 ip-172-31-3-8 sshd[4752]: Disconnected from authenticating user root 115.238.245.2 port 53657 [preauth]
+Jan 27 12:49:27 ip-172-31-3-8 sshd[4754]: Received disconnect from 36.156.24.98 port 42281:11:  [preauth]
+Jan 27 12:49:27 ip-172-31-3-8 sshd[4754]: Disconnected from authenticating user root 36.156.24.98 port 42281 [preauth]
+Jan 27 12:49:44 ip-172-31-3-8 sshd[4756]: Received disconnect from 61.184.247.3 port 55847:11:  [preauth]
+Jan 27 12:49:44 ip-172-31-3-8 sshd[4756]: Disconnected from authenticating user root 61.184.247.3 port 55847 [preauth]
+Jan 27 12:52:29 ip-172-31-3-8 sshd[4760]: Received disconnect from 118.123.15.142 port 58606:11:  [preauth]
+Jan 27 12:52:29 ip-172-31-3-8 sshd[4760]: Disconnected from authenticating user root 118.123.15.142 port 58606 [preauth]
+Jan 27 12:52:41 ip-172-31-3-8 sshd[4762]: Received disconnect from 61.184.247.8 port 57143:11:  [preauth]
+Jan 27 12:52:41 ip-172-31-3-8 sshd[4762]: Disconnected from authenticating user root 61.184.247.8 port 57143 [preauth]
+Jan 27 12:54:33 ip-172-31-3-8 sshd[4765]: Invalid user pi from 89.39.141.50 port 53804
+Jan 27 12:54:33 ip-172-31-3-8 sshd[4766]: Invalid user pi from 89.39.141.50 port 53806
+Jan 27 12:54:33 ip-172-31-3-8 sshd[4765]: Connection closed by invalid user pi 89.39.141.50 port 53804 [preauth]
+Jan 27 12:54:33 ip-172-31-3-8 sshd[4766]: Connection closed by invalid user pi 89.39.141.50 port 53806 [preauth]
+Jan 27 13:01:09 ip-172-31-3-8 sshd[4770]: Received disconnect from 223.111.139.210 port 52722:11:  [preauth]
+Jan 27 13:01:09 ip-172-31-3-8 sshd[4770]: Disconnected from authenticating user root 223.111.139.210 port 52722 [preauth]
+Jan 27 13:03:12 ip-172-31-3-8 sshd[4776]: Received disconnect from 36.156.24.95 port 57046:11:  [preauth]
+Jan 27 13:03:12 ip-172-31-3-8 sshd[4776]: Disconnected from authenticating user root 36.156.24.95 port 57046 [preauth]
+Jan 27 13:06:01 ip-172-31-3-8 sshd[4778]: Received disconnect from 122.226.181.167 port 33706:11:  [preauth]
+Jan 27 13:06:01 ip-172-31-3-8 sshd[4778]: Disconnected from authenticating user root 122.226.181.167 port 33706 [preauth]
+Jan 27 13:08:21 ip-172-31-3-8 sshd[4787]: Received disconnect from 115.238.245.2 port 53585:11:  [preauth]
+Jan 27 13:08:21 ip-172-31-3-8 sshd[4787]: Disconnected from authenticating user root 115.238.245.2 port 53585 [preauth]
+Jan 27 13:09:01 ip-172-31-3-8 CRON[4790]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 13:09:01 ip-172-31-3-8 CRON[4790]: pam_unix(cron:session): session closed for user root
+Jan 27 13:13:35 ip-172-31-3-8 sshd[4863]: Received disconnect from 122.226.181.165 port 58612:11:  [preauth]
+Jan 27 13:13:35 ip-172-31-3-8 sshd[4863]: Disconnected from authenticating user root 122.226.181.165 port 58612 [preauth]
+Jan 27 13:13:57 ip-172-31-3-8 sshd[4865]: Received disconnect from 36.156.24.94 port 39104:11:  [preauth]
+Jan 27 13:13:57 ip-172-31-3-8 sshd[4865]: Disconnected from authenticating user root 36.156.24.94 port 39104 [preauth]
+Jan 27 13:14:36 ip-172-31-3-8 sshd[4867]: Received disconnect from 61.184.247.11 port 47122:11:  [preauth]
+Jan 27 13:14:36 ip-172-31-3-8 sshd[4867]: Disconnected from authenticating user root 61.184.247.11 port 47122 [preauth]
+Jan 27 13:14:57 ip-172-31-3-8 sshd[4869]: Received disconnect from 222.186.30.71 port 38152:11:  [preauth]
+Jan 27 13:14:57 ip-172-31-3-8 sshd[4869]: Disconnected from authenticating user root 222.186.30.71 port 38152 [preauth]
+Jan 27 13:15:10 ip-172-31-3-8 sshd[4871]: Received disconnect from 118.123.15.142 port 37545:11:  [preauth]
+Jan 27 13:15:10 ip-172-31-3-8 sshd[4871]: Disconnected from authenticating user root 118.123.15.142 port 37545 [preauth]
+Jan 27 13:17:01 ip-172-31-3-8 CRON[4874]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 13:17:01 ip-172-31-3-8 CRON[4874]: pam_unix(cron:session): session closed for user root
+Jan 27 13:17:55 ip-172-31-3-8 sshd[4877]: Received disconnect from 115.238.245.14 port 52689:11:  [preauth]
+Jan 27 13:17:55 ip-172-31-3-8 sshd[4877]: Disconnected from 115.238.245.14 port 52689 [preauth]
+Jan 27 13:21:04 ip-172-31-3-8 sshd[4880]: Received disconnect from 36.156.24.96 port 54756:11:  [preauth]
+Jan 27 13:21:04 ip-172-31-3-8 sshd[4880]: Disconnected from authenticating user root 36.156.24.96 port 54756 [preauth]
+Jan 27 13:21:23 ip-172-31-3-8 sshd[4882]: Received disconnect from 36.156.24.96 port 46970:11:  [preauth]
+Jan 27 13:21:23 ip-172-31-3-8 sshd[4882]: Disconnected from authenticating user root 36.156.24.96 port 46970 [preauth]
+Jan 27 13:27:43 ip-172-31-3-8 sshd[4886]: error: maximum authentication attempts exceeded for root from 202.100.182.250 port 48883 ssh2 [preauth]
+Jan 27 13:27:43 ip-172-31-3-8 sshd[4886]: Disconnecting authenticating user root 202.100.182.250 port 48883: Too many authentication failures [preauth]
+Jan 27 13:32:11 ip-172-31-3-8 sshd[4889]: Received disconnect from 223.111.139.211 port 35846:11:  [preauth]
+Jan 27 13:32:11 ip-172-31-3-8 sshd[4889]: Disconnected from authenticating user root 223.111.139.211 port 35846 [preauth]
+Jan 27 13:39:01 ip-172-31-3-8 CRON[4892]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 13:39:01 ip-172-31-3-8 CRON[4892]: pam_unix(cron:session): session closed for user root
+Jan 27 13:58:46 ip-172-31-3-8 sshd[4969]: Received disconnect from 61.184.247.6 port 33467:11:  [preauth]
+Jan 27 13:58:46 ip-172-31-3-8 sshd[4969]: Disconnected from authenticating user root 61.184.247.6 port 33467 [preauth]
+Jan 27 14:09:01 ip-172-31-3-8 CRON[4973]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 14:09:01 ip-172-31-3-8 CRON[4973]: pam_unix(cron:session): session closed for user root
+Jan 27 14:14:29 ip-172-31-3-8 sshd[5047]: Invalid user pvnetuser from 73.240.34.178 port 54128
+Jan 27 14:14:29 ip-172-31-3-8 sshd[5047]: error: Received disconnect from 73.240.34.178 port 54128:14: No supported authentication methods available [preauth]
+Jan 27 14:14:29 ip-172-31-3-8 sshd[5047]: Disconnected from invalid user pvnetuser 73.240.34.178 port 54128 [preauth]
+Jan 27 14:14:35 ip-172-31-3-8 sshd[5050]: Invalid user pvnetuser from 73.240.34.178 port 54131
+Jan 27 14:14:35 ip-172-31-3-8 sshd[5050]: error: Received disconnect from 73.240.34.178 port 54131:14: No supported authentication methods available [preauth]
+Jan 27 14:14:35 ip-172-31-3-8 sshd[5050]: Disconnected from invalid user pvnetuser 73.240.34.178 port 54131 [preauth]
+Jan 27 14:15:04 ip-172-31-3-8 sshd[5052]: Accepted publickey for ubuntu from 73.240.34.178 port 54133 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 14:15:04 ip-172-31-3-8 sshd[5052]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 14:15:04 ip-172-31-3-8 systemd: pam_unix(systemd-user:session): session opened for user ubuntu by (uid=0)
+Jan 27 14:15:04 ip-172-31-3-8 systemd-logind[702]: New session 52 of user ubuntu.
+Jan 27 14:16:49 ip-172-31-3-8 sshd[5175]: Accepted publickey for ubuntu from 73.240.34.178 port 54147 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 14:16:49 ip-172-31-3-8 sshd[5175]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 14:16:49 ip-172-31-3-8 systemd-logind[702]: New session 54 of user ubuntu.
+Jan 27 14:17:01 ip-172-31-3-8 CRON[5259]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 14:17:01 ip-172-31-3-8 CRON[5259]: pam_unix(cron:session): session closed for user root
+Jan 27 14:17:53 ip-172-31-3-8 sshd[5175]: pam_unix(sshd:session): session closed for user ubuntu
+Jan 27 14:17:53 ip-172-31-3-8 systemd-logind[702]: Removed session 54.
+Jan 27 14:18:45 ip-172-31-3-8 sshd[5262]: Received disconnect from 36.156.24.95 port 39506:11:  [preauth]
+Jan 27 14:18:45 ip-172-31-3-8 sshd[5262]: Disconnected from authenticating user root 36.156.24.95 port 39506 [preauth]
+Jan 27 14:19:44 ip-172-31-3-8 sshd[5266]: Accepted publickey for ubuntu from 73.240.34.178 port 54188 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 14:19:44 ip-172-31-3-8 sshd[5266]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 14:19:44 ip-172-31-3-8 systemd-logind[702]: New session 56 of user ubuntu.
+Jan 27 14:20:58 ip-172-31-3-8 sshd[5350]: Invalid user admin from 5.101.40.81 port 40754
+Jan 27 14:20:59 ip-172-31-3-8 sshd[5266]: pam_unix(sshd:session): session closed for user ubuntu
+Jan 27 14:20:59 ip-172-31-3-8 systemd-logind[702]: Removed session 56.
+Jan 27 14:20:59 ip-172-31-3-8 sshd[5350]: Disconnecting invalid user admin 5.101.40.81 port 40754: Change of username or service not allowed: (admin,ssh-connection) -> (user,ssh-connection) [preauth]
+Jan 27 14:29:39 ip-172-31-3-8 sshd[5354]: Accepted publickey for ubuntu from 73.240.34.178 port 54280 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 14:29:39 ip-172-31-3-8 sshd[5354]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 14:29:39 ip-172-31-3-8 systemd-logind[702]: New session 57 of user ubuntu.
+Jan 27 14:30:05 ip-172-31-3-8 sshd[5449]: Received disconnect from 122.226.181.165 port 52314:11:  [preauth]
+Jan 27 14:30:05 ip-172-31-3-8 sshd[5449]: Disconnected from authenticating user root 122.226.181.165 port 52314 [preauth]
+Jan 27 14:30:53 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/chown -R ec2-user /var/www/html
+Jan 27 14:30:53 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 14:30:53 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 14:31:54 ip-172-31-3-8 sshd[5457]: Received disconnect from 122.226.181.167 port 39684:11:  [preauth]
+Jan 27 14:31:54 ip-172-31-3-8 sshd[5457]: Disconnected from authenticating user root 122.226.181.167 port 39684 [preauth]
+Jan 27 14:32:14 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/chown -R ubuntu:ubuntu /var/www/html
+Jan 27 14:32:14 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 14:32:14 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 14:32:22 ip-172-31-3-8 sudo:   ubuntu : TTY=pts/0 ; PWD=/home/ubuntu ; USER=root ; COMMAND=/bin/chmod -R 755 /var/www/html
+Jan 27 14:32:22 ip-172-31-3-8 sudo: pam_unix(sudo:session): session opened for user root by ubuntu(uid=0)
+Jan 27 14:32:22 ip-172-31-3-8 sudo: pam_unix(sudo:session): session closed for user root
+Jan 27 14:32:31 ip-172-31-3-8 sshd[5464]: Accepted publickey for ubuntu from 73.240.34.178 port 54299 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 14:32:31 ip-172-31-3-8 sshd[5464]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 14:32:31 ip-172-31-3-8 systemd-logind[702]: New session 58 of user ubuntu.
+Jan 27 14:33:33 ip-172-31-3-8 sshd[5464]: pam_unix(sshd:session): session closed for user ubuntu
+Jan 27 14:33:33 ip-172-31-3-8 systemd-logind[702]: Removed session 58.
+Jan 27 14:38:02 ip-172-31-3-8 sshd[5549]: Received disconnect from 122.226.181.166 port 35888:11:  [preauth]
+Jan 27 14:38:02 ip-172-31-3-8 sshd[5549]: Disconnected from authenticating user root 122.226.181.166 port 35888 [preauth]
+Jan 27 14:38:10 ip-172-31-3-8 sshd[5551]: Received disconnect from 36.156.24.97 port 48987:11:  [preauth]
+Jan 27 14:38:10 ip-172-31-3-8 sshd[5551]: Disconnected from authenticating user root 36.156.24.97 port 48987 [preauth]
+Jan 27 14:39:01 ip-172-31-3-8 CRON[5553]: pam_unix(cron:session): session opened for user root by (uid=0)
+Jan 27 14:39:01 ip-172-31-3-8 CRON[5553]: pam_unix(cron:session): session closed for user root
+Jan 27 14:46:28 ip-172-31-3-8 sshd[5626]: Received disconnect from 61.184.247.4 port 58801:11:  [preauth]
+Jan 27 14:46:28 ip-172-31-3-8 sshd[5626]: Disconnected from authenticating user root 61.184.247.4 port 58801 [preauth]
+Jan 27 14:49:42 ip-172-31-3-8 sshd[5629]: Received disconnect from 223.111.139.244 port 43848:11:  [preauth]
+Jan 27 14:49:42 ip-172-31-3-8 sshd[5629]: Disconnected from authenticating user root 223.111.139.244 port 43848 [preauth]
+Jan 27 14:55:22 ip-172-31-3-8 sshd[5633]: Accepted publickey for ubuntu from 73.240.34.178 port 54435 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 14:55:22 ip-172-31-3-8 sshd[5633]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 14:55:22 ip-172-31-3-8 systemd-logind[702]: New session 60 of user ubuntu.
+Jan 27 14:56:24 ip-172-31-3-8 sshd[5633]: pam_unix(sshd:session): session closed for user ubuntu
+Jan 27 14:56:24 ip-172-31-3-8 systemd-logind[702]: Removed session 60.
+Jan 27 14:56:25 ip-172-31-3-8 sshd[5717]: Accepted publickey for ubuntu from 73.240.34.178 port 54442 ssh2: RSA SHA256:50sPucsubEUg0lm6kWIAMjg9xkpQyCbnUfpeS1AXBZE
+Jan 27 14:56:25 ip-172-31-3-8 sshd[5717]: pam_unix(sshd:session): session opened for user ubuntu by (uid=0)
+Jan 27 14:56:25 ip-172-31-3-8 systemd-logind[702]: New session 61 of user ubuntu.

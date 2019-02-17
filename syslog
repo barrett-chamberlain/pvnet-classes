@@ -1,0 +1,63 @@
+Feb 10 06:30:30 ip-172-31-3-8 systemd-timesyncd[484]: Network configuration changed, trying to establish connection.
+Feb 10 06:30:30 ip-172-31-3-8 systemd-timesyncd[484]: Synchronized to time server 91.189.89.199:123 (ntp.ubuntu.com).
+Feb 10 06:35:43 ip-172-31-3-8 systemd[1]: Starting Daily apt upgrade and clean activities...
+Feb 10 06:35:46 ip-172-31-3-8 systemd[1]: Started Daily apt upgrade and clean activities.
+Feb 10 06:39:01 ip-172-31-3-8 CRON[20071]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Feb 10 06:39:52 ip-172-31-3-8 systemd[1]: Starting Clean php session files...
+Feb 10 06:39:52 ip-172-31-3-8 systemd[1]: Started Clean php session files.
+Feb 10 06:47:01 ip-172-31-3-8 CRON[20146]: (root) CMD (test -x /usr/sbin/anacron || ( cd / && run-parts --report /etc/cron.weekly ))
+Feb 10 07:00:29 ip-172-31-3-8 systemd-timesyncd[484]: Network configuration changed, trying to establish connection.
+Feb 10 07:00:29 ip-172-31-3-8 systemd-timesyncd[484]: Synchronized to time server 91.189.89.199:123 (ntp.ubuntu.com).
+Feb 10 07:09:01 ip-172-31-3-8 CRON[20173]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Feb 10 07:09:07 ip-172-31-3-8 systemd[1]: Starting Clean php session files...
+Feb 10 07:09:07 ip-172-31-3-8 systemd[1]: Started Clean php session files.
+Feb 10 07:17:01 ip-172-31-3-8 CRON[20246]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+Feb 10 07:30:28 ip-172-31-3-8 systemd-timesyncd[484]: Network configuration changed, trying to establish connection.
+Feb 10 07:30:28 ip-172-31-3-8 systemd-timesyncd[484]: Synchronized to time server 91.189.89.199:123 (ntp.ubuntu.com).
+Feb 10 07:39:01 ip-172-31-3-8 CRON[20260]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Feb 10 07:39:07 ip-172-31-3-8 systemd[1]: Starting Clean php session files...
+Feb 10 07:39:07 ip-172-31-3-8 systemd[1]: Started Clean php session files.
+Feb 10 07:48:53 ip-172-31-3-8 systemd[1]: Created slice User Slice of ubuntu.
+Feb 10 07:48:53 ip-172-31-3-8 systemd[1]: Starting User Manager for UID 1000...
+Feb 10 07:48:53 ip-172-31-3-8 systemd[1]: Started Session 1107 of user ubuntu.
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Listening on GnuPG network certificate management daemon.
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Listening on GnuPG cryptographic agent and passphrase cache (restricted).
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Listening on GnuPG cryptographic agent and passphrase cache.
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Reached target Timers.
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Listening on GnuPG cryptographic agent and passphrase cache (access for web browsers).
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Listening on GnuPG cryptographic agent (ssh-agent emulation).
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Reached target Sockets.
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Reached target Paths.
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Reached target Basic System.
+Feb 10 07:48:54 ip-172-31-3-8 systemd[1]: Started User Manager for UID 1000.
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Reached target Default.
+Feb 10 07:48:54 ip-172-31-3-8 systemd[20351]: Startup finished in 34ms.
+Feb 10 07:50:54 ip-172-31-3-8 systemd[1]: Started Session 1109 of user ubuntu.
+Feb 10 07:50:54 ip-172-31-3-8 systemd[1]: Started Session 1110 of user ubuntu.
+Feb 10 07:59:42 ip-172-31-3-8 systemd[1]: Starting Message of the Day...
+Feb 10 07:59:43 ip-172-31-3-8 50-motd-news[20655]:  * 'snap info' now shows the freshness of each channel.
+Feb 10 07:59:43 ip-172-31-3-8 50-motd-news[20655]:    Try 'snap info microk8s' for all the latest goodness.
+Feb 10 07:59:43 ip-172-31-3-8 systemd[1]: Started Message of the Day.
+Feb 10 08:00:27 ip-172-31-3-8 systemd-timesyncd[484]: Network configuration changed, trying to establish connection.
+Feb 10 08:00:28 ip-172-31-3-8 systemd-timesyncd[484]: Synchronized to time server 91.189.89.199:123 (ntp.ubuntu.com).
+Feb 10 08:07:44 ip-172-31-3-8 systemd[1]: Started Session 1111 of user ubuntu.
+Feb 10 08:09:01 ip-172-31-3-8 CRON[20797]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Feb 10 08:09:05 ip-172-31-3-8 systemd[1]: Starting Clean php session files...
+Feb 10 08:09:05 ip-172-31-3-8 systemd[1]: Started Session 1113 of user ubuntu.
+Feb 10 08:09:05 ip-172-31-3-8 systemd[1]: Started Clean php session files.
+Feb 10 08:17:01 ip-172-31-3-8 CRON[20960]: (root) CMD (   cd / && run-parts --report /etc/cron.hourly)
+Feb 10 08:17:47 ip-172-31-3-8 systemd[1]: Started Session 1115 of user ubuntu.
+Feb 10 08:20:04 ip-172-31-3-8 systemd[1]: Started Session 1116 of user ubuntu.
+Feb 10 08:21:02 ip-172-31-3-8 systemd[1]: Started Session 1117 of user ubuntu.
+Feb 10 08:27:46 ip-172-31-3-8 snapd[32338]: storehelpers.go:445: cannot refresh: snap has no updates available: "amazon-ssm-agent", "core"
+Feb 10 08:27:46 ip-172-31-3-8 snapd[32338]: autorefresh.go:387: auto-refresh: all snaps are up-to-date
+Feb 10 08:30:27 ip-172-31-3-8 systemd-timesyncd[484]: Network configuration changed, trying to establish connection.
+Feb 10 08:30:27 ip-172-31-3-8 systemd-timesyncd[484]: Synchronized to time server 91.189.89.199:123 (ntp.ubuntu.com).
+Feb 10 08:39:01 ip-172-31-3-8 CRON[21232]: (root) CMD (  [ -x /usr/lib/php/sessionclean ] && if [ ! -d /run/systemd/system ]; then /usr/lib/php/sessionclean; fi)
+Feb 10 08:39:07 ip-172-31-3-8 systemd[1]: Starting Clean php session files...
+Feb 10 08:39:07 ip-172-31-3-8 systemd[1]: Started Clean php session files.
+Feb 10 08:57:29 ip-172-31-3-8 systemd[1]: Started Session 1119 of user ubuntu.
+Feb 10 08:57:29 ip-172-31-3-8 systemd[1]: Started Session 1120 of user ubuntu.
+Feb 10 09:00:26 ip-172-31-3-8 systemd-timesyncd[484]: Network configuration changed, trying to establish connection.
+Feb 10 09:00:26 ip-172-31-3-8 systemd-timesyncd[484]: Synchronized to time server 91.189.89.199:123 (ntp.ubuntu.com).
+Feb 10 09:00:49 ip-172-31-3-8 systemd[1]: Started Session 1121 of user ubuntu.
