@@ -23,7 +23,15 @@ if ($result->num_rows === 0) {
 
 while ($classToEdit = $result->fetch_assoc()) { ?>
 
-<p style="font-weight: bold; color: red;">Are you sure you wish to delete this class?</p>
+<h3>VIEWING RECORD: #<?php echo $classToEdit['id']?><br />
+==============
+</h3>
+<p>
+Class ID: <?php echo $classToEdit['Class_ID']?><br />
+Class Name: <?php echo $classToEdit['Class_Name']?><br />
+Department: <?php echo $classToEdit['Department']?><br /><br />
+<a href="index.php">Go back</a><br /><br />
+</p>
 
 <form>
 <input disabled type="hidden" name="dbid" value="<?php echo $classToEdit['id']?>">
@@ -86,7 +94,6 @@ UND 9: <input disabled type="text" name="und9" value="<?php echo $classToEdit['U
 UND 10: <input disabled type="text" name="und10" value="<?php echo $classToEdit['UND_10']?>"><br />
 <?php } ?>
 </form>
-<a href="deleteclass.php?id=<?php echo $_GET['id'] ?>">Yes, delete this class</a><br /><br />
 
 <a href="index.php">Go back</a><br /><br />
 

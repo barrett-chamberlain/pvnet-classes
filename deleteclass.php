@@ -6,7 +6,7 @@ require('protect-this.php');
 //connect to db
 include('connect.php');
 
-$sql = "DELETE FROM classes WHERE id = " . $_GET['id'] . "";
+$sql = "DELETE FROM " . $table . " WHERE id = " . $_GET['id'] . "";
 
 //debugger
 

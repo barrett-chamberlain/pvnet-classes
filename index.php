@@ -3,27 +3,7 @@
 //password auth
 require('protect-this.php');
 
-//connect to db
-include('connect.php');
-
-$sql = "SELECT id,class_id,class_name FROM classes ORDER BY id asc";
-
-//debugger
-
-// if (!$result = $mysqli->query($sql)) {
-//     echo "Error: Our query failed to execute and here is why: \n";
-//     echo "Query: " . $sql . "\n";
-//     echo "Errno: " . $mysqli->errno . "\n";
-//     echo "Error: " . $mysqli->error . "\n";
-//     exit;
-// }
-// if ($result->num_rows === 0) {
-//     echo "No rows returned.";
-//     exit;
-// }
-
-$result = $mysqli->query($sql);
-
+//check for returning actions
 if ($_GET['deleted'] == 1) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
@@ -31,23 +11,38 @@ if ($_GET['deleted'] == 1) { ?>
 	<p style="float: left; margin: 0px 5px;">Class deleted.</p><br /><br />
 </div>
 <?php } 
-if ($_GET['edited'] == 1) { ?>
+if (isset($_GET['edited'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
 	<img style="float: left" src="checkmark.png" />
-	<p style="float: left; margin: 0px 5px;">Class edited.</p><br /><br />
+	<p style="float: left; margin: 0px 5px;">Class edited.  <a href=viewclass.php?id=<?php echo $_GET['edited'] ?>>View class</a></p><br /><br />
 </div>
 <?php } 
-if ($_GET['inserted'] == 1) { ?>
+if (isset($_GET['inserted'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
 	<img style="float: left" src="checkmark.png" />
-	<p style="float: left; margin: 0px 5px;">Class inserted.</p><br /><br />
+	<p style="float: left; margin: 0px 5px;">Class inserted.  <a href=viewclass.php?id=<?php echo $_GET['inserted'] ?>>View class</a></p><br /><br />
+</div> 
+<?php }
+if (isset($_GET['duplicated'])) { ?>
+<div style="outline: 1px solid green; padding: 5px;
+    margin-bottom: 10px;">
+	<img style="float: left" src="checkmark.png" />
+	<p style="float: left; margin: 0px 5px;">Class duplicated.  <a href=viewclass.php?id=<?php echo $_GET['duplicated'] ?>>View class</a></p><br /><br />
 </div>
 <?php } ?>
-<a href="insertclass.php">Insert new class</a> | <a href="spreadsheet.php">Download spreadsheet of classes</a><br /><br />
-<?php while ($classes = $result->fetch_assoc()) {
-    echo '# ' . $classes['id'] . ' ' . '<a href=editclass.php?id=' . $classes['id'] . '>EDIT</a>' . ' | ' . $classes['class_id'] . ' | ' . $classes['class_name'] . ' | ' . '<a href=confirmdelete.php?id=' . $classes['id'] . '># DELETE #</a>' . '<br /><br />';
-}
-?>
+<h3>CLASS ADMINISTRATION<br />
+==============
+</h3>
+<p>
+<a href="selectclasstoview.php">View a class</a><br /><br />
+<a href="insertclass.php">Insert a new class</a><br /><br />
+<a href="selectclasstoedit.php">Edit a class</a><br /><br />
+<a href="selectclasstodelete.php">Delete a class</a><br /><br />
+<a href="selectclasstoduplicate.php">Duplicate a class</a><br /><br />
+<a href="generate_spreadsheet.php">Generate spreadsheet of all class data</a>
+</p>
+
+
 </body>

@@ -3,7 +3,7 @@ require_once './Classes/PHPExcel.php';
 include 'connect.php';
  
 $result = array();
-$sql = "SELECT * FROM classes";
+$sql = "SELECT * FROM " . $table . "";
 $result_sql = mysqli_query($mysqli, $sql);
 while ($rows = mysqli_fetch_assoc($result_sql))
 {
