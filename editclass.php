@@ -29,6 +29,7 @@ while ($classToEdit = $result->fetch_assoc()) { ?>
 <h3>EDITING RECORD: #<?php echo $classToEdit['id']?><br />
 ==============
 </h3>
+<a href="index.php">Go back</a> | <a href="duplicateclass.php?id=<?php echo $classToEdit['id']?>">Duplicate this class</a> | <a href="confirmdelete.php?id=<?php echo $classToEdit['id']?>">Delete this class</a><br /><br />
 <p>
 Class ID: <?php echo $classToEdit['Class_ID']?><br />
 Class Name: <?php echo $classToEdit['Class_Name']?><br />

@@ -17,21 +17,22 @@ FROM " . $table . " WHERE id='" . $_GET['id'] . "';";
 // mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 
 //debugger
-if (!$result = $mysqli->query($sql)) {
-    echo "Error: Our query failed to execute and here is why: \n";
-    echo "Query: " . $sql . "\n";
-    echo "Errno: " . $mysqli->errno . "\n";
-    echo "Error: " . $mysqli->error . "\n";
-    exit;
-}
+// if (!$result = $mysqli->query($sql)) {
+//     echo "Error: Our query failed to execute and here is why: \n";
+//     echo "Query: " . $sql . "\n";
+//     echo "Errno: " . $mysqli->errno . "\n";
+//     echo "Error: " . $mysqli->error . "\n";
+//     exit;
+// }
 // if ($result->num_rows === 0) {
 //     echo "No rows returned.";
 //     exit;
 // }
+$result = $mysqli->query($sql);
 
 $sql2 = "select max(id) from " . $table . "";
 
-$result = $mysqli->query($sql2);
+$result2 = $mysqli->query($sql2);
 // if (!$result = $mysqli->query($sql2)) {
 //     echo "Error: Our query failed to execute and here is why:" . "<br />";
 //     echo "Query: " . $sql . "\n";
@@ -40,7 +41,7 @@ $result = $mysqli->query($sql2);
 //     exit;
 // }
 
-while ($getTopID = $result->fetch_assoc()) {
+while ($getTopID = $result2->fetch_assoc()) {
  $insertedID = $getTopID["max(id)"];
 }
 header("Location: index.php?duplicated=$insertedID"); /* Redirect browser */

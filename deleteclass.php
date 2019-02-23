@@ -20,7 +20,7 @@ $sql = "DELETE FROM " . $table . " WHERE id = " . $_GET['id'] . "";
 
 $result = $mysqli->query($sql);
 
-header("Location: index.php?deleted=1"); /* Redirect browser */
+header("Location: selectclasstoedit.php?deleted=1"); /* Redirect browser */
   exit();
 
 ?>
