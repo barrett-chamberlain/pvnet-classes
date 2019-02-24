@@ -9,6 +9,7 @@ include('connect.php');
 <h3>INSERT NEW RECORD<br />
 ==============
 </h3>
+<a href="index.php">Go back</a><br /><br />
 <form action="processinsertedclass.php" method="post">
 Class ID: <input required="required" type="text" name="classId"><br />
 Class Name: <input required="required" size="50" type="text" name="className"><br />

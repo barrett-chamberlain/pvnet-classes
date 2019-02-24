@@ -9,19 +9,17 @@ include('connect.php');
 $sql = "SELECT id, Class_ID, Class_Name, Department, Class_Number, Class_Section, Activate, Instructor, Internal_Notes, Class_Description, Additional_Info, Prerequisite, Start_Week, End_Week, Age_Start, Age_End, Consummables_Fee, Hourly_Fee, Registration_Fee, Price_Included_For_Interns, Intern_Only, Field_Trip, Field_Trip_Wish_List, Class, Workshop, `GroupBased`, Seasonal_Classification, No_Weeks, M, T, W, TH, F, Sat, Sun, Hrs_Per_Class, Mtgs_Per_Wk, Total_Meetings, Total_Class_Time_Hrs, Start_Time, End_Time, AREA, IMG_1, IMG_2, IMG_3, EXT_LINK_1, EXT_LINK_2, EXT_LINK_3, UND_1, UND_2, UND_3, UND_4, UND_5, UND_6, UND_7, UND_8, UND_9, UND_10 FROM " . $table . " where id = '" . $_GET['id'] . "'";
 
 //don't forget to remove these debuggers
-// if (!$result = $mysqli->query($sql)) {
-//     echo "Error: Our query failed to execute and here is why: \n";
-//     echo "Query: " . $sql . "\n";
-//     echo "Errno: " . $mysqli->errno . "\n";
-//     echo "Error: " . $mysqli->error . "\n";
-//     exit;
-// }
-// if ($result->num_rows === 0) {
-//     echo "No rows returned.";
-//     exit;
-// }
-
-$mysqli->query($sql);
+if (!$result = $mysqli->query($sql)) {
+    echo "Error: Our query failed to execute and here is why: \n";
+    echo "Query: " . $sql . "\n";
+    echo "Errno: " . $mysqli->errno . "\n";
+    echo "Error: " . $mysqli->error . "\n";
+    exit;
+}
+if ($result->num_rows === 0) {
+    echo "No rows returned.";
+    exit;
+}
 
 while ($classToEdit = $result->fetch_assoc()) { ?>
 
@@ -32,7 +30,7 @@ while ($classToEdit = $result->fetch_assoc()) { ?>
 Class ID: <?php echo $classToEdit['Class_ID']?><br />
 Class Name: <?php echo $classToEdit['Class_Name']?><br />
 Department: <?php echo $classToEdit['Department']?><br /><br />
-<a href="index.php">Go back</a><br /><br />
+<a href="index.php">Go back</a> | <a href="editclass.php?id=<?php echo $classToEdit['id']?>">Edit this class</a> | <a href="duplicateclass.php?id=<?php echo $classToEdit['id']?>">Duplicate this class</a> | <a href="confirmdelete.php?id=<?php echo $classToEdit['id']?>">Delete this class</a><br /><br />
 </p>
 
 <form>
