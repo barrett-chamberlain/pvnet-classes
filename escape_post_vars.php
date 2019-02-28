@@ -42,6 +42,7 @@ $und7_escaped = mysqli_real_escape_string($mysqli,$_POST["und7"]);
 $und8_escaped = mysqli_real_escape_string($mysqli,$_POST["und8"]);
 $und9_escaped = mysqli_real_escape_string($mysqli,$_POST["und9"]);
 $und10_escaped = mysqli_real_escape_string($mysqli,$_POST["und10"]);
+$pub_date_escaped = mysqli_real_escape_string($mysqli,$_POST["pub_date"]);
+$enr_limit_escaped = mysqli_real_escape_string($mysqli,$_POST["enr_limit"]);
 $dbid_escaped = mysqli_real_escape_string($mysqli,$_POST["dbid"]);
-
 ?>

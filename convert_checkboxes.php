@@ -75,5 +75,20 @@ if($_POST["sunday"] == 'on') {
 } else {
 	$sunday = 0;
 }
+if($_POST["not_inc_int"] == 'on') {
+	$not_inc_int = 1;
+} else {
+	$not_inc_int = 0;
+}
+if($_POST["sem"] == 'on') {
+	$sem = 1;
+} else {
+	$sem = 0;
+}
+if($_POST["eve"] == 'on') {
+	$eve = 1;
+} else {
+	$eve = 0;
+}
 
 ?>

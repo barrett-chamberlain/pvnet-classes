@@ -31,11 +31,8 @@
     border-top: 1px solid black;
     padding: 5px 0 5px 5px;
 }
-.classRow.blue {
-    background-color: powderblue;
-}
-.classRow.green {
-    background-color: lightgreen;
+.classRow.lav {
+    background-color: lavender;
 }
 .classOptions {
     float: left;
@@ -137,9 +134,9 @@ $result = $mysqli->query($sql); ?>
 $i = 1;
 while ($classes = $result->fetch_assoc()) { 
 if($i % 2 == 0) {
-	echo '<div class="classRow green">';
+	echo '<div class="classRow">';
 } else {
-	echo '<div class="classRow blue">';
+	echo '<div class="classRow lav">';
 }
 ?>
 <div class="classOptions">

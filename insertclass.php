@@ -68,6 +68,11 @@ UND 7: <input type="text" size="50" name="und7"><br />
 UND 8: <input type="text" size="50" name="und8"><br />
 UND 9: <input type="text" size="50" name="und9"><br />
 UND 10: <input type="text" size="50" name="und10"><br />
+Publish Date: <input type="date" name="pub_date"><br />
+Enrollment Limit: <input type="Number" name="enr_limit"><br />
+Not Included For Interns: <input type="checkbox" name="not_inc_int"><br />
+Seminars: <input type="checkbox" name="sem"><br />
+Events: <input type="checkbox" name="eve"><br />
 <input type="submit">
 </form>
 </body>
