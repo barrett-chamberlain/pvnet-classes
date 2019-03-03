@@ -1,12 +1,12 @@
 <body style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">
 <?php
 //password auth
-require('protect-this.php');
+require('../protect-this.php');
 
 //connect to db
-include('connect.php');
+include('../_includes/connect.php');
 
-$sql = "SELECT * FROM " . $table . " where id = '" . $_GET['id'] . "'";
+$sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
 
 // echo $sql . '<br />';
 
@@ -23,26 +23,41 @@ $sql = "SELECT * FROM " . $table . " where id = '" . $_GET['id'] . "'";
 //     exit;
 // }
 
+if (isset($_GET['edited'])) { ?>
+<div style="outline: 1px solid green; padding: 5px;
+    margin-bottom: 10px;">
+	<img style="float: left" src="../checkmark.png" />
+	<p style="float: left; margin: 0px 5px;">Class edited.</p><br /><br />
+</div>
+<?php } 
+
 $result = $mysqli->query($sql);
+$nextClass = $_GET['id'] + 1;
+$prevClass = $_GET['id'] - 1;
 
 while ($classToEdit = $result->fetch_assoc()) { ?>
 <h3>EDITING RECORD: #<?php echo $classToEdit['id']?><br />
 ==============
 </h3>
-<a href="index.php">Go back</a> | <a href="duplicateclass.php?id=<?php echo $classToEdit['id']?>">Duplicate this class</a> | <a href="confirmdelete.php?id=<?php echo $classToEdit['id']?>">Delete this class</a><br /><br />
+<?php if($prevClass == 0) { } else { ?>
+	<a href="editclass.php?id=<?php echo $prevClass?>">Edit previous record</a> |
+<?php } ?>
+<a href="editclass.php?id=<?php echo $nextClass?>">Edit next record</a><br /><br />
+<a href="../index.php">Go back</a> | <a href="duplicateclass.php?id=<?php echo $classToEdit['id']?>">Duplicate this class</a> | <a href="confirmdelete.php?id=<?php echo $classToEdit['id']?>">Delete this class</a><br /><br />
 <p>
 Class ID: <?php echo $classToEdit['Class_ID']?><br />
 Class Name: <?php echo $classToEdit['Class_Name']?><br />
 Department: <?php echo $classToEdit['Department']?><br />
 </p>
 <form method="post" action="processeditedclass.php">
-<input type="hidden" name="dbid" value="<?php echo $classToEdit['id']?>">
+<input type="submit"><br />
+<input type="hidden" name="dbid" value="<?php echo $classToEdit['id']?>"><br />
 Class ID: <input required="required" type="text" name="classId" value="<?php echo $classToEdit['Class_ID']?>"><br />
 Class Name: <input required="required" type="text" name="className" size="50" value="<?php echo $classToEdit['Class_Name']?>"><br />
 Department: <input type="text" size="50" name="dept" value="<?php echo $classToEdit['Department']?>"><br />
 Class Number: <input type="number" name="classNum" value="<?php echo $classToEdit['Class_Number']?>"><br />
 Class Section: <input type="number" name="classSec" value="<?php echo $classToEdit['Class_Section']?>"><br />
-Activate: <input type="checkbox" <?php if($classToEdit['Activate'] == 1){echo "checked";}?> name="actv"><br />
+Activate: <input type="checkbox" <?php if($classToEdit['activate'] == 1){echo "checked";}?> name="actv"><br />
 Instructor: <input type="text" size="50" name="instr" value="<?php echo $classToEdit['Instructor']?>"><br />
 Internal Notes: <textarea rows="4" cols="50" name="int_notes"><?php echo $classToEdit['Internal_Notes']?></textarea><br />
 Class Description: <textarea rows="4" cols="50" name="class_desc"><?php echo $classToEdit['Class_Description']?></textarea><br />

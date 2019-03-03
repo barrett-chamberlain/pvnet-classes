@@ -1,12 +1,12 @@
 <body style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">
 <?php
 //password auth
-require('protect-this.php');
+require('../protect-this.php');
 
 //connect to db
-include('connect.php');
+include('../_includes/connect.php');
 
-$sql = "DELETE FROM " . $table . " WHERE id = " . $_GET['id'] . "";
+$sql = "DELETE FROM " . $table_classes . " WHERE id = " . $_GET['id'] . "";
 
 //debugger
 

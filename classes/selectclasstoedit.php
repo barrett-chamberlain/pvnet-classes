@@ -60,46 +60,46 @@
 <body style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">
 <?php
 //password auth
-require('protect-this.php');
+require('../protect-this.php');
 
 //connect to db
-include('connect.php');
+include('../_includes/connect.php');
 
 //class deleted notification
 if ($_GET['deleted'] == 1) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-	<img style="float: left" src="checkmark.png" />
+	<img style="float: left" src="../checkmark.png" />
 	<p style="float: left; margin: 0px 5px;">Class deleted.</p><br /><br />
 </div>
 
 <?php 
 // column sorting
 }
-$sql = "SELECT id,Class_ID,Class_Name FROM " . $table . " order by ID asc";
+$sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by ID asc";
 if ($_GET['record'] == "sortdesc") {
-    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table . " order by id desc";
+    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by id desc";
 } 
 if ($_GET['record'] == "sortasc") {
-    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table . " order by ID asc";
+    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by ID asc";
 } 
 if ($_GET['sortid'] == "sortdesc") {
-    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table . " order by Class_ID desc";
+    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by Class_ID desc";
 } 
 if ($_GET['sortid'] == "sortasc") {
-    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table . " order by Class_ID asc";
+    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by Class_ID asc";
 } 
 if ($_GET['sortname'] == "sortdesc") {
-    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table . " order by Class_Name desc";
+    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by Class_Name desc";
 } 
 if ($_GET['sortname'] == "sortasc") {
-    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table . " order by Class_Name asc";
+    $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by Class_Name asc";
 } 
 $result = $mysqli->query($sql); ?>
 <h3>SELECT A CLASS TO MANAGE<br />
 ==============
 </h3>
-<a href="index.php">Go back</a><br /><br />
+<a href="../index.php">Go back</a><br /><br />
 <div class="sortOptions">
     <div class="controlSpacer">&nbsp;</div>
     <div class="sortRecord">

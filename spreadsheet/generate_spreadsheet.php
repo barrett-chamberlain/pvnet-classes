@@ -1,9 +1,9 @@
 <?php
 require_once './Classes/PHPExcel.php';
-include 'connect.php';
+include '../_includes/connect.php';
  
 $result = array();
-$sql = "SELECT * FROM " . $table . "";
+$sql = "SELECT * FROM " . $table_classes . "";
 $result_sql = mysqli_query($mysqli, $sql);
 while ($rows = mysqli_fetch_assoc($result_sql))
 {
@@ -25,7 +25,7 @@ $objPHPExcel->setActiveSheetIndex(0)
  
 $objPHPExcel->getActiveSheet()
  ->getCell('A1')
- ->setValue("Student's Data");
+ ->setValue("Class Data");
  
 $objPHPExcel->getActiveSheet()
  ->getStyle('A1')
@@ -65,7 +65,7 @@ while($row1 = mysqli_fetch_array($result1))
  'color' => array('rgb' => '33F0FF')) 
  );
  
-$objPHPExcel->getActiveSheet()->getStyle('A2:E2')->applyFromArray($styleArray);
+// $objPHPExcel->getActiveSheet()->getStyle('A2:E2')->applyFromArray($styleArray);
   
  $column1++;
 }

@@ -1,10 +1,10 @@
 <body style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">
 <?php
 //password auth
-require('protect-this.php');
+require('/../protect-this.php');
 
 //connect to db
-include('connect.php');
+include('./_includes/connect.php');
 
 ?>
 <h3>DOWNLOAD SPREADSHEET<br />

@@ -1,4 +1,10 @@
 <?php
+$servername = "pvnet.cq9diskz8wwp.us-west-1.rds.amazonaws.com";
+$username = "pvnetuser";
+$password = "CDy21xM8c9NA";
+$database= "pvnetclasses";
+$table_classes = 'classesDev';
+$table_customer = 'customer';
 
 // Create connection
 $mysqli = new mysqli($servername, $username, $password, $database);

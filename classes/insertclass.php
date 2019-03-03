@@ -1,15 +1,15 @@
 <body style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">
 <?php
 //password auth
-require('protect-this.php');
+require('../protect-this.php');
 
 //connect to db
-include('connect.php');
+include('../_includes/connect.php');
 ?>
-<h3>INSERT NEW RECORD<br />
+<h3>INSERT NEW CLASS<br />
 ==============
 </h3>
-<a href="index.php">Go back</a><br /><br />
+<a href="../index.php">Go back</a><br /><br />
 <form action="processinsertedclass.php" method="post">
 Class ID: <input required="required" type="text" name="classId"><br />
 Class Name: <input required="required" size="50" type="text" name="className"><br />

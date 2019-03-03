@@ -1,12 +1,12 @@
 <body style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">
 <?php
 //password auth
-require('protect-this.php');
+require('../protect-this.php');
 
 //connect to db
-include('connect.php');
+include('../_includes/connect.php');
 
-$sql = "SELECT * FROM " . $table . " where id = '" . $_GET['id'] . "'";
+$sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
 
 //don't forget to remove these debuggers
 if (!$result = $mysqli->query($sql)) {
@@ -23,15 +23,7 @@ if ($result->num_rows === 0) {
 
 while ($classToEdit = $result->fetch_assoc()) { ?>
 
-<h3>VIEWING RECORD: #<?php echo $classToEdit['id']?><br />
-==============
-</h3>
-<p>
-Class ID: <?php echo $classToEdit['Class_ID']?><br />
-Class Name: <?php echo $classToEdit['Class_Name']?><br />
-Department: <?php echo $classToEdit['Department']?><br /><br />
-<a href="index.php">Go back</a> | <a href="editclass.php?id=<?php echo $classToEdit['id']?>">Edit this class</a> | <a href="duplicateclass.php?id=<?php echo $classToEdit['id']?>">Duplicate this class</a> | <a href="confirmdelete.php?id=<?php echo $classToEdit['id']?>">Delete this class</a><br /><br />
-</p>
+<p style="font-weight: bold; color: red;">Are you sure you wish to delete this class?</p>
 
 <form>
 <input disabled type="hidden" name="dbid" value="<?php echo $classToEdit['id']?>">
@@ -99,7 +91,8 @@ Seminars: <input disabled type="checkbox" <?php if($classToEdit['Seminars'] == 1
 Events: <input disabled type="checkbox" <?php if($classToEdit['Events'] == 1){echo "checked";}?> name="eve"><br />
 <?php } ?>
 </form>
+<a href="deleteclass.php?id=<?php echo $_GET['id'] ?>">Yes, delete this class</a><br /><br />
 
-<a href="index.php">Go back</a><br /><br />
+<a href="../index.php">Go back</a><br /><br />
 
 </body>
