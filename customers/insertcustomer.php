@@ -25,8 +25,8 @@ Address Line 2: <input size="50" type="text" name="addr2"><br />
 City: <input size="50" type="text" name="city"><br />
 State: <input size="50" type="text" name="state"><br />
 Zip Code: <input size="50" type="number" name="zipcode"><br />
-Phone 1: <input size="50" type="text" name="phone1"><br />
-Phone 2: <input size="50" type="text" name="phone2"><br />
+Phone 1: <input size="50" type="number" name="phone1"><br />
+Phone 2: <input size="50" type="number" name="phone2"><br />
 Email Address: <input size="50" type="email" name="email"><br />
 
 <div class="roleBox">

@@ -46,7 +46,8 @@ if (isset($_GET['custinserted'])) { ?>
 <p>
 <a href="classes/selectclasstoedit.php">Manage classes</a><br /><br />
 <a href="classes/insertclass.php">Insert a new class</a><br /><br />
-<!-- <a href="customers/insertcustomer.php">Insert a new customer</a><br /><br /> -->
+<a href="customers/insertcustomer.php">Insert a new customer</a><br /><br />
+<a href="customers/selectcustomertoedit.php">Manage customers</a><br /><br />
 <a href="spreadsheet/generate_spreadsheet.php">Generate spreadsheet of all class data</a>
 </p>
 

@@ -11,6 +11,7 @@ include('../_includes/connect.php');
 </h3>
 <a href="../index.php">Go back</a><br /><br />
 <form action="processinsertedclass.php" method="post">
+<input type="submit"><br /><br />
 Class ID: <input required="required" type="text" name="classId"><br />
 Class Name: <input required="required" size="50" type="text" name="className"><br />
 Department: <input type="text" size="50" name="dept"><br />

@@ -43,6 +43,6 @@ $result = $mysqli->query($sql2);
 while ($getTopID = $result->fetch_assoc()) {
  $insertedID = $getTopID["max(id)"];
 }
-header("Location: ../index.php?duplicated=$insertedID"); /* Redirect browser */
+header("Location: editclass.php?id=$insertedID&duplicated=1");
   exit();
 ?>

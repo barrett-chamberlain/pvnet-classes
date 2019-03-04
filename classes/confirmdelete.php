@@ -32,7 +32,7 @@ Class Name: <input disabled required="required" type="text" name="className" val
 Department: <input disabled type="text" name="dept" value="<?php echo $classToEdit['Department']?>"><br />
 Class Number: <input disabled type="text" name="classNum" value="<?php echo $classToEdit['Class_Number']?>"><br />
 Class Section: <input disabled type="text" name="classSec" value="<?php echo $classToEdit['Class_Section']?>"><br />
-Activate: <input disabled type="checkbox" <?php if($classToEdit['Activate'] == 1){echo "checked";}?> name="actv"><br />
+Activate: <input disabled type="checkbox" <?php if($classToEdit['activate'] == 1){echo "checked";}?> name="actv"><br />
 Instructor: <input disabled type="text" name="instr" value="<?php echo $classToEdit['Instructor']?>"><br />
 Internal Notes: <input disabled type="text" name="int_notes" value="<?php echo $classToEdit['Internal_Notes']?>"><br />
 Class Description: <input disabled type="text" name="class_desc" value="<?php echo $classToEdit['Class_Description']?>"><br />

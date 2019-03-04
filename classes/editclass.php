@@ -8,6 +8,21 @@ include('../_includes/connect.php');
 
 $sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
 
+$sql4 = "select max(id) from " . $table_classes . "";
+
+$result4 = $mysqli->query($sql4);
+
+$sql5 = "select min(id) from " . $table_classes . "";
+
+$result5 = $mysqli->query($sql5);
+
+while ($getTopID = $result4->fetch_assoc()) {
+ $maxID = $getTopID["max(id)"];
+}
+while ($getBottomID = $result5->fetch_assoc()) {
+ $minID = $getBottomID["min(id)"];
+}
+
 // echo $sql . '<br />';
 
 //debugger
@@ -22,7 +37,12 @@ $sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
 //     echo "No rows returned.";
 //     exit;
 // }
-
+if (isset($_GET['duplicated'])) { ?>
+<div style="outline: 1px solid green; padding: 5px;
+    margin-bottom: 10px;">
+	<img style="float: left" src="../checkmark.png" />
+	<p style="float: left; margin: 0px 5px;">Class duplicated.</p><br /><br />
+</div> <?php }
 if (isset($_GET['edited'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
@@ -32,6 +52,28 @@ if (isset($_GET['edited'])) { ?>
 <?php } 
 
 $result = $mysqli->query($sql);
+
+$sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+$result2 = $mysqli->query($sql2);
+while($result2->num_rows === 0 and $_GET['prev'] == 1)
+    {
+        // echo $_GET['id'] . ' gives no results' . '<br />';
+        $_GET['id']--;
+        // echo 'decrement: ' . $_GET['id'] . '<br />';
+        $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+        $result2 = $mysqli->query($sql2);
+    }
+while($result2->num_rows === 0 and $_GET['next'] == 1)
+    {
+        // echo $_GET['id'] . ' gives no results' . '<br />';
+        $_GET['id']++;
+        // echo 'decrement: ' . $_GET['id'] . '<br />';
+        $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+        $result2 = $mysqli->query($sql2);
+    }
+    // echo 'final set: ' . $_GET['id'];
+$sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+$result = $mysqli->query($sql);
 $nextClass = $_GET['id'] + 1;
 $prevClass = $_GET['id'] - 1;
 
@@ -39,10 +81,13 @@ while ($classToEdit = $result->fetch_assoc()) { ?>
 <h3>EDITING RECORD: #<?php echo $classToEdit['id']?><br />
 ==============
 </h3>
-<?php if($prevClass == 0) { } else { ?>
-	<a href="editclass.php?id=<?php echo $prevClass?>">Edit previous record</a> |
-<?php } ?>
-<a href="editclass.php?id=<?php echo $nextClass?>">Edit next record</a><br /><br />
+<?php if($_GET['id'] == $minID) { } else { ?>
+	<a href="editclass.php?id=<?php echo $prevClass?>&prev=1">Edit previous record</a><?php } ?>
+&nbsp;&nbsp;
+<?php if($_GET['id'] == $maxID) { } else { ?>
+<a href="editclass.php?id=<?php echo $nextClass?>&next=1">
+Edit next record</a><?php } ?>
+<br /><br />
 <a href="../index.php">Go back</a> | <a href="duplicateclass.php?id=<?php echo $classToEdit['id']?>">Duplicate this class</a> | <a href="confirmdelete.php?id=<?php echo $classToEdit['id']?>">Delete this class</a><br /><br />
 <p>
 Class ID: <?php echo $classToEdit['Class_ID']?><br />
