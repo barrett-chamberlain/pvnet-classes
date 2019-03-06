@@ -14,5 +14,5 @@ include('./_includes/connect.php');
 <input type="submit" value="Download Spreadsheet">
 </form>
 <br /><br />
-<a href="index.php">Go back</a>
+<a href="../index.php">Go back</a>
 </body>

@@ -1,0 +1,73 @@
+<?php
+//password auth
+require('../protect-this.php');
+
+//connect to db
+include('../_includes/connect.php');
+
+$sql = "INSERT into " . $table_customer . " (`firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`) 
+SELECT 
+    `firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor` FROM " . $table_customer . " WHERE id='" . $_GET['id'] . "';";
+
+//debugger
+// if (!$result = $mysqli->query($sql)) {
+//     echo "Error: Our query failed to execute and here is why: \n";
+//     echo "Query: " . $sql . "\n";
+//     echo "Errno: " . $mysqli->errno . "\n";
+//     echo "Error: " . $mysqli->error . "\n";
+//     exit;
+// }
+
+$mysqli->query($sql);
+
+$sql2 = "select max(id) from " . $table_customer . "";
+
+$result2 = $mysqli->query($sql2);
+
+while ($getTopID = $result2->fetch_assoc()) {
+ $insertedID = $getTopID["max(id)"];
+}
+
+$sql3 = "INSERT into " . $table_customer_contact . " (`addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, `customer_id`) 
+SELECT 
+    `addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, $insertedID FROM " . $table_customer_contact . " WHERE customer_id='" . $_GET['id'] . "';";
+
+$mysqli->query($sql3);
+
+// if (!$result3 = $mysqli->query($sql3)) {
+//     echo "Error: Our query failed to execute and here is why:" . "<br />";
+//     echo "Query3: " . $sql3 . "\n";
+//     echo "Errno: " . $mysqli->errno . "<br />";
+//     echo "Error: " . $mysqli->error . "<br />";
+//     exit;
+// }
+// echo 'sql: ' . $sql . '<br /><br />';
+
+// echo 'sql2: ' . $sql2 . '<br /><br />';
+
+// echo 'sql3: ' . $sql3 . '<br /><br />';
+
+// exit();
+
+// $sql = "CREATE TEMPORARY TABLE tmp SELECT * FROM classesDev WHERE id = 95;UPDATE tmp SET id=96 WHERE id = 95;INSERT INTO classesDev SELECT * FROM tmp WHERE id = 96;";
+
+// mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+
+
+// if ($result->num_rows === 0) {
+//     echo "No rows returned.";
+//     exit;
+// }
+
+
+// if (!$result = $mysqli->query($sql2)) {
+//     echo "Error: Our query failed to execute and here is why:" . "<br />";
+//     echo "Query: " . $sql . "\n";
+//     echo "Errno: " . $mysqli->errno . "<br />";
+//     echo "Error: " . $mysqli->error . "<br />";
+//     exit;
+// }
+
+header("Location: editcustomer.php?id=$insertedID&duplicated=1");
+  exit();
+?>

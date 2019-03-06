@@ -87,18 +87,31 @@ $result = $mysqli->query($sql);
 $nextCustomer = $_GET['id'] + 1;
 $prevCustomer = $_GET['id'] - 1;
 
+if (isset($_GET['duplicated'])) { ?>
+<div style="outline: 1px solid green; padding: 5px;
+    margin-bottom: 10px;">
+    <img style="float: left" src="../checkmark.png" />
+    <p style="float: left; margin: 0px 5px;">Customer duplicated.</p><br /><br />
+</div> <?php }
+if (isset($_GET['edited'])) { ?>
+<div style="outline: 1px solid green; padding: 5px;
+    margin-bottom: 10px;">
+    <img style="float: left" src="../checkmark.png" />
+    <p style="float: left; margin: 0px 5px;">Customer edited.</p><br /><br />
+</div>
+<?php } 
 
 while ($customerToEdit = $result->fetch_assoc()) { ?>
 
-<h3>VIEWING CUSTOMER: #<?php echo $customerToEdit['id']?><br />
+<h3>EDITING CUSTOMER: #<?php echo $customerToEdit['id']?><br />
 ==============
 </h3>
 <?php if($_GET['id'] == $minID) { } else { ?>
-	<a href="viewcustomer.php?id=<?php echo $prevCustomer?>&prev=1">View previous customer</a> 
+	<a href="editcustomer.php?id=<?php echo $prevCustomer?>&prev=1">View previous customer</a> 
 <?php } ?>
 &nbsp;&nbsp;
 <?php if($_GET['id'] == $maxID) { } else { ?>
-<a href="viewcustomer.php?id=<?php echo $nextCustomer?>&next=1">View next customer</a><?php } ?>
+<a href="editcustomer.php?id=<?php echo $nextCustomer?>&next=1">View next customer</a><?php } ?>
 <br /><br />
 <p>
 Customer ID: <?php echo $customerToEdit['id']?><br />
@@ -107,32 +120,34 @@ Customer Last Name: <?php echo $customerToEdit['lastname']?><br /><br />
 <a href="../index.php">Go back</a> | <a href="editcustomer.php?id=<?php echo $customerToEdit['id']?>">Edit this customer</a> | <a href="duplicatecustomer.php?id=<?php echo $customerToEdit['id']?>">Duplicate this customer</a> | <a href="confirmdelete.php?id=<?php echo $customerToEdit['id']?>">Delete this customer</a><br /><br />
 </p>
 
-<form>
-<input disabled type="hidden" name="dbid" value="<?php echo $customerToEdit['id']?>">
-First Name: <input size="50" disabled required="required" type="text" name="firstname" value="<?php echo $customerToEdit['firstname']?>"><br />
-Last Name: <input size="50" disabled required="required" type="text" name="lastname" value="<?php echo $customerToEdit['lastname']?>"><br />
+<form method="post" action="processeditedcustomer.php">
+<input type="submit"><br /><br />
+<input  type="hidden" name="dbid" value="<?php echo $customerToEdit['id']?>">
+First Name: <input size="50"  required="required" type="text" name="firstname" value="<?php echo $customerToEdit['firstname']?>"><br />
+Last Name: <input size="50"  required="required" type="text" name="lastname" value="<?php echo $customerToEdit['lastname']?>"><br />
 <div class="roleBox">
     Customer is a...<br /><br />
-    Parent: <input disabled type="checkbox" <?php if($customerToEdit['is_parent'] == 1){echo "checked";}?> name="is_parent"><br />
-    Adult Student: <input disabled type="checkbox" <?php if($customerToEdit['is_student_adult'] == 1){echo "checked";}?> name="is_student_adult"><br />
-    Minor Student: <input disabled type="checkbox" <?php if($customerToEdit['is_student_minor'] == 1){echo "checked";}?> name="is_student_minor"><br />
-    Relative: <input disabled type="checkbox" <?php if($customerToEdit['is_relative'] == 1){echo "checked";}?> name="is_relative"><br />
-    Sibling: <input disabled type="checkbox" <?php if($customerToEdit['is_sibling'] == 1){echo "checked";}?> name="is_sibling"><br />
-    Instructor: <input disabled type="checkbox" <?php if($customerToEdit['is_instructor'] == 1){echo "checked";}?> name="is_instructor"><br />
-    Adult Volunteer: <input disabled type="checkbox" <?php if($customerToEdit['is_vol_adult'] == 1){echo "checked";}?> name="is_vol_adult"><br />
-    Minor Volunteer: <input disabled type="checkbox" <?php if($customerToEdit['is_vol_minor'] == 1){echo "checked";}?> name="is_vol_minor"><br />
+    Parent: <input  type="checkbox" <?php if($customerToEdit['is_parent'] == 1){echo "checked";}?> name="is_parent"><br />
+    Adult Student: <input  type="checkbox" <?php if($customerToEdit['is_student_adult'] == 1){echo "checked";}?> name="is_student_adult"><br />
+    Minor Student: <input  type="checkbox" <?php if($customerToEdit['is_student_minor'] == 1){echo "checked";}?> name="is_student_minor"><br />
+    Relative: <input  type="checkbox" <?php if($customerToEdit['is_relative'] == 1){echo "checked";}?> name="is_relative"><br />
+    Sibling: <input  type="checkbox" <?php if($customerToEdit['is_sibling'] == 1){echo "checked";}?> name="is_sibling"><br />
+    Instructor: <input  type="checkbox" <?php if($customerToEdit['is_instructor'] == 1){echo "checked";}?> name="is_instructor"><br />
+    Adult Volunteer: <input  type="checkbox" <?php if($customerToEdit['is_vol_adult'] == 1){echo "checked";}?> name="is_vol_adult"><br />
+    Minor Volunteer: <input  type="checkbox" <?php if($customerToEdit['is_vol_minor'] == 1){echo "checked";}?> name="is_vol_minor"><br />
 </div>
 <?php }
 while ($customercontToEdit = $result2->fetch_assoc()) { ?>
-Address Line 1: <input size="50" disabled required="required" type="text" name="addr1" value="<?php echo $customercontToEdit['addr1']?>"><br />
-Address Line 2: <input size="50" disabled required="required" type="text" name="addr2" value="<?php echo $customercontToEdit['addr2']?>"><br />
-City: <input size="50" disabled required="required" type="text" name="city" value="<?php echo $customercontToEdit['city']?>"><br />
-State: <input size="50" disabled required="required" type="text" name="state" value="<?php echo $customercontToEdit['state']?>"><br />
-Zip Code: <input size="50" disabled type="number" name="zipcode" value="<?php echo $customercontToEdit['zipcode']?>"><br />
-Phone 1: <input size="50" disabled required="required" type="number" name="phone1" value="<?php echo $customercontToEdit['phone1']?>"><br />
-Phone 2: <input size="50" disabled required="required" type="number" name="phone2" value="<?php echo $customercontToEdit['phone2']?>"><br />
-Email Address: <input size="50" disabled type="email" name="email" value="<?php echo $customercontToEdit['email']?>"><br />
-<?php } ?>
+Address Line 1: <input size="50"  required="required" type="text" name="addr1" value="<?php echo $customercontToEdit['addr1']?>"><br />
+Address Line 2: <input size="50"  required="required" type="text" name="addr2" value="<?php echo $customercontToEdit['addr2']?>"><br />
+City: <input size="50"  required="required" type="text" name="city" value="<?php echo $customercontToEdit['city']?>"><br />
+State: <input size="50"  required="required" type="text" name="state" value="<?php echo $customercontToEdit['state']?>"><br />
+Zip Code: <input size="50"  type="number" name="zipcode" value="<?php echo $customercontToEdit['zipcode']?>"><br />
+Phone 1: <input size="50"  required="required" type="number" name="phone1" value="<?php echo $customercontToEdit['phone1']?>"><br />
+Phone 2: <input size="50"  required="required" type="number" name="phone2" value="<?php echo $customercontToEdit['phone2']?>"><br />
+Email Address: <input size="50"  type="email" name="email" value="<?php echo $customercontToEdit['email']?>"><br />
+<?php } ?><br />
+<input type="submit"><br />
 </form>
 
 <a href="../index.php">Go back</a><br /><br />

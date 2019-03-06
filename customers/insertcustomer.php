@@ -16,7 +16,7 @@ include('../_includes/connect.php');
 <h3>INSERT NEW CUSTOMER<br />
 ==============
 </h3>
-<a href="index.php">Go back</a><br /><br />
+<a href="../index.php">Go back</a><br /><br />
 <form action="processinsertedcustomer.php" method="post">
 First Name: <input required="required" size="50" type="text" name="firstname"><br />
 Last Name: <input required="required" size="50" type="text" name="lastname"><br />
