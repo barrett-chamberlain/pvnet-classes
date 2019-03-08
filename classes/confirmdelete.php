@@ -6,7 +6,7 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
-$sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+$sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 
 //don't forget to remove these debuggers
 if (!$result = $mysqli->query($sql)) {
@@ -26,6 +26,7 @@ while ($classToEdit = $result->fetch_assoc()) { ?>
 <p style="font-weight: bold; color: red;">Are you sure you wish to delete this class?</p>
 
 <form>
+<h3>Record #<?php echo $classToEdit['id']?></h3>
 <input disabled type="hidden" name="dbid" value="<?php echo $classToEdit['id']?>">
 Class ID: <input disabled required="required" type="text" name="classId" value="<?php echo $classToEdit['Class_ID']?>"><br />
 Class Name: <input disabled required="required" type="text" name="className" value="<?php echo $classToEdit['Class_Name']?>"><br />
@@ -91,7 +92,7 @@ Seminars: <input disabled type="checkbox" <?php if($classToEdit['Seminars'] == 1
 Events: <input disabled type="checkbox" <?php if($classToEdit['Events'] == 1){echo "checked";}?> name="eve"><br />
 <?php } ?>
 </form>
-<a href="deleteclass.php?id=<?php echo $_GET['id'] ?>">Yes, delete this class</a><br /><br />
+<a href="deleteclass.php?id=<?php echo $cleanedID ?>">Yes, delete this class</a><br /><br />
 
 <a href="../index.php">Go back</a><br /><br />
 

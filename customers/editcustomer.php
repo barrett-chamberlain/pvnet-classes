@@ -55,37 +55,37 @@ while ($getBottomID = $result5->fetch_assoc()) {
  $minID = $getBottomID["min(id)"];
 }
 
-$sql = "SELECT * FROM " . $table_customer . " where id = '" . $_GET['id'] . "'";
+$sql = "SELECT * FROM " . $table_customer . " where id = '" . $cleanedID . "'";
 
 $result = $mysqli->query($sql);
 
-$sql2 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $_GET['id'] . "'";
+$sql2 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $cleanedID . "'";
 
 $result2 = $mysqli->query($sql2);
 
-$sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $_GET['id'] . "'";
+$sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $cleanedID . "'";
 $result3 = $mysqli->query($sql3);
 while($result3->num_rows === 0 and $_GET['prev'] == 1)
     {
-        // echo $_GET['id'] . ' gives no results' . '<br />';
-        $_GET['id']--;
-        // echo 'decrement: ' . $_GET['id'] . '<br />';
-        $sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $_GET['id'] . "'";
+        // echo $cleanedID . ' gives no results' . '<br />';
+        $cleanedID--;
+        // echo 'decrement: ' . $cleanedID . '<br />';
+        $sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $cleanedID . "'";
         $result3 = $mysqli->query($sql3);
     }
 while($result3->num_rows === 0 and $_GET['next'] == 1)
     {
-        // echo $_GET['id'] . ' gives no results' . '<br />';
-        $_GET['id']++;
-        // echo 'decrement: ' . $_GET['id'] . '<br />';
-        $sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $_GET['id'] . "'";
+        // echo $cleanedID . ' gives no results' . '<br />';
+        $cleanedID++;
+        // echo 'decrement: ' . $cleanedID . '<br />';
+        $sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $cleanedID . "'";
         $result3 = $mysqli->query($sql3);
     }
-    // echo 'final set: ' . $_GET['id'];
-$sql = "SELECT * FROM " . $table_customer . " where id = '" . $_GET['id'] . "'";
+    // echo 'final set: ' . $cleanedID;
+$sql = "SELECT * FROM " . $table_customer . " where id = '" . $cleanedID . "'";
 $result = $mysqli->query($sql);
-$nextCustomer = $_GET['id'] + 1;
-$prevCustomer = $_GET['id'] - 1;
+$nextCustomer = $cleanedID + 1;
+$prevCustomer = $cleanedID - 1;
 
 if (isset($_GET['duplicated'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
@@ -106,11 +106,11 @@ while ($customerToEdit = $result->fetch_assoc()) { ?>
 <h3>EDITING CUSTOMER: #<?php echo $customerToEdit['id']?><br />
 ==============
 </h3>
-<?php if($_GET['id'] == $minID) { } else { ?>
+<?php if($cleanedID == $minID) { } else { ?>
 	<a href="editcustomer.php?id=<?php echo $prevCustomer?>&prev=1">View previous customer</a> 
 <?php } ?>
 &nbsp;&nbsp;
-<?php if($_GET['id'] == $maxID) { } else { ?>
+<?php if($cleanedID == $maxID) { } else { ?>
 <a href="editcustomer.php?id=<?php echo $nextCustomer?>&next=1">View next customer</a><?php } ?>
 <br /><br />
 <p>

@@ -14,21 +14,17 @@ require('../protect-this.php');
 include('../_includes/connect.php');
 
 
-$sql = "SELECT * FROM " . $table_customer . " where id = '" . $_GET['id'] . "'";
+$sql = "SELECT * FROM " . $table_customer . " where id = '" . $cleanedID . "'";
 
 $result = $mysqli->query($sql);
 
-$sql2 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $_GET['id'] . "'";
+$sql2 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $cleanedID . "'";
 
 $result2 = $mysqli->query($sql2);
 
 while ($customerToEdit = $result->fetch_assoc()) { ?>
-
-<h3>VIEWING CUSTOMER: #<?php echo $customerToEdit['id']?><br />
-==============
-</h3>
 <p style="font-weight: bold; color: red;">Are you sure you wish to delete this customer?</p>
-
+<h3>CUSTOMER: #<?php echo $customerToEdit['id']?></h3>
 <form>
 <input disabled type="hidden" name="dbid" value="<?php echo $customerToEdit['id']?>">
 First Name: <input size="50" disabled required="required" type="text" name="firstname" value="<?php echo $customerToEdit['firstname']?>"><br />
@@ -56,7 +52,7 @@ Phone 2: <input size="50" disabled required="required" type="number" name="phone
 Email Address: <input size="50" disabled type="email" name="email" value="<?php echo $customercontToEdit['email']?>"><br />
 <?php } ?>
 </form>
-<a href="deletecustomer.php?id=<?php echo $_GET['id'] ?>">Yes, delete this customer</a><br /><br />
+<a href="deletecustomer.php?id=<?php echo $cleanedID ?>">Yes, delete this customer</a><br /><br />
 
 <a href="../index.php">Go back</a><br /><br />
 

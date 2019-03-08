@@ -6,7 +6,7 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
-$sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+$sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 
 $sql4 = "select max(id) from " . $table_classes . "";
 
@@ -53,38 +53,38 @@ if (isset($_GET['edited'])) { ?>
 
 $result = $mysqli->query($sql);
 
-$sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+$sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 $result2 = $mysqli->query($sql2);
 while($result2->num_rows === 0 and $_GET['prev'] == 1)
     {
-        // echo $_GET['id'] . ' gives no results' . '<br />';
-        $_GET['id']--;
-        // echo 'decrement: ' . $_GET['id'] . '<br />';
-        $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+        // echo $cleanedID . ' gives no results' . '<br />';
+        $cleanedID--;
+        // echo 'decrement: ' . $cleanedID . '<br />';
+        $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
         $result2 = $mysqli->query($sql2);
     }
 while($result2->num_rows === 0 and $_GET['next'] == 1)
     {
-        // echo $_GET['id'] . ' gives no results' . '<br />';
-        $_GET['id']++;
-        // echo 'decrement: ' . $_GET['id'] . '<br />';
-        $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+        // echo $cleanedID . ' gives no results' . '<br />';
+        $cleanedID++;
+        // echo 'decrement: ' . $cleanedID . '<br />';
+        $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
         $result2 = $mysqli->query($sql2);
     }
-    // echo 'final set: ' . $_GET['id'];
-$sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+    // echo 'final set: ' . $cleanedID;
+$sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 $result = $mysqli->query($sql);
-$nextClass = $_GET['id'] + 1;
-$prevClass = $_GET['id'] - 1;
+$nextClass = $cleanedID + 1;
+$prevClass = $cleanedID - 1;
 
 while ($classToEdit = $result->fetch_assoc()) { ?>
 <h3>EDITING RECORD: #<?php echo $classToEdit['id']?><br />
 ==============
 </h3>
-<?php if($_GET['id'] == $minID) { } else { ?>
+<?php if($cleanedID == $minID) { } else { ?>
 	<a href="editclass.php?id=<?php echo $prevClass?>&prev=1">Edit previous record</a><?php } ?>
 &nbsp;&nbsp;
-<?php if($_GET['id'] == $maxID) { } else { ?>
+<?php if($cleanedID == $maxID) { } else { ?>
 <a href="editclass.php?id=<?php echo $nextClass?>&next=1">
 Edit next record</a><?php } ?>
 <br /><br />

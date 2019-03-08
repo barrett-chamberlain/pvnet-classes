@@ -6,7 +6,7 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
-$sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+$sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 
 $result = $mysqli->query($sql);
 
@@ -25,29 +25,29 @@ while ($getBottomID = $result5->fetch_assoc()) {
  $minID = $getBottomID["min(id)"];
 }
 
-$sql3 = "SELECT id FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+$sql3 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 $result3 = $mysqli->query($sql3);
 while($result3->num_rows === 0 and $_GET['prev'] == 1)
     {
-        // echo $_GET['id'] . ' gives no results' . '<br />';
-        $_GET['id']--;
-        // echo 'decrement: ' . $_GET['id'] . '<br />';
-        $sql3 = "SELECT id FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+        // echo $cleanedID . ' gives no results' . '<br />';
+        $cleanedID--;
+        // echo 'decrement: ' . $cleanedID . '<br />';
+        $sql3 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
         $result3 = $mysqli->query($sql3);
     }
 while($result3->num_rows === 0 and $_GET['next'] == 1)
     {
-        // echo $_GET['id'] . ' gives no results' . '<br />';
-        $_GET['id']++;
-        // echo 'decrement: ' . $_GET['id'] . '<br />';
-        $sql3 = "SELECT id FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+        // echo $cleanedID . ' gives no results' . '<br />';
+        $cleanedID++;
+        // echo 'decrement: ' . $cleanedID . '<br />';
+        $sql3 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
         $result3 = $mysqli->query($sql3);
     }
-    // echo 'final set: ' . $_GET['id'];
-$sql = "SELECT * FROM " . $table_classes . " where id = '" . $_GET['id'] . "'";
+    // echo 'final set: ' . $cleanedID;
+$sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 $result = $mysqli->query($sql);
-$nextClass = $_GET['id'] + 1;
-$prevClass = $_GET['id'] - 1;
+$nextClass = $cleanedID + 1;
+$prevClass = $cleanedID - 1;
 
 //don't forget to remove these debuggers
 // if (!$result = $mysqli->query($sql)) {
@@ -67,11 +67,11 @@ while ($classToEdit = $result->fetch_assoc()) { ?>
 <h3>VIEWING RECORD: #<?php echo $classToEdit['id']?><br />
 ==============
 </h3>
-<?php if($_GET['id'] == $minID) { } else { ?>
+<?php if($cleanedID == $minID) { } else { ?>
 	<a href="viewclass.php?id=<?php echo $prevClass?>&prev=1">View previous class</a> 
 <?php } ?>
 &nbsp;&nbsp;
-<?php if($_GET['id'] == $maxID) { } else { ?>
+<?php if($cleanedID == $maxID) { } else { ?>
 <a href="viewclass.php?id=<?php echo $nextClass?>&next=1">View next class</a><?php } ?>
 <br /><br />
 <p>

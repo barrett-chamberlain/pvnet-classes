@@ -6,7 +6,7 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
-$sql = "DELETE FROM " . $table_customer . " WHERE id = " . $_GET['id'] . "";
+$sql = "DELETE FROM " . $table_customer . " WHERE id = " . $cleanedID . "";
 
 //debugger
 
@@ -21,7 +21,7 @@ $sql = "DELETE FROM " . $table_customer . " WHERE id = " . $_GET['id'] . "";
 $result = $mysqli->query($sql);
 
 
-$sql2 = "DELETE FROM " . $table_customer_contact . " WHERE customer_id = " . $_GET['id'] . "";
+$sql2 = "DELETE FROM " . $table_customer_contact . " WHERE customer_id = " . $cleanedID . "";
 
 //debugger
 

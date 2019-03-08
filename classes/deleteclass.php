@@ -6,7 +6,7 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
-$sql = "DELETE FROM " . $table_classes . " WHERE id = " . $_GET['id'] . "";
+$sql = "DELETE FROM " . $table_classes . " WHERE id = " . $cleanedID . "";
 
 //debugger
 

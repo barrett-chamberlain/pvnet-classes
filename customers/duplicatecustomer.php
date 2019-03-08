@@ -7,7 +7,7 @@ include('../_includes/connect.php');
 
 $sql = "INSERT into " . $table_customer . " (`firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`) 
 SELECT 
-    `firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor` FROM " . $table_customer . " WHERE id='" . $_GET['id'] . "';";
+    `firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor` FROM " . $table_customer . " WHERE id='" . $cleanedID . "';";
 
 //debugger
 // if (!$result = $mysqli->query($sql)) {
@@ -30,7 +30,7 @@ while ($getTopID = $result2->fetch_assoc()) {
 
 $sql3 = "INSERT into " . $table_customer_contact . " (`addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, `customer_id`) 
 SELECT 
-    `addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, $insertedID FROM " . $table_customer_contact . " WHERE customer_id='" . $_GET['id'] . "';";
+    `addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, $insertedID FROM " . $table_customer_contact . " WHERE customer_id='" . $cleanedID . "';";
 
 $mysqli->query($sql3);
 
