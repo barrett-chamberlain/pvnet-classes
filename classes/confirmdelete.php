@@ -26,19 +26,18 @@ while ($classToEdit = $result->fetch_assoc()) { ?>
 <p style="font-weight: bold; color: red;">Are you sure you wish to delete this class?</p>
 
 <form>
-<h3>Record #<?php echo $classToEdit['id']?></h3>
 <input disabled type="hidden" name="dbid" value="<?php echo $classToEdit['id']?>">
 Class ID: <input disabled required="required" type="text" name="classId" value="<?php echo $classToEdit['Class_ID']?>"><br />
-Class Name: <input disabled required="required" type="text" name="className" value="<?php echo $classToEdit['Class_Name']?>"><br />
-Department: <input disabled type="text" name="dept" value="<?php echo $classToEdit['Department']?>"><br />
+Class Name: <input size="50" disabled required="required" type="text" name="className" value="<?php echo $classToEdit['Class_Name']?>"><br />
+Department: <input size="50" disabled type="text" name="dept" value="<?php echo $classToEdit['Department']?>"><br />
 Class Number: <input disabled type="text" name="classNum" value="<?php echo $classToEdit['Class_Number']?>"><br />
 Class Section: <input disabled type="text" name="classSec" value="<?php echo $classToEdit['Class_Section']?>"><br />
 Activate: <input disabled type="checkbox" <?php if($classToEdit['activate'] == 1){echo "checked";}?> name="actv"><br />
-Instructor: <input disabled type="text" name="instr" value="<?php echo $classToEdit['Instructor']?>"><br />
-Internal Notes: <input disabled type="text" name="int_notes" value="<?php echo $classToEdit['Internal_Notes']?>"><br />
-Class Description: <input disabled type="text" name="class_desc" value="<?php echo $classToEdit['Class_Description']?>"><br />
-Additional Info: <input disabled type="text" name="addl_info" value="<?php echo $classToEdit['Additional_Info']?>"><br />
-Prerequisite: <input disabled type="text" name="prereq" value="<?php echo $classToEdit['Prerequisite']?>"><br />
+Instructor: <input size="50" disabled type="text" name="instr" value="<?php echo $classToEdit['Instructor']?>"><br />
+Internal Notes: <textarea disabled rows="4" cols="50" name="int_notes"><?php echo $classToEdit['Internal_Notes']?></textarea><br />
+Class Description: <textarea disabled rows="4" cols="50" name="class_desc"><?php echo $classToEdit['Class_Description']?></textarea><br /><br />
+Additional Info: <textarea disabled rows="4" cols="50" name="addl_info"><?php echo $classToEdit['Additional_Info']?></textarea><br />
+Prerequisite: <textarea disabled rows="4" cols="50" name="prereq"><?php echo $classToEdit['Prerequisite']?></textarea><br />
 Start Week: <input disabled type="date" name="st_week" value="<?php echo $classToEdit['Start_Week']?>"><br />
 End Week: <input disabled type="date" name="end_week" value="<?php echo $classToEdit['End_Week']?>"><br />
 Age Start: <input disabled type="text" name="ageStart" value="<?php echo $classToEdit['Age_Start']?>"><br />
@@ -68,23 +67,23 @@ Total Meetings: <input disabled type="text" name="totalMtgs" value="<?php echo $
 Total Class Time Hours: <input disabled type="text" name="totClasTimeHrs" value="<?php echo $classToEdit['Total_Class_Time_Hrs']?>"><br />
 Start Time: <input disabled type="time" name="stTime" value="<?php echo $classToEdit['Start_Time']?>"><br />
 End Time: <input disabled type="time" name="endTime" value="<?php echo $classToEdit['End_Time']?>"><br />
-Area: <input disabled type="text" name="ar_ea" value="<?php echo $classToEdit['AREA']?>"><br />
-Image 1: <input disabled type="text" name="img1" value="<?php echo $classToEdit['IMG_1']?>"><br />
-Image 2: <input disabled type="text" name="img2" value="<?php echo $classToEdit['IMG_2']?>"><br />
-Image 3: <input disabled type="text" name="img3" value="<?php echo $classToEdit['IMG_3']?>"><br />
-External Link 1: <input disabled type="text" name="extLink1" value="<?php echo $classToEdit['EXT_LINK_1']?>"><br />
-External Link 2: <input disabled type="text" name="extLink2" value="<?php echo $classToEdit['EXT_LINK_2']?>"><br />
-External Link 3: <input disabled type="text" name="extLink3" value="<?php echo $classToEdit['EXT_LINK_3']?>"><br />
-UND 1: <input disabled type="text" name="und1" value="<?php echo $classToEdit['UND_1']?>"><br />
-UND 2: <input disabled type="text" name="und2" value="<?php echo $classToEdit['UND_2']?>"><br />
-UND 3: <input disabled type="text" name="und3" value="<?php echo $classToEdit['UND_3']?>"><br />
-UND 4: <input disabled type="text" name="und4" value="<?php echo $classToEdit['UND_4']?>"><br />
-UND 5: <input disabled type="text" name="und5" value="<?php echo $classToEdit['UND_5']?>"><br />
-UND 6: <input disabled type="text" name="und6" value="<?php echo $classToEdit['UND_6']?>"><br />
-UND 7: <input disabled type="text" name="und7" value="<?php echo $classToEdit['UND_7']?>"><br />
-UND 8: <input disabled type="text" name="und8" value="<?php echo $classToEdit['UND_8']?>"><br />
-UND 9: <input disabled type="text" name="und9" value="<?php echo $classToEdit['UND_9']?>"><br />
-UND 10: <input disabled type="text" name="und10" value="<?php echo $classToEdit['UND_10']?>"><br />
+Area: <input size="50" disabled type="text" name="ar_ea" value="<?php echo $classToEdit['AREA']?>"><br />
+Image 1: <input size="50" disabled type="text" name="img1" value="<?php echo $classToEdit['IMG_1']?>"><br />
+Image 2: <input size="50" disabled type="text" name="img2" value="<?php echo $classToEdit['IMG_2']?>"><br />
+Image 3: <input size="50" disabled type="text" name="img3" value="<?php echo $classToEdit['IMG_3']?>"><br />
+External Link 1: <input size="50" disabled type="text" name="extLink1" value="<?php echo $classToEdit['EXT_LINK_1']?>"><br />
+External Link 2: <input size="50" disabled type="text" name="extLink2" value="<?php echo $classToEdit['EXT_LINK_2']?>"><br />
+External Link 3: <input size="50" disabled type="text" name="extLink3" value="<?php echo $classToEdit['EXT_LINK_3']?>"><br />
+UND 1: <input size="50" disabled type="text" name="und1" value="<?php echo $classToEdit['UND_1']?>"><br />
+UND 2: <input size="50" disabled type="text" name="und2" value="<?php echo $classToEdit['UND_2']?>"><br />
+UND 3: <input size="50" disabled type="text" name="und3" value="<?php echo $classToEdit['UND_3']?>"><br />
+UND 4: <input size="50" disabled type="text" name="und4" value="<?php echo $classToEdit['UND_4']?>"><br />
+UND 5: <input size="50" disabled type="text" name="und5" value="<?php echo $classToEdit['UND_5']?>"><br />
+UND 6: <input size="50" disabled type="text" name="und6" value="<?php echo $classToEdit['UND_6']?>"><br />
+UND 7: <input size="50" disabled type="text" name="und7" value="<?php echo $classToEdit['UND_7']?>"><br />
+UND 8: <input size="50" disabled type="text" name="und8" value="<?php echo $classToEdit['UND_8']?>"><br />
+UND 9: <input size="50" disabled type="text" name="und9" value="<?php echo $classToEdit['UND_9']?>"><br />
+UND 10: <input size="50" disabled type="text" name="und10" value="<?php echo $classToEdit['UND_10']?>"><br />
 Publish Date: <input disabled type="date" name="pub_date" value="<?php echo $classToEdit['Publish_Date']?>"><br />
 Enrollment Limit: <input disabled type="Number" name="enr_limit" value="<?php echo $classToEdit['Enrollment_Limit']?>"><br />
 Not Included For Interns: <input disabled type="checkbox" <?php if($classToEdit['Not_Included_For_Interns'] == 1){echo "checked";}?> name="not_inc_int"><br />

@@ -63,6 +63,14 @@ $sql2 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . 
 
 $result2 = $mysqli->query($sql2);
 
+// echo '$cleanedID ' . $cleanedID . '<br />'; 
+
+// echo '$sql2 ' . $sql2 . '<br />';
+
+// echo '$sql ' . $sql . '<br />';
+
+
+
 $sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $cleanedID . "'";
 $result3 = $mysqli->query($sql3);
 while($result3->num_rows === 0 and $_GET['prev'] == 1)
@@ -71,7 +79,9 @@ while($result3->num_rows === 0 and $_GET['prev'] == 1)
         $cleanedID--;
         // echo 'decrement: ' . $cleanedID . '<br />';
         $sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $cleanedID . "'";
+        $sql4 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $cleanedID . "'";
         $result3 = $mysqli->query($sql3);
+        $result4 = $mysqli->query($sql4);
     }
 while($result3->num_rows === 0 and $_GET['next'] == 1)
     {
@@ -79,11 +89,15 @@ while($result3->num_rows === 0 and $_GET['next'] == 1)
         $cleanedID++;
         // echo 'decrement: ' . $cleanedID . '<br />';
         $sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $cleanedID . "'";
+        $sql4 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $cleanedID . "'";
         $result3 = $mysqli->query($sql3);
+        $result4 = $mysqli->query($sql4);
     }
     // echo 'final set: ' . $cleanedID;
 $sql = "SELECT * FROM " . $table_customer . " where id = '" . $cleanedID . "'";
 $result = $mysqli->query($sql);
+$sql2 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $cleanedID . "'";
+$result2 = $mysqli->query($sql2);
 $nextCustomer = $cleanedID + 1;
 $prevCustomer = $cleanedID - 1;
 
@@ -146,6 +160,53 @@ Zip Code: <input size="50"  type="number" name="zipcode" value="<?php echo $cust
 Phone 1: <input size="50"  required="required" type="number" name="phone1" value="<?php echo $customercontToEdit['phone1']?>"><br />
 Phone 2: <input size="50"  required="required" type="number" name="phone2" value="<?php echo $customercontToEdit['phone2']?>"><br />
 Email Address: <input size="50"  type="email" name="email" value="<?php echo $customercontToEdit['email']?>"><br />
+Employer Name: <input size="50" type="text" name="employer_name" value="<?php echo $customercontToEdit['employer_name']?>"><br />
+Position Title: <input size="50" type="text" name="position_title" value="<?php echo $customercontToEdit['position_title']?>"><br />
+Department: <input size="50" type="text" name="department" value="<?php echo $customercontToEdit['department']?>"><br />
+Area of Expertise: <input size="50" type="text" name="area_of_expertise" value="<?php echo $customercontToEdit['area_of_expertise']?>"><br />
+Work Address: <input size="50" type="text" name="work_address" value="<?php echo $customercontToEdit['work_address']?>"><br />
+Work City: <input size="50" type="text" name="work_city" value="<?php echo $customercontToEdit['work_city']?>"><br />
+<?php include('../_includes/work_state_conditional.php'); ?>
+Work Zip Code: <input size="50" type="number" name="work_zip" value="<?php echo $customercontToEdit['work_zip']?>"><br />
+Work Phone: <input size="50" type="number" name="work_phone" value="<?php echo $customercontToEdit['work_phone']?>"><br />
+Work Email: <input size="50" type="email" name="work_email" value="<?php echo $customercontToEdit['work_email']?>"><br />
+Work Notes: <textarea rows="4" cols="50" name="work_notes"><?php echo $customercontToEdit['work_notes']?></textarea><br />
+Willingness to Volunteer: <select name="willing_to_volunteer">
+<?php
+switch ($customercontToEdit['willing_to_volunteer']) {
+    case 'yes': ?>
+    <option selected value="yes">Yes</option>
+    <option value="no">No</option>
+    <option value="possibly">Possibly</option>
+    <option value="contact_me">Contact Me</option>
+    <?php
+        break;
+    case 'no': ?>
+    <option value="yes">Yes</option>
+    <option selected value="no">No</option>
+    <option value="possibly">Possibly</option>
+    <option value="contact_me">Contact Me</option>
+    <?php
+        break;
+            case 'possibly': ?>
+    <option selected value="yes">Yes</option>
+    <option value="no">No</option>
+    <option selected value="possibly">Possibly</option>
+    <option value="contact_me">Contact Me</option>
+    <?php
+        break;
+    case 'contact_me': ?>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+    <option value="possibly">Possibly</option>
+    <option selected value="contact_me">Contact Me</option>
+    <?php
+        break;
+}
+?>
+</select>
+<br />
+
 <?php } ?><br />
 <input type="submit"><br />
 </form>

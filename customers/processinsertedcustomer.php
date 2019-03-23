@@ -42,7 +42,7 @@ if (!$result2 = $mysqli->query($sql2)) {
 while ($getTopID = $result2->fetch_assoc()) {
  $insertedID = $getTopID["max(id)"];
 }
-$sql3 = "INSERT INTO " . $table_customer_contact . " (`addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, `customer_id`) VALUES ('" . $addr1_escaped . "', '" . $addr2_escaped . "', '" . $city_escaped . "', '" . $state_escaped . "', '" . $zipcode_escaped . "', '" . $phone1_escaped . "', '" . $phone2_escaped . "', '" . $email_escaped . "', " . $insertedID . ");";
+$sql3 = "INSERT INTO " . $table_customer_contact . " (`addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, `customer_id`, `employer_name`, `position_title`, `department`, `area_of_expertise`, `work_address`, `work_city`, `work_state`, `work_zip`, `work_phone`, `work_email`, `work_notes`, `willing_to_volunteer`) VALUES ('" . $addr1_escaped . "', '" . $addr2_escaped . "', '" . $city_escaped . "', '" . $state_escaped . "', '" . $zipcode_escaped . "', '" . $phone1_escaped . "', '" . $phone2_escaped . "', '" . $email_escaped . "', " . $insertedID . ", '" . $employer_name_escaped . "', '" . $position_title_escaped . "', '" . $department_escaped . "', '" . $area_of_expertise_escaped . "', '" . $work_address_escaped . "', '" . $work_city_escaped . "', '" . $work_state_escaped . "', '" . $work_zip_escaped . "', '" . $work_phone_escaped . "', '" . $work_email_escaped . "', '" . $work_notes_escaped . "', '" . $willing_to_volunteer_escaped . "');";
 
 // $result3 = $mysqli->query($sql3);
 if (!$result3 = $mysqli->query($sql3)) {

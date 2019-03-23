@@ -132,6 +132,52 @@ Zip Code: <input size="50" disabled type="number" name="zipcode" value="<?php ec
 Phone 1: <input size="50" disabled required="required" type="number" name="phone1" value="<?php echo $customercontToEdit['phone1']?>"><br />
 Phone 2: <input size="50" disabled required="required" type="number" name="phone2" value="<?php echo $customercontToEdit['phone2']?>"><br />
 Email Address: <input size="50" disabled type="email" name="email" value="<?php echo $customercontToEdit['email']?>"><br />
+Employer Name: <input size="50" disabled type="text" name="employer_name" value="<?php echo $customercontToEdit['employer_name']?>"><br />
+Position Title: <input size="50" disabled type="text" name="position_title" value="<?php echo $customercontToEdit['position_title']?>"><br />
+Department: <input size="50" disabled type="text" name="department" value="<?php echo $customercontToEdit['department']?>"><br />
+Area of Expertise: <input size="50" disabled type="text" name="area_of_expertise" value="<?php echo $customercontToEdit['area_of_expertise']?>"><br />
+Work Address: <input size="50" disabled type="text" name="work_address" value="<?php echo $customercontToEdit['work_address']?>"><br />
+Work City: <input size="50" disabled type="text" name="work_city" value="<?php echo $customercontToEdit['work_city']?>"><br />
+<?php include('../_includes/work_state_conditional_disabled.php'); ?>
+Work Zip Code: <input size="50" disabled type="number" name="work_zip" value="<?php echo $customercontToEdit['work_zip']?>"><br />
+Work Phone: <input size="50" disabled type="number" name="work_phone" value="<?php echo $customercontToEdit['work_phone']?>"><br />
+Work Email: <input size="50" disabled type="email" name="work_email" value="<?php echo $customercontToEdit['work_email']?>"><br />
+Work Notes: <textarea rows="4" cols="50" disabled name="work_notes"><?php echo $customercontToEdit['work_notes']?></textarea><br />
+Willingness to Volunteer: <select disabled name="willing_to_volunteer">
+<?php
+switch ($customercontToEdit['willing_to_volunteer']) {
+    case 'yes': ?>
+    <option selected value="yes">Yes</option>
+    <option value="no">No</option>
+    <option value="possibly">Possibly</option>
+    <option value="contact_me">Contact Me</option>
+    <?php
+        break;
+    case 'no': ?>
+    <option value="yes">Yes</option>
+    <option selected value="no">No</option>
+    <option value="possibly">Possibly</option>
+    <option value="contact_me">Contact Me</option>
+    <?php
+        break;
+            case 'possibly': ?>
+    <option selected value="yes">Yes</option>
+    <option value="no">No</option>
+    <option selected value="possibly">Possibly</option>
+    <option value="contact_me">Contact Me</option>
+    <?php
+        break;
+    case 'contact_me': ?>
+    <option value="yes">Yes</option>
+    <option value="no">No</option>
+    <option value="possibly">Possibly</option>
+    <option selected value="contact_me">Contact Me</option>
+    <?php
+        break;
+}
+?>
+</select>
+<br />
 <?php } ?>
 </form>
 

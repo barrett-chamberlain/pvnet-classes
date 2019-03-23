@@ -28,9 +28,9 @@ while ($getTopID = $result2->fetch_assoc()) {
  $insertedID = $getTopID["max(id)"];
 }
 
-$sql3 = "INSERT into " . $table_customer_contact . " (`addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, `customer_id`) 
+$sql3 = "INSERT into " . $table_customer_contact . " (`addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, `customer_id`, `employer_name`, `position_title`, `department`, `area_of_expertise`, `work_address`, `work_city`, `work_state`, `work_zip`, `work_phone`, `work_email`, `work_notes`, `willing_to_volunteer`) 
 SELECT 
-    `addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, $insertedID FROM " . $table_customer_contact . " WHERE customer_id='" . $cleanedID . "';";
+    `addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, $insertedID, `employer_name`, `position_title`, `department`, `area_of_expertise`, `work_address`, `work_city`, `work_state`, `work_zip`, `work_phone`, `work_email`, `work_notes`, `willing_to_volunteer` FROM " . $table_customer_contact . " WHERE customer_id='" . $cleanedID . "';";
 
 $mysqli->query($sql3);
 
