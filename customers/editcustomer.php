@@ -57,11 +57,19 @@ while ($getBottomID = $result5->fetch_assoc()) {
 
 $sql = "SELECT * FROM " . $table_customer . " where id = '" . $cleanedID . "'";
 
-$result = $mysqli->query($sql);
+// $result = $mysqli->query($sql);
+if (!$result = $mysqli->query($sql)) {
+    include('../_includes/send_error.php');
+    exit;
+}
 
 $sql2 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $cleanedID . "'";
 
-$result2 = $mysqli->query($sql2);
+// $result2 = $mysqli->query($sql2);
+if (!$result2 = $mysqli->query($sql2)) {
+    include('../_includes/send_error.php');
+    exit;
+}
 
 // echo '$cleanedID ' . $cleanedID . '<br />'; 
 
@@ -72,7 +80,11 @@ $result2 = $mysqli->query($sql2);
 
 
 $sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $cleanedID . "'";
-$result3 = $mysqli->query($sql3);
+// $result3 = $mysqli->query($sql3);
+if (!$result3 = $mysqli->query($sql3)) {
+    include('../_includes/send_error.php');
+    exit;
+}
 while($result3->num_rows === 0 and $_GET['prev'] == 1)
     {
         // echo $cleanedID . ' gives no results' . '<br />';
@@ -131,7 +143,7 @@ while ($customerToEdit = $result->fetch_assoc()) { ?>
 Customer ID: <?php echo $customerToEdit['id']?><br />
 Customer First Name: <?php echo $customerToEdit['firstname']?><br />
 Customer Last Name: <?php echo $customerToEdit['lastname']?><br /><br />
-<a href="../index.php">Go back</a> | <a href="editcustomer.php?id=<?php echo $customerToEdit['id']?>">Edit this customer</a> | <a href="duplicatecustomer.php?id=<?php echo $customerToEdit['id']?>">Duplicate this customer</a> | <a href="confirmdelete.php?id=<?php echo $customerToEdit['id']?>">Delete this customer</a><br /><br />
+<a href="../index.php">Go back</a> | <a href="duplicatecustomer.php?id=<?php echo $customerToEdit['id']?>">Duplicate this customer</a> | <a href="confirmdelete.php?id=<?php echo $customerToEdit['id']?>">Delete this customer</a><br /><br />
 </p>
 
 <form method="post" action="processeditedcustomer.php">
@@ -152,13 +164,13 @@ Last Name: <input size="50"  required="required" type="text" name="lastname" val
 </div>
 <?php }
 while ($customercontToEdit = $result2->fetch_assoc()) { ?>
-Address Line 1: <input size="50"  required="required" type="text" name="addr1" value="<?php echo $customercontToEdit['addr1']?>"><br />
-Address Line 2: <input size="50"  required="required" type="text" name="addr2" value="<?php echo $customercontToEdit['addr2']?>"><br />
-City: <input size="50"  required="required" type="text" name="city" value="<?php echo $customercontToEdit['city']?>"><br />
-State: <input size="50"  required="required" type="text" name="state" value="<?php echo $customercontToEdit['state']?>"><br />
-Zip Code: <input size="50"  type="number" name="zipcode" value="<?php echo $customercontToEdit['zipcode']?>"><br />
-Phone 1: <input size="50"  required="required" type="number" name="phone1" value="<?php echo $customercontToEdit['phone1']?>"><br />
-Phone 2: <input size="50"  required="required" type="number" name="phone2" value="<?php echo $customercontToEdit['phone2']?>"><br />
+Address Line 1: <input size="50" type="text" name="addr1" value="<?php echo $customercontToEdit['addr1']?>"><br />
+Address Line 2: <input size="50" type="text" name="addr2" value="<?php echo $customercontToEdit['addr2']?>"><br />
+City: <input size="50" type="text" name="city" value="<?php echo $customercontToEdit['city']?>"><br />
+State: <input size="50" type="text" name="state" value="<?php echo $customercontToEdit['state']?>"><br />
+Zip Code: <input size="50" type="number" name="zipcode" value="<?php echo $customercontToEdit['zipcode']?>"><br />
+Phone 1: <input size="50" type="number" name="phone1" value="<?php echo $customercontToEdit['phone1']?>"><br />
+Phone 2: <input size="50" type="number" name="phone2" value="<?php echo $customercontToEdit['phone2']?>"><br />
 Email Address: <input size="50"  type="email" name="email" value="<?php echo $customercontToEdit['email']?>"><br />
 Employer Name: <input size="50" type="text" name="employer_name" value="<?php echo $customercontToEdit['employer_name']?>"><br />
 Position Title: <input size="50" type="text" name="position_title" value="<?php echo $customercontToEdit['position_title']?>"><br />

@@ -1,7 +1,7 @@
 <style type="text/css">
 .controlSpacer {
     float: left;
-    width: 15%;
+    width: 6%;
 }
 .sortRecord {
     width: 8%;
@@ -36,7 +36,7 @@
 }
 .classOptions {
     float: left;
-    width: 15%;
+    width: 6%;
     border-right: 1px solid black;
 }
 .classRecord {
@@ -95,13 +95,8 @@ if ($_GET['sortln'] == "sortdesc") {
 if ($_GET['sortln'] == "sortasc") {
     $sql = "SELECT * FROM " . $table_customer . " order by lastname asc";
 } 
-// $result = $mysqli->query($sql); 
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
-?>
-<h3>SELECT A CUSTOMER TO MANAGE<br />
+$result = $mysqli->query($sql); ?>
+<h3>SELECT A CUSTOMER TO LINK TO STUDENT<br />
 ==============
 </h3>
 <a href="../index.php">Go back</a><br /><br />
@@ -145,7 +140,7 @@ if($i % 2 == 0) {
 }
 ?>
 <div class="classOptions">
-<?php echo '<a href=viewcustomer.php?id=' . $classes['id'] .'>VU</a>' . ' | ' . '<a href=editcustomer.php?id=' . $classes['id'] .'>ED</a>' . ' | ' . '<a href=duplicatecustomer.php?id=' . $classes['id'] .'>DUP</a>' . ' | ' . '<a href=confirmdelete.php?id=' . $classes['id'] .'>DEL</a></div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['firstname'] . '</div><div class="className">' . $classes['lastname'] . '</div></div>';
+<?php echo '<a href=insertstudent.php?id=' . $classes['id'] .'>LINK</a>' . '</div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['firstname'] . '</div><div class="className">' . $classes['lastname'] . '</div></div>';
 $i++;
 }
 ?>

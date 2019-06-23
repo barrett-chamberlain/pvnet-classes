@@ -18,7 +18,11 @@ SELECT
 //     exit;
 // }
 
-$mysqli->query($sql);
+// $mysqli->query($sql);
+if (!$result = $mysqli->query($sql)) {
+    include('../_includes/send_error.php');
+    exit;
+}
 
 $sql2 = "select max(id) from " . $table_customer . "";
 
@@ -32,7 +36,11 @@ $sql3 = "INSERT into " . $table_customer_contact . " (`addr1`, `addr2`, `city`, 
 SELECT 
     `addr1`, `addr2`, `city`, `state`, `zipcode`, `phone1`, `phone2`, `email`, $insertedID, `employer_name`, `position_title`, `department`, `area_of_expertise`, `work_address`, `work_city`, `work_state`, `work_zip`, `work_phone`, `work_email`, `work_notes`, `willing_to_volunteer` FROM " . $table_customer_contact . " WHERE customer_id='" . $cleanedID . "';";
 
-$mysqli->query($sql3);
+// $mysqli->query($sql3);
+if (!$result1 = $mysqli->query($sql3)) {
+    include('../_includes/send_error.php');
+    exit;
+}
 
 // if (!$result3 = $mysqli->query($sql3)) {
 //     echo "Error: Our query failed to execute and here is why:" . "<br />";

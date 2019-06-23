@@ -1,5 +1,5 @@
 <?php
-
+//escape form inputs to prevent injection
 $classId_escaped = mysqli_real_escape_string($mysqli,$_POST["classId"]);
 $className_escaped = mysqli_real_escape_string($mysqli,$_POST["className"]);
 $dept_escaped = mysqli_real_escape_string($mysqli,$_POST["dept"]);

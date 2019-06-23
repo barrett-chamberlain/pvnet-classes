@@ -1,4 +1,5 @@
 <?php
+//escape form inputs to prevent injection
 $dbid_escaped = mysqli_real_escape_string($mysqli,$_POST["dbid"]);
 $firstname_escaped = mysqli_real_escape_string($mysqli,$_POST["firstname"]);
 $lastname_escaped = mysqli_real_escape_string($mysqli,$_POST["lastname"]);

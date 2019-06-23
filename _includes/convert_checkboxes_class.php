@@ -1,5 +1,5 @@
 <?php 
-
+//interpret checkboxes into numbers
 if($_POST["actv"] == 'on') {
 	$activate = 1;
 } else {

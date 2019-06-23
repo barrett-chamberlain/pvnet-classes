@@ -18,10 +18,7 @@ $sql = "INSERT INTO " . $table_customer . " (`firstname`, `lastname`, `is_parent
 // debugger
 
 if (!$result1 = $mysqli->query($sql)) {
-    echo "Error1: Our query failed to execute and here is why:" . "<br />";
-    echo "Query: " . $sql . "\n";
-    echo "Errno: " . $mysqli->errno . "<br />";
-    echo "Error: " . $mysqli->error . "<br />";
+    include('../_includes/send_error.php');
     exit;
 }
 
@@ -46,10 +43,7 @@ $sql3 = "INSERT INTO " . $table_customer_contact . " (`addr1`, `addr2`, `city`, 
 
 // $result3 = $mysqli->query($sql3);
 if (!$result3 = $mysqli->query($sql3)) {
-    echo "Error3: Our query failed to execute and here is why:" . "<br />";
-    echo "Query: " . $sql3 . "\n";
-    echo "Errno: " . $mysqli->errno . "<br />";
-    echo "Error: " . $mysqli->error . "<br />";
+    include('../_includes/send_error.php');
     exit;
 }
 // echo $sql2 . '<br />';

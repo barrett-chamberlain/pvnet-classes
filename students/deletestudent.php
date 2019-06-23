@@ -6,7 +6,7 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
-$sql = "DELETE FROM " . $table_customer . " WHERE id = " . $cleanedID . "";
+$sql = "DELETE FROM " . $table_student . " WHERE id = " . $cleanedID . "";
 
 //debugger
 
@@ -24,22 +24,7 @@ if (!$result = $mysqli->query($sql)) {
     exit;
 }
 
-
-$sql2 = "DELETE FROM " . $table_customer_contact . " WHERE customer_id = " . $cleanedID . "";
-
-//debugger
-
-// if (!$result = $mysqli->query($sql)) {
-//     echo "Error: Our query failed to execute and here is why:" . "<br />";
-//     // echo "Query: " . $sql . "\n";
-//     echo "Errno: " . $mysqli->errno . "<br />";
-//     echo "Error: " . $mysqli->error . "<br />";
-//     exit;
-// }
-
-$result2 = $mysqli->query($sql2);
-
-header("Location: selectcustomertoedit.php?deleted=1"); /* Redirect browser */
+header("Location: selectstudenttoedit.php?deleted=1"); /* Redirect browser */
   exit();
 
 ?>

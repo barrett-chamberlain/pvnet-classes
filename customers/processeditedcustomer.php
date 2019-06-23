@@ -29,7 +29,11 @@ $sql = "update " . $table_customer . " set firstname = '" . $firstname_escaped .
 
 // echo 'activate: ' . $activate;
 
-$mysqli->query($sql);
+// $mysqli->query($sql);
+if (!$result = $mysqli->query($sql)) {
+    include('../_includes/send_error.php');
+    exit;
+}
 
 
 
@@ -41,18 +45,11 @@ $sql2 = "update " . $table_customer_contact . " set addr1 = '" . $addr1_escaped 
 //debugger
 
 if (!$result2 = $mysqli->query($sql2)) {
-    echo "Error: Our query failed to execute and here is why:" . "<br />";
-    echo "Query2: " . $sql2 . "\n";
-    echo "Errno2: " . $mysqli->errno . "<br />";
-    echo "Error2: " . $mysqli->error . "<br />";
+    include('../_includes/send_error.php');
     exit;
 }
 
 // echo 'activate: ' . $activate;
-
-$mysqli->query($sql2);
-
-
 
 header("Location: editcustomer.php?id=$dbid_escaped&edited=1"); /* Redirect browser */
   exit();

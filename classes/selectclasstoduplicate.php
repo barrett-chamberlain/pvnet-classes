@@ -7,7 +7,12 @@ require('../protect-this.php');
 include('../_includes/connect.php');
 
 $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " ORDER BY id asc";
-$result = $mysqli->query($sql); ?>
+// $result = $mysqli->query($sql);
+if (!$result = $mysqli->query($sql)) {
+    include('../_includes/send_error.php');
+    exit;
+} 
+?>
 <h3>SELECT A CLASS TO DUPLICATE<br />
 ==============
 </h3>

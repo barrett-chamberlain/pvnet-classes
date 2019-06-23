@@ -1,5 +1,8 @@
 <body style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">
 <?php
+
+//processes deletion of row of ID passed from confirmdelete.php
+
 //password auth
 require('../protect-this.php');
 
@@ -10,13 +13,10 @@ $sql = "DELETE FROM " . $table_classes . " WHERE id = " . $cleanedID . "";
 
 //debugger
 
-// if (!$result = $mysqli->query($sql)) {
-//     echo "Error: Our query failed to execute and here is why:" . "<br />";
-//     // echo "Query: " . $sql . "\n";
-//     echo "Errno: " . $mysqli->errno . "<br />";
-//     echo "Error: " . $mysqli->error . "<br />";
-//     exit;
-// }
+if (!$result = $mysqli->query($sql)) {
+    include('../_includes/send_error.php');
+    exit;
+}
 
 $result = $mysqli->query($sql);
 

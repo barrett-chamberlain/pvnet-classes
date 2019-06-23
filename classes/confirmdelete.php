@@ -1,5 +1,8 @@
 <body style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">
 <?php
+
+//display confirmation page with form inputs disabled so someone doesn't accidentally delete a record.
+
 //password auth
 require('../protect-this.php');
 
@@ -8,16 +11,9 @@ include('../_includes/connect.php');
 
 $sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 
-//don't forget to remove these debuggers
+//debugger
 if (!$result = $mysqli->query($sql)) {
-    echo "Error: Our query failed to execute and here is why: \n";
-    echo "Query: " . $sql . "\n";
-    echo "Errno: " . $mysqli->errno . "\n";
-    echo "Error: " . $mysqli->error . "\n";
-    exit;
-}
-if ($result->num_rows === 0) {
-    echo "No rows returned.";
+    include('../_includes/send_error.php');
     exit;
 }
 

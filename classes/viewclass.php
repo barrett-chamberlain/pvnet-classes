@@ -7,60 +7,45 @@ require('../protect-this.php');
 include('../_includes/connect.php');
 
 $sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
+// $result = $mysqli->query($sql);
+if (!$result = $mysqli->query($sql)) {
+    include('../_includes/send_error.php');
+    exit;
+}
 
-$result = $mysqli->query($sql);
-
+//queries for prev/next viewing
 $sql4 = "select max(id) from " . $table_classes . "";
-
 $result4 = $mysqli->query($sql4);
-
 $sql5 = "select min(id) from " . $table_classes . "";
-
 $result5 = $mysqli->query($sql5);
-
 while ($getTopID = $result4->fetch_assoc()) {
  $maxID = $getTopID["max(id)"];
 }
 while ($getBottomID = $result5->fetch_assoc()) {
  $minID = $getBottomID["min(id)"];
 }
-
 $sql3 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 $result3 = $mysqli->query($sql3);
+
+//increment/decrement ID and rerun query until record found for prev/next links
 while($result3->num_rows === 0 and $_GET['prev'] == 1)
     {
-        // echo $cleanedID . ' gives no results' . '<br />';
         $cleanedID--;
-        // echo 'decrement: ' . $cleanedID . '<br />';
         $sql3 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
         $result3 = $mysqli->query($sql3);
     }
 while($result3->num_rows === 0 and $_GET['next'] == 1)
     {
-        // echo $cleanedID . ' gives no results' . '<br />';
         $cleanedID++;
-        // echo 'decrement: ' . $cleanedID . '<br />';
         $sql3 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
         $result3 = $mysqli->query($sql3);
     }
-    // echo 'final set: ' . $cleanedID;
+
+//re-establish SQL statement with found valid ID
 $sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 $result = $mysqli->query($sql);
 $nextClass = $cleanedID + 1;
 $prevClass = $cleanedID - 1;
-
-//don't forget to remove these debuggers
-// if (!$result = $mysqli->query($sql)) {
-//     echo "Error: Our query failed to execute and here is why: \n";
-//     echo "Query: " . $sql . "\n";
-//     echo "Errno: " . $mysqli->errno . "\n";
-//     echo "Error: " . $mysqli->error . "\n";
-//     exit;
-// }
-// if ($result->num_rows === 0) {
-//     echo "No rows returned.";
-//     exit;
-// }
 
 while ($classToEdit = $result->fetch_assoc()) { ?>
 

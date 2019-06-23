@@ -109,8 +109,8 @@ Customer Last Name: <?php echo $customerToEdit['lastname']?><br /><br />
 
 <form>
 <input disabled type="hidden" name="dbid" value="<?php echo $customerToEdit['id']?>">
-First Name: <input size="50" disabled required="required" type="text" name="firstname" value="<?php echo $customerToEdit['firstname']?>"><br />
-Last Name: <input size="50" disabled required="required" type="text" name="lastname" value="<?php echo $customerToEdit['lastname']?>"><br />
+First Name: <input size="50" disabled type="text" name="firstname" value="<?php echo $customerToEdit['firstname']?>"><br />
+Last Name: <input size="50" disabled type="text" name="lastname" value="<?php echo $customerToEdit['lastname']?>"><br />
 <div class="roleBox">
     Customer is a...<br /><br />
     Parent: <input disabled type="checkbox" <?php if($customerToEdit['is_parent'] == 1){echo "checked";}?> name="is_parent"><br />
@@ -124,13 +124,13 @@ Last Name: <input size="50" disabled required="required" type="text" name="lastn
 </div>
 <?php }
 while ($customercontToEdit = $result2->fetch_assoc()) { ?>
-Address Line 1: <input size="50" disabled required="required" type="text" name="addr1" value="<?php echo $customercontToEdit['addr1']?>"><br />
-Address Line 2: <input size="50" disabled required="required" type="text" name="addr2" value="<?php echo $customercontToEdit['addr2']?>"><br />
-City: <input size="50" disabled required="required" type="text" name="city" value="<?php echo $customercontToEdit['city']?>"><br />
-State: <input size="50" disabled required="required" type="text" name="state" value="<?php echo $customercontToEdit['state']?>"><br />
+Address Line 1: <input size="50" disabled type="text" name="addr1" value="<?php echo $customercontToEdit['addr1']?>"><br />
+Address Line 2: <input size="50" disabled type="text" name="addr2" value="<?php echo $customercontToEdit['addr2']?>"><br />
+City: <input size="50" disabled type="text" name="city" value="<?php echo $customercontToEdit['city']?>"><br />
+State: <input size="50" disabled type="text" name="state" value="<?php echo $customercontToEdit['state']?>"><br />
 Zip Code: <input size="50" disabled type="number" name="zipcode" value="<?php echo $customercontToEdit['zipcode']?>"><br />
-Phone 1: <input size="50" disabled required="required" type="number" name="phone1" value="<?php echo $customercontToEdit['phone1']?>"><br />
-Phone 2: <input size="50" disabled required="required" type="number" name="phone2" value="<?php echo $customercontToEdit['phone2']?>"><br />
+Phone 1: <input size="50" disabled type="number" name="phone1" value="<?php echo $customercontToEdit['phone1']?>"><br />
+Phone 2: <input size="50" disabled type="number" name="phone2" value="<?php echo $customercontToEdit['phone2']?>"><br />
 Email Address: <input size="50" disabled type="email" name="email" value="<?php echo $customercontToEdit['email']?>"><br />
 Employer Name: <input size="50" disabled type="text" name="employer_name" value="<?php echo $customercontToEdit['employer_name']?>"><br />
 Position Title: <input size="50" disabled type="text" name="position_title" value="<?php echo $customercontToEdit['position_title']?>"><br />

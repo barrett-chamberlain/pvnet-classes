@@ -95,13 +95,8 @@ if ($_GET['sortname'] == "sortdesc") {
 if ($_GET['sortname'] == "sortasc") {
     $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by Class_Name asc";
 } 
-// $result = $mysqli->query($sql); 
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
-?>
-<h3>SELECT A CLASS TO MANAGE<br />
+$result = $mysqli->query($sql); ?>
+<h3>SELECT CLASS TO ENROLL STUDENT IN<br />
 ==============
 </h3>
 <a href="../index.php">Go back</a><br /><br />
@@ -145,7 +140,7 @@ if($i % 2 == 0) {
 }
 ?>
 <div class="classOptions">
-<?php echo '<a href=viewclass.php?id=' . $classes['id'] .'>VU</a>' . ' | ' . '<a href=editclass.php?id=' . $classes['id'] .'>ED</a>' . ' | ' . '<a href=duplicateclass.php?id=' . $classes['id'] .'>DUP</a>' . ' | ' . '<a href=confirmdelete.php?id=' . $classes['id'] .'>DEL</a></div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['Class_ID'] . '</div><div class="className">' . $classes['Class_Name'] . '</div></div>';
+<?php echo '<a href=enroll.php?classid=' . $classes['id'] . '&studentid=' . $cleanedID . '>ENROLL</a>' . '</div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['Class_ID'] . '</div><div class="className">' . $classes['Class_Name'] . '</div></div>';
 $i++;
 }
 ?>

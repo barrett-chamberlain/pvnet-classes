@@ -6,14 +6,15 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
+//get class selected for editing
 $sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 
+//get upper limit for next class link
 $sql4 = "select max(id) from " . $table_classes . "";
-
 $result4 = $mysqli->query($sql4);
 
+//get lower limit for prev class link
 $sql5 = "select min(id) from " . $table_classes . "";
-
 $result5 = $mysqli->query($sql5);
 
 while ($getTopID = $result4->fetch_assoc()) {
@@ -23,20 +24,7 @@ while ($getBottomID = $result5->fetch_assoc()) {
  $minID = $getBottomID["min(id)"];
 }
 
-// echo $sql . '<br />';
-
-//debugger
-// if (!$result = $mysqli->query($sql)) {
-//     echo "Error: Our query failed to execute and here is why: \n";
-//     echo "Query: " . $sql . "\n";
-//     echo "Errno: " . $mysqli->errno . "\n";
-//     echo "Error: " . $mysqli->error . "\n";
-//     exit;
-// }
-// if ($result->num_rows === 0) {
-//     echo "No rows returned.";
-//     exit;
-// }
+//display banner at top of page if action has been completed
 if (isset($_GET['duplicated'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
@@ -51,32 +39,40 @@ if (isset($_GET['edited'])) { ?>
 </div>
 <?php } 
 
-$result = $mysqli->query($sql);
+// $result = $mysqli->query($sql);
+if (!$result = $mysqli->query($sql)) {
+    include('../_includes/send_error.php');
+    exit;
+}
 
 $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
-$result2 = $mysqli->query($sql2);
+// $result2 = $mysqli->query($sql2);
+if (!$result2 = $mysqli->query($sql2)) {
+    include('../_includes/send_error.php');
+    exit;
+}
+
+//increment/decrement ID and rerun query until record found for prev/next links
 while($result2->num_rows === 0 and $_GET['prev'] == 1)
     {
-        // echo $cleanedID . ' gives no results' . '<br />';
         $cleanedID--;
-        // echo 'decrement: ' . $cleanedID . '<br />';
         $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
         $result2 = $mysqli->query($sql2);
     }
 while($result2->num_rows === 0 and $_GET['next'] == 1)
     {
-        // echo $cleanedID . ' gives no results' . '<br />';
         $cleanedID++;
-        // echo 'decrement: ' . $cleanedID . '<br />';
         $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
         $result2 = $mysqli->query($sql2);
     }
-    // echo 'final set: ' . $cleanedID;
+//re-establish SQL statement with found valid ID
 $sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 $result = $mysqli->query($sql);
+
 $nextClass = $cleanedID + 1;
 $prevClass = $cleanedID - 1;
 
+//list out input fields with DB info set for values
 while ($classToEdit = $result->fetch_assoc()) { ?>
 <h3>EDITING RECORD: #<?php echo $classToEdit['id']?><br />
 ==============

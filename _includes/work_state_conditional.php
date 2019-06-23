@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+//interpret work state dropdown for edit page
+?>
 Work State: <select name="work_state">
     <option <?php if($customercontToEdit['work_state'] == 'AL'){echo 'selected';}?> value="AL">Alabama</option>
     <option <?php if($customercontToEdit['work_state'] == 'AK'){echo 'selected';}?> value="AK">Alaska</option>
