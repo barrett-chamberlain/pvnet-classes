@@ -16,8 +16,14 @@ $sql1 = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedClassID . 
 
 if (!$result1 = $mysqli->query($sql1)) {
     include('../_includes/send_error.php');
-    exit;
-}
+    exit; }
+//     if (!$result1 = $mysqli->query($sql1)) {
+//     echo "Error: Our query failed to execute and here is why:" . "<br />";
+//     echo "Query: " . $sql1 . "\n";
+//     echo "Errno: " . $mysqli->errno . "<br />";
+//     echo "Error: " . $mysqli->error . "<br />";
+//     exit;
+// }
 
 $sql2 = "SELECT * FROM " . $table_student . " where id = '" . $cleanedStudentID . "'";
 
@@ -99,6 +105,13 @@ if (!$result5 = $mysqli->query($sql5)) {
     include('../_includes/send_error.php');
     exit;
 }
+// if (!$result5 = $mysqli->query($sql5)) {
+//     echo "Error: Our query failed to execute and here is why:" . "<br />";
+//     echo "Query: " . $sql5 . "\n";
+//     echo "Errno: " . $mysqli->errno . "<br />";
+//     echo "Error: " . $mysqli->error . "<br />";
+//     exit;
+// }
 
 $sql6 = "select max(id) from " . $table_class_history . "";
 $result6 = $mysqli->query($sql6);
@@ -114,6 +127,13 @@ if (!$result7 = $mysqli->query($sql7)) {
     include('../_includes/send_error.php');
     exit;
 }
+// if (!$result7 = $mysqli->query($sql7)) {
+//     echo "Error: Our query failed to execute and here is why:" . "<br />";
+//     echo "Query: " . $sql7 . "\n";
+//     echo "Errno: " . $mysqli->errno . "<br />";
+//     echo "Error: " . $mysqli->error . "<br />";
+//     exit;
+// }
 
 $sql8 = "update " . $table_class_history . " set customers_table_id = '" . $escapedUpdateWithCustomer["id"] . "', firstname = '" . $escapedUpdateWithCustomer["firstname"] . "', lastname = '" . $escapedUpdateWithCustomer["lastname"] . "', custuuid = '" . $escapedUpdateWithCustomer["custuuid"] . "', cust_is_parent = '" . $escapedUpdateWithCustomer["is_parent"] . "', cust_is_student_adult = '" . $escapedUpdateWithCustomer["is_student_adult"] . "', cust_is_student_minor = '" . $escapedUpdateWithCustomer["is_student_minor"] . "', cust_is_relative = '" . $escapedUpdateWithCustomer["is_relative"] . "', cust_is_sibling = '" . $escapedUpdateWithCustomer["is_sibling"] . "', cust_is_instructor = '" . $escapedUpdateWithCustomer["is_instructor"] . "', cust_is_vol_adult = '" . $escapedUpdateWithCustomer["is_vol_adult"] . "', cust_is_vol_minor = '" . $escapedUpdateWithCustomer["is_vol_minor"] . "', cust_is_sponsor = '" . $escapedUpdateWithCustomer["is_sponsor"] . "', cust_is_alumni = '" . $escapedUpdateWithCustomer["is_alumni"] . "', password = '" . $escapedUpdateWithCustomer["password"] . "', h_env_electronic = '" . $escapedUpdateWithCustomer["h_env_electronic"] . "', h_env_compsci = '" . $escapedUpdateWithCustomer["h_env_compsci"] . "', h_env_mecheng = '" . $escapedUpdateWithCustomer["h_env_mecheng"] . "' where id = " . $insertedID . "";
 
@@ -125,10 +145,17 @@ if (!$result8 = $mysqli->query($sql8)) {
     include('../_includes/send_error.php');
     exit;
 } 
+// if (!$result8 = $mysqli->query($sql8)) {
+//     echo "Error: Our query failed to execute and here is why:" . "<br />";
+//     echo "Query: " . $sql8 . "\n";
+//     echo "Errno: " . $mysqli->errno . "<br />";
+//     echo "Error: " . $mysqli->error . "<br />";
+//     exit;
+// }
 
 var_dump($escapedUpdateWithCustomerContact);
 
-$sql9 = "update " . $table_class_history . " set customer_contact_table_id = '" . $escapedUpdateWithCustomerContact["id"] . "', addr1 = '" . $escapedUpdateWithCustomerContact["addr1"] . "', addr2 = '" . $escapedUpdateWithCustomerContact["addr2"] . "', city = '" . $escapedUpdateWithCustomerContact["city"] . "', state = '" . $escapedUpdateWithCustomerContact["state"] . "', zipcode = " . $escapedUpdateWithCustomerContact["zipcode"] . ", phone1 = " . $escapedUpdateWithCustomerContact["phone1"] . ", phone2 = " . $escapedUpdateWithCustomerContact["phone2"] . ", cust_cont_email = '" . $escapedUpdateWithCustomerContact["email"] . "', employer_name = '" . $escapedUpdateWithCustomerContact["employer_name"] . "', position_title = '" . $escapedUpdateWithCustomerContact["position_title"] . "', cust_cont_department = '" . $escapedUpdateWithCustomerContact["department"] . "', area_of_expertise = '" . $escapedUpdateWithCustomerContact["area_of_expertise"] . "', work_address = '" . $escapedUpdateWithCustomerContact["work_address"] . "', work_city = '" . $escapedUpdateWithCustomerContact["work_city"] . "', work_state = '" . $escapedUpdateWithCustomerContact["work_state"] . "', work_zip = '" . $escapedUpdateWithCustomerContact["work_zip"] . "', work_phone = '" . $escapedUpdateWithCustomerContact["work_phone"] . "', work_email = '" . $escapedUpdateWithCustomerContact["work_email"] . "', work_notes = '" . $escapedUpdateWithCustomerContact["work_notes"] . "', willing_to_volunteer = '" . $escapedUpdateWithCustomerContact["willing_to_volunteer"] . "'  where id = " . $insertedID . "";
+$sql9 = "update " . $table_class_history . " set customer_contact_table_id = '" . $escapedUpdateWithCustomerContact["id"] . "', addr1 = '" . $escapedUpdateWithCustomerContact["addr1"] . "', addr2 = '" . $escapedUpdateWithCustomerContact["addr2"] . "', city = '" . $escapedUpdateWithCustomerContact["city"] . "', state = '" . $escapedUpdateWithCustomerContact["state"] . "', zipcode = '" . $escapedUpdateWithCustomerContact["zipcode"] . "', phone1 = '" . $escapedUpdateWithCustomerContact["phone1"] . "', phone2 = '" . $escapedUpdateWithCustomerContact["phone2"] . "', cust_cont_email = '" . $escapedUpdateWithCustomerContact["email"] . "', employer_name = '" . $escapedUpdateWithCustomerContact["employer_name"] . "', position_title = '" . $escapedUpdateWithCustomerContact["position_title"] . "', cust_cont_department = '" . $escapedUpdateWithCustomerContact["department"] . "', area_of_expertise = '" . $escapedUpdateWithCustomerContact["area_of_expertise"] . "', work_address = '" . $escapedUpdateWithCustomerContact["work_address"] . "', work_city = '" . $escapedUpdateWithCustomerContact["work_city"] . "', work_state = '" . $escapedUpdateWithCustomerContact["work_state"] . "', work_zip = '" . $escapedUpdateWithCustomerContact["work_zip"] . "', work_phone = '" . $escapedUpdateWithCustomerContact["work_phone"] . "', work_email = '" . $escapedUpdateWithCustomerContact["work_email"] . "', work_notes = '" . $escapedUpdateWithCustomerContact["work_notes"] . "', willing_to_volunteer = '" . $escapedUpdateWithCustomerContact["willing_to_volunteer"] . "'  where id = " . $insertedID . "";
 
 // echo $sql9;
 
@@ -138,6 +165,14 @@ if (!$result9 = $mysqli->query($sql9)) {
     include('../_includes/send_error.php');
     exit;
 } 
+// if (!$result9 = $mysqli->query($sql9)) {
+//     echo "Error: Our query failed to execute and here is why:" . "<br />";
+//     echo "Query: " . $sql9 . "\n";
+//     echo "Errno: " . $mysqli->errno . "<br />";
+//     echo "Error: " . $mysqli->error . "<br />";
+//     exit;
+// }
+
 
 // exit;
 // while ($getTopID = $result2->fetch_assoc()) {

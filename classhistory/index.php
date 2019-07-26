@@ -89,6 +89,12 @@ $result = $mysqli->query($sql); ?>
 <h3>CLASS HISTORY<br />
 ==============
 </h3>
+<div class="duplicateOptions">
+        <a href="../spreadsheet/generate_spreadsheet_class_history.php">Generate a spreadsheet of all class history</a><br /><br />
+        <a href="../spreadsheet/generate_spreadsheet_class_history_order_by_class.php">Generate a spreadsheet of all class history sorted by class</a><br /><br />
+        <a href="../spreadsheet/generate_spreadsheet_class_history_order_by_student.php">Generate a spreadsheet of all class history sorted by student</a><br /><br />
+        <br />
+</div>
 <a href="../index.php">Go back</a><br /><br />
 <div class="sortOptions">
     <div class="controlSpacer">&nbsp;</div>
@@ -119,6 +125,7 @@ $result = $mysqli->query($sql); ?>
             <a href="index.php?sortln=sortasc">SORT</a>
         <?php }?>
     </div>
+
 </div>
 <?php
 $i = 1;
