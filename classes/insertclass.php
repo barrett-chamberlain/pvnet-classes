@@ -74,6 +74,8 @@ Enrollment Limit: <input type="Number" name="enr_limit"><br />
 Not Included For Interns: <input type="checkbox" name="not_inc_int"><br />
 Seminars: <input type="checkbox" name="sem"><br />
 Events: <input type="checkbox" name="eve"><br />
+Price for Interns: <input type="Number" name="price_for_interns"><br />
+Price for Students: <input type="Number" name="price_for_students"><br />
 <input type="submit">
 </form>
 </body>

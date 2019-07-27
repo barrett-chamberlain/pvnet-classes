@@ -39,18 +39,10 @@ if (isset($_GET['edited'])) { ?>
 </div>
 <?php } 
 
-// $result = $mysqli->query($sql);
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result = $mysqli->query($sql);
 
 $sql2 = "SELECT id FROM " . $table_classes . " where id = '" . $cleanedID . "'";
-// $result2 = $mysqli->query($sql2);
-if (!$result2 = $mysqli->query($sql2)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result2 = $mysqli->query($sql2);
 
 //increment/decrement ID and rerun query until record found for prev/next links
 while($result2->num_rows === 0 and $_GET['prev'] == 1)
@@ -155,6 +147,8 @@ Enrollment Limit: <input type="Number" name="enr_limit" value="<?php echo $class
 Not Included For Interns: <input type="checkbox" <?php if($classToEdit['Not_Included_For_Interns'] == 1){echo "checked";}?> name="not_inc_int"><br />
 Seminars: <input type="checkbox" <?php if($classToEdit['Seminars'] == 1){echo "checked";}?> name="sem"><br />
 Events: <input type="checkbox" <?php if($classToEdit['Events'] == 1){echo "checked";}?> name="eve"><br />
+Price for Interns: <input type="Number" name="price_for_interns" value="<?php echo $classToEdit['price_for_interns']?>"><br />
+Price for Students: <input type="Number" name="price_for_students" value="<?php echo $classToEdit['price_for_students']?>"><br />
 <input type="submit">
 </form>
 

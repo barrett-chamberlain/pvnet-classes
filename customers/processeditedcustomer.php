@@ -10,9 +10,13 @@ include('../_includes/connect.php');
 include('../_includes/convert_checkboxes_customer.php');
 
 //escape form inputs
-include('../_includes/escape_post_vars_customer.php');
+// include('../_includes/escape_post_vars_customer.php');
 
-$sql = "update " . $table_customer . " set firstname = '" . $firstname_escaped . "', lastname = '" . $lastname_escaped . "', is_parent = " . $is_parent . ", is_student_adult = " . $is_student_adult . ", is_student_minor = " . $is_student_minor . ", is_relative = " . $is_relative . ", is_sibling = " . $is_sibling . ", is_instructor = " . $is_instructor . ", is_vol_adult = " . $is_vol_adult . ", is_vol_minor = " . $is_vol_minor . " where id = " . $dbid_escaped . "";
+foreach($_POST AS $key => $val) {
+    $escapedEditCustomer[$key] = mysqli_real_escape_string($mysqli, $val);
+}
+
+$sql = "update " . $table_customer . " set firstname = '" . $escapedEditCustomer["firstname"] . "', lastname = '" . $escapedEditCustomer["lastname"] . "', is_parent = " . $is_parent . ", is_student_adult = " . $is_student_adult . ", is_student_minor = " . $is_student_minor . ", is_relative = " . $is_relative . ", is_sibling = " . $is_sibling . ", is_instructor = " . $is_instructor . ", is_vol_adult = " . $is_vol_adult . ", is_vol_minor = " . $is_vol_minor . " where id = " . $escapedEditCustomer["dbid"] . "";
 
 // echo $sql;
 // exit();
@@ -29,15 +33,11 @@ $sql = "update " . $table_customer . " set firstname = '" . $firstname_escaped .
 
 // echo 'activate: ' . $activate;
 
-// $mysqli->query($sql);
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$mysqli->query($sql);
 
 
 
-$sql2 = "update " . $table_customer_contact . " set addr1 = '" . $addr1_escaped . "', addr2 = '" . $addr2_escaped . "', city = '" . $city_escaped . "', state = '" . $state_escaped . "', zipcode = " . $zipcode_escaped . ", phone1 = " . $phone1_escaped . ", phone2 = " . $phone2_escaped . ", email = '" . $email_escaped . "', employer_name = '" . $employer_name_escaped . "', position_title = '" . $position_title_escaped . "', department = '" . $department_escaped . "', area_of_expertise = '" . $area_of_expertise_escaped . "', work_address = '" . $work_address_escaped . "', work_city = '" . $work_city_escaped . "', work_state = '" . $work_state_escaped . "', work_zip = '" . $work_zip_escaped . "', work_phone = '" . $work_phone_escaped . "', work_email = '" . $work_email_escaped . "', work_notes = '" . $work_notes_escaped . "', willing_to_volunteer = '" . $willing_to_volunteer_escaped . "'  where customer_id = " . $dbid_escaped . "";
+$sql2 = "update " . $table_customer_contact . " set addr1 = '" . $escapedEditCustomer["addr1"] . "', addr2 = '" . $escapedEditCustomer["addr2"] . "', city = '" . $escapedEditCustomer["city"] . "', state = '" . $escapedEditCustomer["state"] . "', zipcode = " . $escapedEditCustomer["zipcode"] . ", phone1 = " . $escapedEditCustomer["phone1"] . ", phone2 = " . $escapedEditCustomer["phone2"] . ", email = '" . $escapedEditCustomer["email"] . "', employer_name = '" . $escapedEditCustomer["employer_name"] . "', position_title = '" . $escapedEditCustomer["position_title"] . "', department = '" . $escapedEditCustomer["department"] . "', area_of_expertise = '" . $escapedEditCustomer["area_of_expertise"] . "', work_address = '" . $escapedEditCustomer["work_address"] . "', work_city = '" . $escapedEditCustomer["work_city"] . "', work_state = '" . $escapedEditCustomer["work_state"] . "', work_zip = '" . $escapedEditCustomer["work_zip"] . "', work_phone = '" . $escapedEditCustomer["work_phone"] . "', work_email = '" . $escapedEditCustomer["work_email"] . "', work_notes = '" . $escapedEditCustomer["work_notes"] . "', willing_to_volunteer = '" . $escapedEditCustomer["willing_to_volunteer"] . "'  where customer_id = " . $escapedEditCustomer["dbid"] . "";
 
 // echo $sql2;
 // exit();
@@ -45,13 +45,20 @@ $sql2 = "update " . $table_customer_contact . " set addr1 = '" . $addr1_escaped 
 //debugger
 
 if (!$result2 = $mysqli->query($sql2)) {
-    include('../_includes/send_error.php');
+    echo "Error: Our query failed to execute and here is why:" . "<br />";
+    echo "Query2: " . $sql2 . "\n";
+    echo "Errno2: " . $mysqli->errno . "<br />";
+    echo "Error2: " . $mysqli->error . "<br />";
     exit;
 }
 
 // echo 'activate: ' . $activate;
 
-header("Location: editcustomer.php?id=$dbid_escaped&edited=1"); /* Redirect browser */
+$mysqli->query($sql2);
+
+
+
+header("Location: editcustomer.php?id= " . $escapedEditCustomer["dbid"] . "&edited=1"); /* Redirect browser */
   exit();
 
 ?>
