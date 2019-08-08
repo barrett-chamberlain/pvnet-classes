@@ -16,11 +16,7 @@ include('../_includes/connect.php');
 
 $sql = "SELECT * FROM " . $table_customer . " where id = '" . $cleanedID . "'";
 
-// $result = $mysqli->query($sql);
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result = $mysqli->query($sql);
 
 $sql2 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $cleanedID . "'";
 

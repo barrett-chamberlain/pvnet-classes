@@ -13,7 +13,14 @@ $sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
 
 //debugger
 if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
+    echo "Error: Our query failed to execute and here is why: \n";
+    echo "Query: " . $sql . "\n";
+    echo "Errno: " . $mysqli->errno . "\n";
+    echo "Error: " . $mysqli->error . "\n";
+    exit;
+}
+if ($result->num_rows === 0) {
+    echo "No rows returned.";
     exit;
 }
 

@@ -40,4 +40,19 @@ if($_POST["is_vol_minor"] == 'on') {
 } else {
 	$is_vol_minor = 0;
 }
+if($_POST["h_env_electronic"] == 'on') {
+	$h_env_electronic = 1;
+} else {
+	$h_env_electronic = 0;
+}
+if($_POST["h_env_compsci"] == 'on') {
+	$h_env_compsci = 1;
+} else {
+	$h_env_compsci = 0;
+}
+if($_POST["h_env_mecheng"] == 'on') {
+	$h_env_mecheng = 1;
+} else {
+	$h_env_mecheng = 0;
+}
 ?>

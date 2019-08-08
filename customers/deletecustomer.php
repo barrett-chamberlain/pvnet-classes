@@ -18,11 +18,7 @@ $sql = "DELETE FROM " . $table_customer . " WHERE id = " . $cleanedID . "";
 //     exit;
 // }
 
-// $result = $mysqli->query($sql);
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result = $mysqli->query($sql);
 
 
 $sql2 = "DELETE FROM " . $table_customer_contact . " WHERE customer_id = " . $cleanedID . "";

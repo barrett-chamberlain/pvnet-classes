@@ -5,7 +5,7 @@ include('./_includes/connect.php');
 $custIdEscaped = mysqli_real_escape_string($mysqli,$_GET["customerid"]);
 $sql = "select * from customers where custuuid = '" . $custIdEscaped . "'";
 echo $sql;
-// $result = $mysqli->query($sql);
+$result = $mysqli->query($sql);
 if (!$result = $mysqli->query($sql)) {
     echo "Error: Our query failed to execute and here is why:" . "<br />";
     echo "Query: " . $sql . "\n";

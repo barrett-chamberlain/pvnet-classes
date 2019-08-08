@@ -65,6 +65,7 @@ if (isset($_GET['studentinserted'])) { ?>
 <a href="students/selectstudenttoedit.php">Manage students</a><br /><br />
 <a href="students/selectstudenttoenroll.php">Enroll student in a class</a><br /><br />
 <a href="classhistory/index.php">View class registration history</a><br /><br />
+<a href="transactions/selecttransactiontoedit.php">Manage transactions</a><br /><br />
 <a href="spreadsheet/generate_spreadsheet.php">Generate spreadsheet of all class data</a><br /><br />
 <a href="documentation.php">Documentation</a>
 </p>

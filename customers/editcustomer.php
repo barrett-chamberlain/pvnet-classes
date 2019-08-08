@@ -57,19 +57,11 @@ while ($getBottomID = $result5->fetch_assoc()) {
 
 $sql = "SELECT * FROM " . $table_customer . " where id = '" . $cleanedID . "'";
 
-// $result = $mysqli->query($sql);
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result = $mysqli->query($sql);
 
 $sql2 = "SELECT * FROM " . $table_customer_contact . " where customer_id = '" . $cleanedID . "'";
 
-// $result2 = $mysqli->query($sql2);
-if (!$result2 = $mysqli->query($sql2)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result2 = $mysqli->query($sql2);
 
 // echo '$cleanedID ' . $cleanedID . '<br />'; 
 
@@ -80,11 +72,7 @@ if (!$result2 = $mysqli->query($sql2)) {
 
 
 $sql3 = "SELECT id FROM " . $table_customer . " where id = '" . $cleanedID . "'";
-// $result3 = $mysqli->query($sql3);
-if (!$result3 = $mysqli->query($sql3)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result3 = $mysqli->query($sql3);
 while($result3->num_rows === 0 and $_GET['prev'] == 1)
     {
         // echo $cleanedID . ' gives no results' . '<br />';

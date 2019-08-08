@@ -76,6 +76,15 @@ Seminars: <input type="checkbox" name="sem"><br />
 Events: <input type="checkbox" name="eve"><br />
 Price for Interns: <input type="Number" name="price_for_interns"><br />
 Price for Students: <input type="Number" name="price_for_students"><br />
+Accreditation Status: <input type="checkbox" name="accred_status"><br />
+Accrediting Organization Name: <input type="text" size="50" name="accred_org_name"><br />
+Number of Units: <input type="Number" name="num_units"><br />
+Grade Level: <select name="grade_level">
+	<option value="Elementary">Elementary</option>
+	<option value="Middle">Middle</option>
+	<option value="High school">High School</option>
+	<option value="College">College</option>
+</select><br />
 <input type="submit">
 </form>
 </body>

@@ -7,11 +7,7 @@ require('../protect-this.php');
 include('../_includes/connect.php');
 
 $sql = "SELECT * FROM " . $table_class_history . " where id = '" . $cleanedID . "'";
-// $result = $mysqli->query($sql);
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result = $mysqli->query($sql);
 
 //queries for prev/next viewing
 $sql4 = "select max(id) from " . $table_class_history . "";

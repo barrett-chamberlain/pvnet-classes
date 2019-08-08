@@ -95,12 +95,7 @@ if ($_GET['sortname'] == "sortdesc") {
 if ($_GET['sortname'] == "sortasc") {
     $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by Class_Name asc";
 } 
-// $result = $mysqli->query($sql); 
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
-?>
+$result = $mysqli->query($sql); ?>
 <h3>SELECT A CLASS TO MANAGE<br />
 ==============
 </h3>

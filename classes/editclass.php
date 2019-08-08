@@ -149,6 +149,50 @@ Seminars: <input type="checkbox" <?php if($classToEdit['Seminars'] == 1){echo "c
 Events: <input type="checkbox" <?php if($classToEdit['Events'] == 1){echo "checked";}?> name="eve"><br />
 Price for Interns: <input type="Number" name="price_for_interns" value="<?php echo $classToEdit['price_for_interns']?>"><br />
 Price for Students: <input type="Number" name="price_for_students" value="<?php echo $classToEdit['price_for_students']?>"><br />
+Accreditation Status: <input type="checkbox" name="accred_status" <?php if($classToEdit['accred_status'] == 1){echo "checked";}?>><br />
+Accrediting Organization Name: <input type="text" size="50" name="accred_org_name" value="<?php echo $classToEdit['accred_org_name']?>"><br />
+Number of Units: <input type="Number" name="num_units" value="<?php echo $classToEdit['num_units']?>"><br />
+Grade Level: <select name="grade_level">
+    <?php 
+    switch ($classToEdit['grade_level']) {
+    case 'Elementary': ?>
+    <option selected value="Elementary">Elementary</option>
+    <option value="Middle">Middle</option>
+    <option value="High school">High School</option>
+    <option value="College">College</option>
+    <?php
+        break;
+    case 'Middle': ?>
+    <option value="Elementary">Elementary</option>
+    <option selected value="Middle">Middle</option>
+    <option value="High school">High School</option>
+    <option value="College">College</option>
+    <?php
+        break;
+            case 'High school': ?>
+    <option value="Elementary">Elementary</option>
+    <option value="Middle">Middle</option>
+    <option selected value="High school">High School</option>
+    <option value="College">College</option>
+    <?php
+        break;
+    case 'College': ?>
+    <option value="Elementary">Elementary</option>
+    <option value="Middle">Middle</option>
+    <option value="High school">High School</option>
+    <option selected value="College">College</option>
+    <?php
+        break;
+    default: ?>
+    <option selected value="notset">Not Set</option>
+    <option value="Elementary">Elementary</option>
+    <option value="Middle">Middle</option>
+    <option value="High school">High School</option>
+    <option value="College">College</option>
+    <?php
+        break; }?>
+</select><br />
+
 <input type="submit">
 </form>
 

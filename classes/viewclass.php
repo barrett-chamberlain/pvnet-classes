@@ -7,11 +7,7 @@ require('../protect-this.php');
 include('../_includes/connect.php');
 
 $sql = "SELECT * FROM " . $table_classes . " where id = '" . $cleanedID . "'";
-// $result = $mysqli->query($sql);
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result = $mysqli->query($sql);
 
 //queries for prev/next viewing
 $sql4 = "select max(id) from " . $table_classes . "";
@@ -131,6 +127,49 @@ Not Included For Interns: <input disabled type="checkbox" <?php if($classToEdit[
 Seminars: <input disabled type="checkbox" <?php if($classToEdit['Seminars'] == 1){echo "checked";}?> name="sem"><br />
 Events: <input disabled type="checkbox" <?php if($classToEdit['Events'] == 1){echo "checked";}?> name="eve"><br />
 <?php } ?>
+Accreditation Status: <input disabled type="checkbox" name="accred_status" <?php if($classToEdit['accred_status'] == 1){echo "checked";}?>><br />
+Accrediting Organization Name: <input disabled type="text" size="50" name="accred_org_name" value="<?php echo $classToEdit['accred_org_name']?>"><br />
+Number of Units: <input disabled type="Number" name="num_units" value="<?php echo $classToEdit['num_units']?>"><br />
+Grade Level: <select disabled name="grade_level">
+    <?php 
+    switch ($classToEdit['grade_level']) {
+    case 'Elementary': ?>
+    <option selected value="Elementary">Elementary</option>
+    <option value="Middle">Middle</option>
+    <option value="High school">High School</option>
+    <option value="College">College</option>
+    <?php
+        break;
+    case 'Middle': ?>
+    <option value="Elementary">Elementary</option>
+    <option selected value="Middle">Middle</option>
+    <option value="High school">High School</option>
+    <option value="College">College</option>
+    <?php
+        break;
+            case 'High school': ?>
+    <option value="Elementary">Elementary</option>
+    <option value="Middle">Middle</option>
+    <option selected value="High school">High School</option>
+    <option value="College">College</option>
+    <?php
+        break;
+    case 'College': ?>
+    <option value="Elementary">Elementary</option>
+    <option value="Middle">Middle</option>
+    <option value="High school">High School</option>
+    <option selected value="College">College</option>
+    <?php
+        break;
+    default: ?>
+    <option selected value="notset">Not Set</option>
+    <option value="Elementary">Elementary</option>
+    <option value="Middle">Middle</option>
+    <option value="High school">High School</option>
+    <option value="College">College</option>
+    <?php
+        break; }?>
+</select>
 </form>
 
 <a href="../index.php">Go back</a><br /><br />

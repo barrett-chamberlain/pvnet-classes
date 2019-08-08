@@ -16,11 +16,7 @@ include('../_includes/connect.php');
 
 $sql = "SELECT * FROM " . $table_student . " where id = '" . $cleanedID . "'";
 
-// $result = $mysqli->query($sql);
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+$result = $mysqli->query($sql);
 
 while ($studentToEdit = $result->fetch_assoc()) { ?>
 <p style="font-weight: bold; color: red;">Are you sure you wish to delete this student?</p>

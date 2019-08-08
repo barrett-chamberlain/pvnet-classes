@@ -90,5 +90,10 @@ if($_POST["eve"] == 'on') {
 } else {
 	$eve = 0;
 }
+if($_POST["accred_status"] == 'on') {
+	$accred_status = 1;
+} else {
+	$accred_status = 0;
+}
 
 ?>

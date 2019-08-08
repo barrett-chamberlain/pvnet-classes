@@ -16,7 +16,7 @@ foreach($_POST AS $key => $val) {
     $escapedInsertCustomer[$key] = mysqli_real_escape_string($mysqli, $val);
 }
 
-$sql = "INSERT INTO " . $table_customer . " (`firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`) VALUES ('" . $escapedInsertCustomer["firstname"] . "', '" . $escapedInsertCustomer["lastname"] . "', '" . $is_parent . "', '" . $is_student_adult . "', '" . $is_student_minor . "', $is_relative, '" . $is_sibling . "', '" . $is_instructor . "', '" . $is_vol_adult . "', '" . $is_vol_minor . "');";
+$sql = "INSERT INTO " . $table_customer . " (`firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`, `h_env_electronic`, `h_env_compsci`, `h_env_mecheng`, `password`, `referral`, `referral_other`) VALUES ('" . $escapedInsertCustomer["firstname"] . "', '" . $escapedInsertCustomer["lastname"] . "', '" . $is_parent . "', '" . $is_student_adult . "', '" . $is_student_minor . "', $is_relative, '" . $is_sibling . "', '" . $is_instructor . "', '" . $is_vol_adult . "', '" . $is_vol_minor . "', '" . $h_env_electronic . "', '" . $h_env_compsci . "', '" . $h_env_mecheng . "', '" . $escapedInsertCustomer["password"] . "', '" . $escapedInsertCustomer["referral"] . "', '" . $escapedInsertCustomer["referral_other"] . "');";
 
 
 // debugger

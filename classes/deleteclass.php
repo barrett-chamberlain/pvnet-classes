@@ -13,10 +13,13 @@ $sql = "DELETE FROM " . $table_classes . " WHERE id = " . $cleanedID . "";
 
 //debugger
 
-if (!$result = $mysqli->query($sql)) {
-    include('../_includes/send_error.php');
-    exit;
-}
+// if (!$result = $mysqli->query($sql)) {
+//     echo "Error: Our query failed to execute and here is why:" . "<br />";
+//     // echo "Query: " . $sql . "\n";
+//     echo "Errno: " . $mysqli->errno . "<br />";
+//     echo "Error: " . $mysqli->error . "<br />";
+//     exit;
+// }
 
 $result = $mysqli->query($sql);
 

@@ -5,6 +5,14 @@
     	margin: 5px;
     	padding: 5px;
 	}
+	select {
+    	margin: 10px;
+    	padding: 10px;
+	}
+	input {
+    	margin: 10px;
+    	padding: 10px;
+	}
 </style>
 <?php
 //password auth
@@ -18,6 +26,7 @@ include('../_includes/connect.php');
 </h3>
 <a href="../index.php">Go back</a><br /><br />
 <form action="processinsertedcustomer.php" method="post">
+<input type="submit"><br />
 First Name: <input required="required" size="50" type="text" name="firstname"><br />
 Last Name: <input required="required" size="50" type="text" name="lastname"><br />
 Address Line 1: <input size="50" type="text" name="addr1"><br />
@@ -150,9 +159,22 @@ Willingness to Volunteer: <select name="willing_to_volunteer">
 	<option value="no">No</option>
 	<option value="possibly">Possibly</option>
 	<option value="contact_me">Contact Me</option>
-</select>
+</select><br />
+Password: <input size="50" type="text" name="password"><br />
+Referral Method: <select name="referral">
+	<option value="friend">Friend</option>
+	<option value="advertisement">Advertisement</option>
+	<option value="internet">Internet</option>
+	<option value="other">Other</option>
+</select><br />
+Referral Other: <textarea rows="4" cols="50" name="referral_other"></textarea><br />
 <br />
-
+<div class="roleBox">
+	Home Environment is...<br /><br />
+	Electronic: <input type="checkbox" name="h_env_electronic"><br />
+	Computer Science: <input type="checkbox" name="h_env_compsci"><br />
+	Mechanical Engineering: <input type="checkbox" name="h_env_mecheng"><br />
+</div>
 
 <div class="roleBox">
 	Customer is a...<br /><br />
@@ -165,6 +187,7 @@ Willingness to Volunteer: <select name="willing_to_volunteer">
 	Adult Volunteer: <input type="checkbox" name="is_vol_adult"><br />
 	Minor Volunteer: <input type="checkbox" name="is_vol_minor"><br />
 </div>
+
 
 <input type="submit">
 </form>
