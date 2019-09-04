@@ -185,7 +185,8 @@ Referral Other: <textarea rows="4" cols="50" name="referral_other"></textarea><b
 	Sibling: <input type="checkbox" name="is_sibling"><br />
 	Instructor: <input type="checkbox" name="is_instructor"><br />
 	Adult Volunteer: <input type="checkbox" name="is_vol_adult"><br />
-	Minor Volunteer: <input type="checkbox" name="is_vol_minor"><br />
+	Sponsor: <input type="checkbox" name="is_sponsor"><br />
+	Alumni: <input type="checkbox" name="is_alumni"><br />
 </div>
 
 

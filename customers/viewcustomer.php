@@ -87,8 +87,7 @@ $result = $mysqli->query($sql);
 $nextCustomer = $cleanedID + 1;
 $prevCustomer = $cleanedID - 1;
 
-
-while ($customerToEdit = $result->fetch_assoc()) { ?>
+$customerToEdit = $result->fetch_assoc(); ?>
 
 <h3>VIEWING CUSTOMER: #<?php echo $customerToEdit['id']?><br />
 ==============
@@ -122,8 +121,50 @@ Last Name: <input size="50" disabled type="text" name="lastname" value="<?php ec
     Adult Volunteer: <input disabled type="checkbox" <?php if($customerToEdit['is_vol_adult'] == 1){echo "checked";}?> name="is_vol_adult"><br />
     Minor Volunteer: <input disabled type="checkbox" <?php if($customerToEdit['is_vol_minor'] == 1){echo "checked";}?> name="is_vol_minor"><br />
 </div>
-<?php }
-while ($customercontToEdit = $result2->fetch_assoc()) { ?>
+<div class="roleBox">
+    Home Environment is...<br /><br />
+    Electronic: <input disabled type="checkbox" name="h_env_electronic"><br />
+    Computer Science: <input disabled type="checkbox" name="h_env_compsci"><br />
+    Mechanical Engineering: <input disabled type="checkbox" name="h_env_mecheng"><br />
+</div>
+Password: <input disabled size="50" type="text" name="password" value="<?php echo $customerToEdit['password']?>"><br />
+Referral Method: <select disabled name="referral">
+<?php
+switch ($customercontToEdit['referral']) {
+    case 'friend': ?>
+        <option selected value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option value="other">Other</option>
+    <?php
+        break;
+    case 'advertisement': ?>
+        <option value="friend">Friend</option>
+        <option selected value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option value="other">Other</option>>
+    <?php
+        break;
+    case 'internet': ?>
+        <option value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option selected value="internet">Internet</option>
+        <option value="other">Other</option>
+    <?php
+        break;
+    case 'other': ?>
+        <option value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option selected value="other">Other</option>
+    <?php
+        break;
+}
+?>
+</select>
+<br />
+Referral Other: <textarea disabled rows="4" cols="50" name="referral_other" value="<?php echo $customerToEdit['referral_other']?>"></textarea><br />
+<?php $customercontToEdit = $result2->fetch_assoc(); ?>
 Address Line 1: <input size="50" disabled type="text" name="addr1" value="<?php echo $customercontToEdit['addr1']?>"><br />
 Address Line 2: <input size="50" disabled type="text" name="addr2" value="<?php echo $customercontToEdit['addr2']?>"><br />
 City: <input size="50" disabled type="text" name="city" value="<?php echo $customercontToEdit['city']?>"><br />
@@ -178,6 +219,35 @@ switch ($customercontToEdit['willing_to_volunteer']) {
 ?>
 </select>
 <br />
+<h3>LINKED STUDENTS<br />
+=====================</h3>
+<?php 
+    $sql6 = "SELECT * FROM " . $table_student . " where linkedcustomer = '" . $customerToEdit['id'] . "'";
+    $result6 = $mysqli->query($sql6);
+while ($getLinkedStudent = $result6->fetch_assoc()) { ?>
+<input disabled type="hidden" name="dbid" value="<?php echo $getLinkedStudent['id']?>">
+First Name: <input size="50"  required="required" disabled type="text" name="firstname" value="<?php echo $getLinkedStudent['fname']?>"><br />
+Last Name: <input size="50"  required="required" disabled type="text" name="lastname" value="<?php echo $getLinkedStudent['lname']?>"><br />
+Date of Birth: <input disabled type="date" name="dob" value="<?php echo $getLinkedStudent['dob']?>"><br />
+Grade Level: <input disabled size="50" type="text" name="gradelevel" value="<?php echo $getLinkedStudent['gradelevel']?>"><br />
+Grade Level Date: <input disabled type="date" name="gradeleveldate" value="<?php echo $getLinkedStudent['gradeleveldate']?>"><br />
+School: <input disabled size="50" type="text" name="school" value="<?php echo $getLinkedStudent['school']?>"><br />
+Gender: <input disabled size="50" type="text" name="gender" value="<?php echo $getLinkedStudent['gender']?>"><br />
+Cell Phone: <input disabled size="50" type="number" name="cell_phone" value="<?php echo $getLinkedStudent['cell_phone']?>"><br />
+Email Address: <input disabled size="50" type="email" name="email" value="<?php echo $getLinkedStudent['email']?>"><br />
+Linked Customer: <input disabled size="50" type="number" name="linkedcustomer" value="<?php echo $getLinkedStudent['linkedcustomer']?>"><br />
+<div class="roleBox">
+    Student is a...<br /><br />
+    Parent: <input disabled type="checkbox" <?php if($getLinkedStudent['is_parent'] == 1){echo "checked";}?> name="is_parent"><br />
+    Adult Student: <input disabled type="checkbox" <?php if($getLinkedStudent['is_student_adult'] == 1){echo "checked";}?> name="is_student_adult"><br />
+    Minor Student: <input disabled type="checkbox" <?php if($getLinkedStudent['is_student_minor'] == 1){echo "checked";}?> name="is_student_minor"><br />
+    Relative: <input disabled type="checkbox" <?php if($getLinkedStudent['is_relative'] == 1){echo "checked";}?> name="is_relative"><br />
+    Sibling: <input disabled type="checkbox" <?php if($getLinkedStudent['is_sibling'] == 1){echo "checked";}?> name="is_sibling"><br />
+    Instructor: <input disabled type="checkbox" <?php if($getLinkedStudent['is_instructor'] == 1){echo "checked";}?> name="is_instructor"><br />
+    Adult Volunteer: <input disabled type="checkbox" <?php if($getLinkedStudent['is_vol_adult'] == 1){echo "checked";}?> name="is_vol_adult"><br />
+    Minor Volunteer: <input disabled type="checkbox" <?php if($getLinkedStudent['is_vol_minor'] == 1){echo "checked";}?> name="is_vol_minor"><br />
+</div>
+<h3>=============================</h3>
 <?php } ?>
 </form>
 

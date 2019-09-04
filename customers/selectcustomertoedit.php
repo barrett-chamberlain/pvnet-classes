@@ -69,7 +69,7 @@ include('../_includes/connect.php');
 if ($_GET['deleted'] == 1) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-	<img style="float: left" src="../checkmark.png" />
+	<img style="float: left" src="../images/checkmark.png" />
 	<p style="float: left; margin: 0px 5px;">Customer deleted.</p><br /><br />
 </div>
 

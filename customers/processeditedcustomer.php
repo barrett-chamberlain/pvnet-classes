@@ -16,8 +16,9 @@ foreach($_POST AS $key => $val) {
     $escapedEditCustomer[$key] = mysqli_real_escape_string($mysqli, $val);
 }
 
-$sql = "update " . $table_customer . " set firstname = '" . $escapedEditCustomer["firstname"] . "', lastname = '" . $escapedEditCustomer["lastname"] . "', is_parent = " . $is_parent . ", is_student_adult = " . $is_student_adult . ", is_student_minor = " . $is_student_minor . ", is_relative = " . $is_relative . ", is_sibling = " . $is_sibling . ", is_instructor = " . $is_instructor . ", is_vol_adult = " . $is_vol_adult . ", is_vol_minor = " . $is_vol_minor . " where id = " . $escapedEditCustomer["dbid"] . "";
+$sql = "update " . $table_customer . " set firstname = '" . $escapedEditCustomer["firstname"] . "', lastname = '" . $escapedEditCustomer["lastname"] . "', is_parent = " . $is_parent . ", is_student_adult = " . $is_student_adult . ", is_student_minor = " . $is_student_minor . ", is_relative = " . $is_relative . ", is_sibling = " . $is_sibling . ", is_instructor = " . $is_instructor . ", is_vol_adult = " . $is_vol_adult . ", is_vol_minor = " . $is_vol_minor . " , is_sponsor = " . $is_sponsor . " , is_alumni = " . $is_alumni . " , password = '" . $escapedEditCustomer["password"] . "' , h_env_electronic = " . $h_env_electronic . " , h_env_compsci = " . $h_env_compsci . " , h_env_mecheng = " . $h_env_mecheng . " , referral = '" . $escapedEditCustomer["referral"] . "' , referral_other = '" . $escapedEditCustomer["referral_other"] . "' where id = " . $escapedEditCustomer["dbid"] . "";
 
+// echo $escapedEditCustomer["referral_other"];
 // echo $sql;
 // exit();
 
@@ -37,7 +38,10 @@ $mysqli->query($sql);
 
 
 
-$sql2 = "update " . $table_customer_contact . " set addr1 = '" . $escapedEditCustomer["addr1"] . "', addr2 = '" . $escapedEditCustomer["addr2"] . "', city = '" . $escapedEditCustomer["city"] . "', state = '" . $escapedEditCustomer["state"] . "', zipcode = " . $escapedEditCustomer["zipcode"] . ", phone1 = " . $escapedEditCustomer["phone1"] . ", phone2 = " . $escapedEditCustomer["phone2"] . ", email = '" . $escapedEditCustomer["email"] . "', employer_name = '" . $escapedEditCustomer["employer_name"] . "', position_title = '" . $escapedEditCustomer["position_title"] . "', department = '" . $escapedEditCustomer["department"] . "', area_of_expertise = '" . $escapedEditCustomer["area_of_expertise"] . "', work_address = '" . $escapedEditCustomer["work_address"] . "', work_city = '" . $escapedEditCustomer["work_city"] . "', work_state = '" . $escapedEditCustomer["work_state"] . "', work_zip = '" . $escapedEditCustomer["work_zip"] . "', work_phone = '" . $escapedEditCustomer["work_phone"] . "', work_email = '" . $escapedEditCustomer["work_email"] . "', work_notes = '" . $escapedEditCustomer["work_notes"] . "', willing_to_volunteer = '" . $escapedEditCustomer["willing_to_volunteer"] . "'  where customer_id = " . $escapedEditCustomer["dbid"] . "";
+$sql2 = "update " . $table_customer_contact . " set addr1 = '" . $escapedEditCustomer["addr1"] . "', addr2 = '" . $escapedEditCustomer["addr2"] . "', city = '" . $escapedEditCustomer["city"] . "', state = '" . $escapedEditCustomer["state"] . "', zipcode = '" . $escapedEditCustomer["zipcode"] . "', phone1 = '" . $escapedEditCustomer["phone1"] . "', phone2 = '" . $escapedEditCustomer["phone2"] . "', email = '" . $escapedEditCustomer["email"] . "', employer_name = '" . $escapedEditCustomer["employer_name"] . "', position_title = '" . $escapedEditCustomer["position_title"] . "', department = '" . $escapedEditCustomer["department"] . "', area_of_expertise = '" . $escapedEditCustomer["area_of_expertise"] . "', work_address = '" . $escapedEditCustomer["work_address"] . "', work_city = '" . $escapedEditCustomer["work_city"] . "', work_state = '" . $escapedEditCustomer["work_state"] . "', work_zip = '" . $escapedEditCustomer["work_zip"] . "', work_phone = '" . $escapedEditCustomer["work_phone"] . "', work_email = '" . $escapedEditCustomer["work_email"] . "', work_notes = '" . $escapedEditCustomer["work_notes"] . "', willing_to_volunteer = '" . $escapedEditCustomer["willing_to_volunteer"] . "'  where customer_id = " . $escapedEditCustomer["dbid"] . "";
+
+// echo $sql2;
+// exit;
 
 // echo $sql2;
 // exit();
@@ -58,7 +62,7 @@ $mysqli->query($sql2);
 
 
 
-header("Location: editcustomer.php?id= " . $escapedEditCustomer["dbid"] . "&edited=1"); /* Redirect browser */
+header("Location: editcustomer.php?id=" . $escapedEditCustomer["dbid"] . "&edited=1"); /* Redirect browser */
   exit();
 
 ?>

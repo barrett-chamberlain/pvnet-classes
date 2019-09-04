@@ -40,6 +40,56 @@ Last Name: <input size="50" disabled type="text" name="lastname" value="<?php ec
     Adult Volunteer: <input disabled type="checkbox" <?php if($customerToEdit['is_vol_adult'] == 1){echo "checked";}?> name="is_vol_adult"><br />
     Minor Volunteer: <input disabled type="checkbox" <?php if($customerToEdit['is_vol_minor'] == 1){echo "checked";}?> name="is_vol_minor"><br />
 </div>
+<div class="roleBox">
+    Home Environment is...<br /><br />
+    Electronic: <input disabled type="checkbox" <?php if($customerToEdit['h_env_electronic'] == 1){echo "checked";}?> name="h_env_electronic"><br />
+    Computer Science: <input disabled type="checkbox" <?php if($customerToEdit['h_env_compsci'] == 1){echo "checked";}?> name="h_env_compsci"><br />
+    Mechanical Engineering: <input disabled type="checkbox" <?php if($customerToEdit['h_env_mecheng'] == 1){echo "checked";}?> name="h_env_mecheng"><br />
+</div>
+Password: <input disabled size="50" type="text" name="password" value="<?php echo $customerToEdit['password']?>"><br />
+Referral Method: <select disabled name="referral">
+<?php
+switch ($customerToEdit['referral']) {
+    case 'friend': ?>
+        <option selected value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option value="other">Other</option>
+    <?php
+        break;
+    case 'advertisement': ?>
+        <option value="friend">Friend</option>
+        <option selected value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option value="other">Other</option>>
+    <?php
+        break;
+    case 'internet': ?>
+        <option value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option selected value="internet">Internet</option>
+        <option value="other">Other</option>
+    <?php
+        break;
+    case 'other': ?>
+        <option value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option selected value="other">Other</option>
+    <?php
+        break;
+    default: ?>
+        <option selected value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option value="other">Other</option>
+    <?php
+        break;
+}
+?>
+</select><br />
+Referral Other: <textarea disabled rows="4" cols="50" name="referral_other"><?php echo $customerToEdit['referral_other']?></textarea><br />
+
 <?php }
 while ($customercontToEdit = $result2->fetch_assoc()) { ?>
 Address Line 1: <input size="50" disabled type="text" name="addr1" value="<?php echo $customercontToEdit['addr1']?>"><br />

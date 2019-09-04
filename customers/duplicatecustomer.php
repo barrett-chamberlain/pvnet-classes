@@ -5,9 +5,9 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
-$sql = "INSERT into " . $table_customer . " (`firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`) 
+$sql = "INSERT into " . $table_customer . " (`firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`,`is_sponsor`, `is_alumni`, `password`, `h_env_electronic`, `h_env_compsci`, `h_env_mecheng`, `referral`, `referral_other`) 
 SELECT 
-    `firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor` FROM " . $table_customer . " WHERE id='" . $cleanedID . "';";
+    `firstname`, `lastname`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`, `is_sponsor`, `is_alumni`, `password`, `h_env_electronic`, `h_env_compsci`, `h_env_mecheng`, `referral`, `referral_other` FROM " . $table_customer . " WHERE id='" . $cleanedID . "';";
 
 //debugger
 // if (!$result = $mysqli->query($sql)) {

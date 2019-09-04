@@ -104,13 +104,13 @@ $prevCustomer = $cleanedID - 1;
 if (isset($_GET['duplicated'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-    <img style="float: left" src="../checkmark.png" />
+    <img style="float: left" src="../images/checkmark.png" />
     <p style="float: left; margin: 0px 5px;">Customer duplicated.</p><br /><br />
 </div> <?php }
 if (isset($_GET['edited'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-    <img style="float: left" src="../checkmark.png" />
+    <img style="float: left" src="../images/checkmark.png" />
     <p style="float: left; margin: 0px 5px;">Customer edited.</p><br /><br />
 </div>
 <?php } 
@@ -149,7 +149,60 @@ Last Name: <input size="50"  required="required" type="text" name="lastname" val
     Instructor: <input  type="checkbox" <?php if($customerToEdit['is_instructor'] == 1){echo "checked";}?> name="is_instructor"><br />
     Adult Volunteer: <input  type="checkbox" <?php if($customerToEdit['is_vol_adult'] == 1){echo "checked";}?> name="is_vol_adult"><br />
     Minor Volunteer: <input  type="checkbox" <?php if($customerToEdit['is_vol_minor'] == 1){echo "checked";}?> name="is_vol_minor"><br />
+    Sponsor: <input type="checkbox" <?php if($customerToEdit['is_sponsor'] == 1){echo "checked";}?> name="is_sponsor"><br />
+    Alumni: <input type="checkbox" <?php if($customerToEdit['is_alumni'] == 1){echo "checked";}?> name="is_alumni"><br />
 </div>
+<div class="roleBox">
+    Home Environment is...<br /><br />
+    Electronic: <input type="checkbox" <?php if($customerToEdit['h_env_electronic'] == 1){echo "checked";}?> name="h_env_electronic"><br />
+    Computer Science: <input type="checkbox" <?php if($customerToEdit['h_env_compsci'] == 1){echo "checked";}?> name="h_env_compsci"><br />
+    Mechanical Engineering: <input type="checkbox" <?php if($customerToEdit['h_env_mecheng'] == 1){echo "checked";}?> name="h_env_mecheng"><br />
+</div>
+Password: <input size="50" type="text" name="password" value="<?php echo $customerToEdit['password']?>"><br />
+Referral Method: <select name="referral">
+<?php
+switch ($customerToEdit['referral']) {
+    case 'friend': ?>
+        <option selected value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option value="other">Other</option>
+    <?php
+        break;
+    case 'advertisement': ?>
+        <option value="friend">Friend</option>
+        <option selected value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option value="other">Other</option>>
+    <?php
+        break;
+    case 'internet': ?>
+        <option value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option selected value="internet">Internet</option>
+        <option value="other">Other</option>
+    <?php
+        break;
+    case 'other': ?>
+        <option value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option selected value="other">Other</option>
+    <?php
+        break;
+    default: ?>
+        <option selected value="friend">Friend</option>
+        <option value="advertisement">Advertisement</option>
+        <option value="internet">Internet</option>
+        <option value="other">Other</option>
+    <?php
+        break;
+}
+?>
+</select>
+<br />
+
+Referral Other: <textarea rows="4" cols="50" name="referral_other"><?php echo $customerToEdit['referral_other']?></textarea><br />
 <?php }
 while ($customercontToEdit = $result2->fetch_assoc()) { ?>
 Address Line 1: <input size="50" type="text" name="addr1" value="<?php echo $customercontToEdit['addr1']?>"><br />
