@@ -23,24 +23,36 @@ if ($result->num_rows === 0) {
     exit;
 }
 
-while ($transactionToEdit = $result->fetch_assoc()) { ?>
+$transactionToEdit = $result->fetch_assoc(); 
+$sql2 = "SELECT * FROM " . $table_student . " where id = " . $transactionToEdit['StudentID'] . "";
+$result2 = $mysqli->query($sql2);
+$student = $result2->fetch_assoc(); 
+$sql3 = "SELECT * FROM " . $table_classes . " where id = " . $transactionToEdit['ClassID'] . "";
+$result3 = $mysqli->query($sql3);
+$class = $result3->fetch_assoc();
+?>
 
 <p style="font-weight: bold; color: red;">Are you sure you wish to delete this transaction?</p>
 
 <h3>TRANSACTION ID #<?php echo $transactionToEdit['ID']?></h3>
-
+<p>Class Name: <?php echo $class['Class_Name']?><br />
+Student Name: <?php echo $student['fname'] . ' ' . $student['lname']?><br />
+</p>
 <form>
 <input type="hidden" name="ID" value="<?php echo $transactionToEdit['ID']?>"><br />
 Transaction ID: <input disabled type="text" name="ID" value="<?php echo $transactionToEdit['ID']?>"><br />
-Class ID: <input type="number" size="50" name="ClassID" value="<?php echo $transactionToEdit['ClassID']?>"><br />
-Time Signed Up: <input type="text" name="TimeSignedUp" value="<?php echo $transactionToEdit['TimeSignedUp']?>"><br />
-Paid Or Not: <input type="checkbox" name="PaidOrNot" <?php if($transactionToEdit['PaidOrNot'] == 1){echo "checked";}?>><br />
-Business Department Comments: <input type="text" size="50" name="BusinessDepartmentComments" value="<?php echo $transactionToEdit['BusinessDepartmentComments']?>"><br />
-Amount Due: <input type="Number" name="AmountDue" value="<?php echo $transactionToEdit['AmountDue']?>"><br />
-Amount Paid: <input type="Number" name="AmountPaid" value="<?php echo $transactionToEdit['AmountPaid']?>"><br />
+Class ID: <input disabled type="number" size="50" name="ClassID" value="<?php echo $transactionToEdit['ClassID']?>"><br />
+Class Name: <?php echo $class['Class_Name']?><br />
+Student ID: <input disabled type="number" size="50" name="StudentID" value="<?php echo $transactionToEdit['StudentID']?>"><br />
+Student Name: <?php echo $student['fname'] . ' ' . $student['lname']?><br />
+Time Signed Up: <input disabled type="text" name="TimeSignedUp" value="<?php echo $transactionToEdit['TimeSignedUp']?>"><br />
+Paid Or Not: <input disabled type="checkbox" name="PaidOrNot" <?php if($transactionToEdit['PaidOrNot'] == 1){echo "checked";}?>><br />
+Business Department Comments: <textarea disabled name="BusinessDepartmentComments">
+<?php echo $transactionToEdit['BusinessDepartmentComments']?>    
+</textarea><br />
+Amount Due: <input disabled type="Number" name="AmountDue" value="<?php echo $transactionToEdit['AmountDue']?>"><br />
+Amount Paid: <input disabled type="Number" name="AmountPaid" value="<?php echo $transactionToEdit['AmountPaid']?>"><br />
 </form>
-
-<?php } ?>
 <a href="deletetransaction.php?ID=<?php echo $cleanedID_caps ?>">Yes, delete this transaction</a><br /><br />
 
 <a href="../index.php">Go back</a><br /><br />

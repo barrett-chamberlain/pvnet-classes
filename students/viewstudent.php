@@ -82,9 +82,7 @@ $sql = "SELECT * FROM " . $table_student . " where id = '" . $cleanedID . "'";
 $result = $mysqli->query($sql);
 $nextstudent = $cleanedID + 1;
 $prevstudent = $cleanedID - 1;
-
-
-while ($studentToEdit = $result->fetch_assoc()) { ?>
+$studentToEdit = $result->fetch_assoc(); ?>
 
 <h3>VIEWING STUDENT: #<?php echo $studentToEdit['id']?><br />
 ==============
@@ -98,8 +96,9 @@ while ($studentToEdit = $result->fetch_assoc()) { ?>
 <br /><br />
 <p>
 Student ID: <?php echo $studentToEdit['id']?><br />
-Student First Name: <?php echo $studentToEdit['fname']?><br />
-Student Last Name: <?php echo $studentToEdit['lname']?><br /><br />
+Student Name: <?php echo $studentToEdit['fname'] . ' ' . $studentToEdit['lname']?><br />
+<br /><br />
+
 <a href="../index.php">Go back</a> | <a href="editstudent.php?id=<?php echo $studentToEdit['id']?>">Edit this student</a> | <a href="duplicatestudent.php?id=<?php echo $studentToEdit['id']?>">Duplicate this student</a> | <a href="confirmdelete.php?id=<?php echo $studentToEdit['id']?>">Delete this student</a><br /><br />
 </p>
 
@@ -115,7 +114,8 @@ Gender: <input size="50" disabled type="text" name="gender" value="<?php echo $s
 Cell Phone: <input size="50" disabled type="number" name="cell_phone" value="<?php echo $studentToEdit['cell_phone']?>"><br />
 Email Address: <input size="50" disabled type="email" name="email" value="<?php echo $studentToEdit['email']?>"><br />
 Linked Customer: <input size="50" disabled type="number" name="linkedcustomer" value="<?php echo $studentToEdit['linkedcustomer']?>"><br />
-
+Internship Start Date: <input disabled type="date" name="internship_start_date" value="<?php echo $studentToEdit['internship_start_date']?>"><br />
+Internship End Date: <input disabled type="date" name="internship_end_date" value="<?php echo $studentToEdit['internship_end_date']?>"><br />
 <div class="roleBox">
     Student is a...<br /><br />
     Parent: <input disabled type="checkbox" <?php if($studentToEdit['is_parent'] == 1){echo "checked";}?> name="is_parent"><br />
@@ -126,10 +126,18 @@ Linked Customer: <input size="50" disabled type="number" name="linkedcustomer" v
     Instructor: <input disabled type="checkbox" <?php if($studentToEdit['is_instructor'] == 1){echo "checked";}?> name="is_instructor"><br />
     Adult Volunteer: <input disabled type="checkbox" <?php if($studentToEdit['is_vol_adult'] == 1){echo "checked";}?> name="is_vol_adult"><br />
     Minor Volunteer: <input disabled type="checkbox" <?php if($studentToEdit['is_vol_minor'] == 1){echo "checked";}?> name="is_vol_minor"><br />
+    Intern: <input disabled type="checkbox" <?php if($studentToEdit['is_Intern'] == 1){echo "checked";}?> name="is_Intern"><br />
 </div>
-<?php } ?>
 </form>
-
+<?php 
+$sql2 = "SELECT * FROM " . $table_customer . " where id = '" . $studentToEdit['linkedcustomer'] . "'";
+$result2 = $mysqli->query($sql2); ?>
+<h3>LINKED CUSTOMER<br />
+========================</h3>
+<?php $students_customer = $result2->fetch_assoc() ?>
+Name: <?php echo $students_customer['firstname'] . ' ' . $students_customer['lastname']?> 
+| <a href="../customers/viewcustomer.php?id=<?php echo $studentToEdit['linkedcustomer'] ?>">View customer</a>
+<br /><br />
 <a href="../index.php">Go back</a><br /><br />
 
 </body>

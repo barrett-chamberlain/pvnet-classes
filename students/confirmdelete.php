@@ -33,6 +33,8 @@ Gender: <input size="50" disabled type="text" name="gender" value="<?php echo $s
 Cell Phone: <input size="50" disabled type="number" name="cell_phone" value="<?php echo $studentToEdit['cell_phone']?>"><br />
 Email Address: <input size="50" disabled type="email" name="email" value="<?php echo $studentToEdit['email']?>"><br />
 Linked Customer: <input size="50" disabled type="number" name="linkedcustomer" value="<?php echo $studentToEdit['linkedcustomer']?>"><br />
+Internship Start Date: <input disabled type="date" name="internship_start_date" value="<?php echo $studentToEdit['internship_start_date']?>"><br />
+Internship End Date: <input disabled type="date" name="internship_end_date" value="<?php echo $studentToEdit['internship_end_date']?>"><br />
 <div class="roleBox">
     Student is a...<br /><br />
     Parent: <input disabled type="checkbox" <?php if($studentToEdit['is_parent'] == 1){echo "checked";}?> name="is_parent"><br />
@@ -43,6 +45,7 @@ Linked Customer: <input size="50" disabled type="number" name="linkedcustomer" v
     Instructor: <input disabled type="checkbox" <?php if($studentToEdit['is_instructor'] == 1){echo "checked";}?> name="is_instructor"><br />
     Adult Volunteer: <input disabled type="checkbox" <?php if($studentToEdit['is_vol_adult'] == 1){echo "checked";}?> name="is_vol_adult"><br />
     Minor Volunteer: <input disabled type="checkbox" <?php if($studentToEdit['is_vol_minor'] == 1){echo "checked";}?> name="is_vol_minor"><br />
+    Intern: <input disabled type="checkbox" <?php if($studentToEdit['is_Intern'] == 1){echo "checked";}?> name="is_Intern"><br />
 </div>
 <?php } ?>
 </form>

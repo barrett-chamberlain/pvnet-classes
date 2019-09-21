@@ -65,6 +65,9 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
+$cleanedCustomerID = mysqli_real_escape_string($mysqli,$_GET['customerid']);
+$cleanedID = $cleanedStudentID;
+
 //class deleted notification
 if ($_GET['deleted'] == 1) { ?>
 <div style="outline: 1px solid green; padding: 5px;
@@ -96,41 +99,37 @@ if ($_GET['sortname'] == "sortasc") {
     $sql = "SELECT id,Class_ID,Class_Name FROM " . $table_classes . " order by Class_Name asc";
 } 
 $result = $mysqli->query($sql); ?>
-<h3>SELECT A CLASS TO MANAGE<br />
+<h3>SELECT A CLASS TO PAY FOR<br />
 ==============
 </h3>
 <a href="../index.php">Go back</a><br /><br />
-<form action="search.php" method="GET">
-    <input type="text" name="query" />
-    <input type="submit" value="Search by class name" />
-</form>
 <div class="sortOptions">
     <div class="controlSpacer">&nbsp;</div>
     <div class="sortRecord">
         <?php if ($_GET['record'] == "sortdesc") { ?>
-            <a href="selectclasstoedit.php?record=sortasc">SORT ↓</a>
+            <a href="selectclasstolink.php?record=sortasc">SORT ↓</a>
         <?php } if ($_GET['record'] == "sortasc") { ?>
-            <a href="selectclasstoedit.php?record=sortdesc">SORT ↑</a>
+            <a href="selectclasstolink.php?record=sortdesc">SORT ↑</a>
         <?php } if (!isset($_GET['record'])) { ?>
-            <a href="selectclasstoedit.php?record=sortdesc">SORT</a>
+            <a href="selectclasstolink.php?record=sortdesc">SORT</a>
         <?php } ?>
     </div>
     <div class="sortID">
         <?php if ($_GET['sortid'] == "sortdesc") { ?>
-            <a href="selectclasstoedit.php?sortid=sortasc">SORT ↓</a>
+            <a href="selectclasstolink.php?sortid=sortasc">SORT ↓</a>
         <?php } if ($_GET['sortid'] == "sortasc") { ?>
-            <a href="selectclasstoedit.php?sortid=sortdesc">SORT ↑</a>
+            <a href="selectclasstolink.php?sortid=sortdesc">SORT ↑</a>
         <?php } if(!isset($_GET['sortid'])) { ?>
-            <a href="selectclasstoedit.php?sortid=sortasc">SORT</a>
+            <a href="selectclasstolink.php?sortid=sortasc">SORT</a>
         <?php }?>
     </div>
     <div class="sortName">
         <?php if ($_GET['sortname'] == "sortdesc") { ?>
-            <a href="selectclasstoedit.php?sortname=sortasc">SORT ↓</a>
+            <a href="selectclasstolink.php?sortname=sortasc">SORT ↓</a>
         <?php } if ($_GET['sortname'] == "sortasc") { ?>
-            <a href="selectclasstoedit.php?sortname=sortdesc">SORT ↑</a>
+            <a href="selectclasstolink.php?sortname=sortdesc">SORT ↑</a>
         <?php } if(!isset($_GET['sortname'])) { ?>
-            <a href="selectclasstoedit.php?sortname=sortasc">SORT</a>
+            <a href="selectclasstolink.php?sortname=sortasc">SORT</a>
         <?php }?>
     </div>
 </div>
@@ -144,7 +143,7 @@ if($i % 2 == 0) {
 }
 ?>
 <div class="classOptions">
-<?php echo '<a href=viewclass.php?id=' . $classes['id'] .'>VU</a>' . ' | ' . '<a href=editclass.php?id=' . $classes['id'] .'>ED</a>' . ' | ' . '<a href=duplicateclass.php?id=' . $classes['id'] .'>DUP</a>' . ' | ' . '<a href=confirmdelete.php?id=' . $classes['id'] .'>DEL</a></div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['Class_ID'] . '</div><div class="className">' . $classes['Class_Name'] . '</div></div>';
+<?php echo '<a href=inserttransaction.php?classid=' . $classes['id'] . '&customerid=' . $cleanedCustomerID . '&studentid=' . $_GET['studentid'] . '>LINK</a>' . '</div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['Class_ID'] . '</div><div class="className">' . $classes['Class_Name'] . '</div></div>';
 $i++;
 }
 ?>

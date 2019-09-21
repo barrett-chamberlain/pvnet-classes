@@ -69,29 +69,50 @@ include('../_includes/connect.php');
 if ($_GET['deleted'] == 1) { ?>
 <div style="outline: 1px solID green; padding: 5px;
     margin-bottom: 10px;">
-	<img style="float: left" src="../checkmark.png" />
+	<img style="float: left" src="../images/checkmark.png" />
 	<p style="float: left; margin: 0px 5px;">Transaction deleted.</p><br /><br />
 </div>
 <?php } ?>
 <?php
 // column sorting
-$sql = "SELECT ID FROM " . $table_transactions . " order by ID asc";
+$sql = "SELECT * FROM " . $table_transactions . " order by ID asc";
 $result = $mysqli->query($sql); ?>
 <h3>SELECT A TRANSACTION TO MANAGE<br />
 ==============
 </h3>
 <a href="../index.php">Go back</a><br /><br />
+<div class="classRow">
+    <div class="classOptions">
+        <p>&nbsp;</p>
+    </div>
+    <div class="classRecord">
+        <p>Trans ID</p>
+    </div>
+    <div class="classID">
+        <p>Student Name</p>
+    </div>
+    <div class="className">
+        <p>Class Name</p>
+    </div>
+</div>
+</div>
 <?php
 $i = 1;
-while ($classes = $result->fetch_assoc()) { 
-if($i % 2 == 0) {
-	echo '<div class="classRow">';
-} else {
-	echo '<div class="classRow lav">';
-}
+while ($trans = $result->fetch_assoc()) {
+    if($i % 2 == 0) {
+    	echo '<div class="classRow">';
+    } else {
+    	echo '<div class="classRow lav">';
+    }
+$sql2 = "SELECT * FROM " . $table_student . " where id = " . $trans['StudentID'] . "";
+$result2 = $mysqli->query($sql2);
+$student = $result2->fetch_assoc(); 
+$sql3 = "SELECT * FROM " . $table_classes . " where id = " . $trans['ClassID'] . "";
+$result3 = $mysqli->query($sql3);
+$class = $result3->fetch_assoc(); 
 ?>
 <div class="classOptions">
-<?php echo '<a href=viewtransactions.php?ID=' . $classes['ID'] .'>VU</a>' . ' | ' . '<a href=edittransaction.php?ID=' . $classes['ID'] .'>ED</a>' . ' | ' . '<a href=duplicatetransaction.php?ID=' . $classes['ID'] .'>DUP</a>' . ' | ' . '<a href=confirmdelete.php?ID=' . $classes['ID'] .'>DEL</a></div><div class="classRecord">' . ' # ' . $classes['ID'] . '</div><div class="classID">' . $classes['Class_ID'] . '</div><div class="className">' . $classes['Class_Name'] . '</div></div>';
+<?php echo '<a href=viewtransactions.php?ID=' . $trans['ID'] .'>VU</a>' . ' | ' . '<a href=edittransaction.php?ID=' . $trans['ID'] .'>ED</a>' . ' | ' . '<a href=duplicatetransaction.php?ID=' . $trans['ID'] .'>DUP</a>' . ' | ' . '<a href=confirmdelete.php?ID=' . $trans['ID'] .'>DEL</a></div><div class="classRecord">' . ' # ' . $trans['ID'] . '</div><div class="classID">' . $student['fname'] . ' ' . $student['lname'] . '</div><div class="className">' . $class['Class_Name'] . '</div></div>';
 $i++;
 }
 ?>

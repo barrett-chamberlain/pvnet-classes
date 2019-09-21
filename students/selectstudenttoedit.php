@@ -69,7 +69,7 @@ include('../_includes/connect.php');
 if ($_GET['deleted'] == 1) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-	<img style="float: left" src="../checkmark.png" />
+	<img style="float: left" src="../images/checkmark.png" />
 	<p style="float: left; margin: 0px 5px;">Student deleted.</p><br /><br />
 </div>
 
@@ -100,6 +100,10 @@ $result = $mysqli->query($sql); ?>
 ==============
 </h3>
 <a href="../index.php">Go back</a><br /><br />
+<form action="search.php" method="GET">
+    <input type="text" name="query" />
+    <input type="submit" value="Search by student name" />
+</form>
 <div class="sortOptions">
     <div class="controlSpacer">&nbsp;</div>
     <div class="sortRecord">

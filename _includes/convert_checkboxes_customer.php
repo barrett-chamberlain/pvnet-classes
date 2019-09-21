@@ -55,4 +55,14 @@ if($_POST["h_env_mecheng"] == 'on') {
 } else {
 	$h_env_mecheng = 0;
 }
+if($_POST["is_sponsor"] == 'on') {
+	$is_sponsor = 1;
+} else {
+	$is_sponsor = 0;
+}
+if($_POST["is_alumni"] == 'on') {
+	$is_alumni = 1;
+} else {
+	$is_alumni = 0;
+}
 ?>

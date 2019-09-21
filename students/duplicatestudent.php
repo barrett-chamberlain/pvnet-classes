@@ -5,9 +5,9 @@ require('../protect-this.php');
 //connect to db
 include('../_includes/connect.php');
 
-$sql = "INSERT into " . $table_student . " (`fname`, `lname`, `dob`, `gradelevel`, `gradeleveldate`, `school`, `gender`, `cell_phone`, `email`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`, `linkedcustomer`) 
+$sql = "INSERT into " . $table_student . " (`fname`, `lname`, `dob`, `gradelevel`, `gradeleveldate`, `school`, `gender`, `cell_phone`, `email`, `internship_start_date`, `internship_end_date`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`, `is_Intern`, `linkedcustomer`) 
 SELECT 
-    `fname`, `lname`, `dob`, `gradelevel`, `gradeleveldate`, `school`, `gender`, `cell_phone`, `email`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`, `linkedcustomer`
+    `fname`, `lname`, `dob`, `gradelevel`, `gradeleveldate`, `school`, `gender`, `cell_phone`, `email`, `internship_start_date`, `internship_end_date`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`, `is_Intern`, `linkedcustomer`
 FROM " . $table_student . " WHERE id='" . $cleanedID . "';";
 
 // echo $sql;

@@ -96,7 +96,7 @@ if ($_GET['sortln'] == "sortasc") {
     $sql = "SELECT * FROM " . $table_customer . " order by lastname asc";
 } 
 $result = $mysqli->query($sql); ?>
-<h3>SELECT A CUSTOMER TO LINK TO STUDENT<br />
+<h3>SELECT A CUSTOMER TO MAKE PAYMENT<br />
 ==============
 </h3>
 <a href="../index.php">Go back</a><br /><br />
@@ -104,29 +104,29 @@ $result = $mysqli->query($sql); ?>
     <div class="controlSpacer">&nbsp;</div>
     <div class="sortRecord">
         <?php if ($_GET['record'] == "sortdesc") { ?>
-            <a href="selectcustomertoedit.php?record=sortasc">SORT ↓</a>
+            <a href="selectcustomertolink.php?record=sortasc">SORT ↓</a>
         <?php } if ($_GET['record'] == "sortasc") { ?>
-            <a href="selectcustomertoedit.php?record=sortdesc">SORT ↑</a>
+            <a href="selectcustomertolink.php?record=sortdesc">SORT ↑</a>
         <?php } if (!isset($_GET['record'])) { ?>
-            <a href="selectcustomertoedit.php?record=sortdesc">SORT</a>
+            <a href="selectcustomertolink.php?record=sortdesc">SORT</a>
         <?php } ?>
     </div>
     <div class="sortfn">
         <?php if ($_GET['sortfn'] == "sortdesc") { ?>
-            <a href="selectcustomertoedit.php?sortfn=sortasc">SORT ↓</a>
+            <a href="selectcustomertolink.php?sortfn=sortasc">SORT ↓</a>
         <?php } if ($_GET['sortfn'] == "sortasc") { ?>
-            <a href="selectcustomertoedit.php?sortfn=sortdesc">SORT ↑</a>
+            <a href="selectcustomertolink.php?sortfn=sortdesc">SORT ↑</a>
         <?php } if(!isset($_GET['sortfn'])) { ?>
-            <a href="selectcustomertoedit.php?sortfn=sortasc">SORT</a>
+            <a href="selectcustomertolink.php?sortfn=sortasc">SORT</a>
         <?php }?>
     </div>
     <div class="sortln">
         <?php if ($_GET['sortln'] == "sortdesc") { ?>
-            <a href="selectcustomertoedit.php?sortln=sortasc">SORT ↓</a>
+            <a href="selectcustomertolink.php?sortln=sortasc">SORT ↓</a>
         <?php } if ($_GET['sortln'] == "sortasc") { ?>
-            <a href="selectcustomertoedit.php?sortln=sortdesc">SORT ↑</a>
+            <a href="selectcustomertolink.php?sortln=sortdesc">SORT ↑</a>
         <?php } if(!isset($_GET['sortln'])) { ?>
-            <a href="selectcustomertoedit.php?sortln=sortasc">SORT</a>
+            <a href="selectcustomertolink.php?sortln=sortasc">SORT</a>
         <?php }?>
     </div>
 </div>
@@ -140,7 +140,7 @@ if($i % 2 == 0) {
 }
 ?>
 <div class="classOptions">
-<?php echo '<a href=insertstudent.php?id=' . $classes['id'] .'>LINK</a>' . '</div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['firstname'] . '</div><div class="className">' . $classes['lastname'] . '</div></div>';
+<?php echo '<a href=selectstudenttolink.php?id=' . $classes['id'] .'>LINK</a>' . '</div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['firstname'] . '</div><div class="className">' . $classes['lastname'] . '</div></div>';
 $i++;
 }
 ?>

@@ -40,4 +40,9 @@ if($_POST["is_vol_minor"] == 'on') {
 } else {
 	$is_vol_minor = 0;
 }
+if($_POST["is_Intern"] == 'on') {
+	$is_Intern = 1;
+} else {
+	$is_Intern = 0;
+}
 ?>

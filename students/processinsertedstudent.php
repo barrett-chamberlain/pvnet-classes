@@ -7,7 +7,7 @@ require('../protect-this.php');
 include('../_includes/connect.php');
 
 //translate checkboxes from on and off to 1 and 0
-include('../_includes/convert_checkboxes_customer.php');
+include('../_includes/convert_checkboxes_student.php');
 
 //escape form inputs
 // include('../_includes/escape_post_vars_student.php');
@@ -16,7 +16,7 @@ foreach($_POST AS $key => $val) {
     $escapedInsertStudent[$key] = mysqli_real_escape_string($mysqli, $val);
 }
 
-$sql = "INSERT INTO " . $table_student . " (`fname`, `lname`, `dob`, `gradelevel`, `gradeleveldate`, `school`, `gender`, `cell_phone`, `email`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`, `linkedcustomer`) VALUES ('" . $escapedInsertStudent["firstname"] . "', '" . $escapedInsertStudent["lastname"] . "', '" . $escapedInsertStudent["dob"] . "', '" . $escapedInsertStudent["gradelevel"] . "', '" . $escapedInsertStudent["gradeleveldate"] . "', '" . $escapedInsertStudent["school"] . "', '" . $escapedInsertStudent["gender"] . "', '" . $escapedInsertStudent["cell_phone"] . "', '" . $escapedInsertStudent["email"] . "', '" . $is_parent . "', '" . $is_student_adult . "', '" . $is_student_minor . "', $is_relative, '" . $is_sibling . "', '" . $is_instructor . "', '" . $is_vol_adult . "', '" . $is_vol_minor . "', '" . $cleanedPostID . "');";
+$sql = "INSERT INTO " . $table_student . " (`fname`, `lname`, `dob`, `gradelevel`, `gradeleveldate`, `school`, `gender`, `cell_phone`, `email`, `is_parent`, `is_student_adult`, `is_student_minor`, `is_relative`, `is_sibling`, `is_instructor`, `is_vol_adult`, `is_vol_minor`, `is_Intern`, `linkedcustomer`, `internship_start_date`, `internship_end_date`) VALUES ('" . $escapedInsertStudent["firstname"] . "', '" . $escapedInsertStudent["lastname"] . "', '" . $escapedInsertStudent["dob"] . "', '" . $escapedInsertStudent["gradelevel"] . "', '" . $escapedInsertStudent["gradeleveldate"] . "', '" . $escapedInsertStudent["school"] . "', '" . $escapedInsertStudent["gender"] . "', '" . $escapedInsertStudent["cell_phone"] . "', '" . $escapedInsertStudent["email"] . "', '" . $is_parent . "', '" . $is_student_adult . "', '" . $is_student_minor . "', $is_relative, '" . $is_sibling . "', '" . $is_instructor . "', '" . $is_vol_adult . "', '" . $is_vol_minor . "', '" . $is_Intern . "', '" . $cleanedPostID . "', '" . $escapedInsertStudent["internship_start_date"] . "', '" . $escapedInsertStudent["internship_end_date"] . "');";
 
 // debugger
 

@@ -100,6 +100,10 @@ $result = $mysqli->query($sql); ?>
 ==============
 </h3>
 <a href="../index.php">Go back</a><br /><br />
+<form action="search.php" method="GET">
+    <input type="text" name="query" />
+    <input type="submit" value="Search by customer name" />
+</form>
 <div class="sortOptions">
     <div class="controlSpacer">&nbsp;</div>
     <div class="sortRecord">

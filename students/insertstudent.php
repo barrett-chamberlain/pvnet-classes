@@ -27,8 +27,10 @@ School: <input size="50" type="text" name="school"><br />
 Gender: <input size="50" type="text" name="gender"><br />
 Cell Phone: <input size="50" type="number" name="cell_phone"><br />
 Email Address: <input size="50" type="email" name="email"><br />
+Internship Start Date: <input type="date" name="internship_start_date"><br />
+Internship End Date: <input type="date" name="internship_end_date"><br />
 <div class="roleBox">
-	Student is a...<br /><br />
+	Student is a(n)...<br /><br />
 	Parent: <input type="checkbox" name="is_parent"><br />
 	Adult Student: <input type="checkbox" name="is_student_adult"><br />
 	Minor Student: <input type="checkbox" name="is_student_minor"><br />
@@ -37,6 +39,7 @@ Email Address: <input size="50" type="email" name="email"><br />
 	Instructor: <input type="checkbox" name="is_instructor"><br />
 	Adult Volunteer: <input type="checkbox" name="is_vol_adult"><br />
 	Minor Volunteer: <input type="checkbox" name="is_vol_minor"><br />
+	Intern: <input type="checkbox" name="is_Intern"><br />
 </div>
 <input type="hidden" name="id" value="<?php echo $cleanedID ?>">
 <input type="submit">

@@ -28,13 +28,13 @@ while ($getBottomID = $result5->fetch_assoc()) {
 if (isset($_GET['duplicated'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-	<img style="float: left" src="../checkmark.png" />
+	<img style="float: left" src="../images/checkmark.png" />
 	<p style="float: left; margin: 0px 5px;">Class duplicated.</p><br /><br />
 </div> <?php }
 if (isset($_GET['edited'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-	<img style="float: left" src="../checkmark.png" />
+	<img style="float: left" src="../images/checkmark.png" />
 	<p style="float: left; margin: 0px 5px;">Class edited.</p><br /><br />
 </div>
 <?php } 

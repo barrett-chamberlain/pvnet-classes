@@ -94,13 +94,13 @@ $prevstudent = $cleanedID - 1;
 if (isset($_GET['duplicated'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-    <img style="float: left" src="../checkmark.png" />
+    <img style="float: left" src="../images/checkmark.png" />
     <p style="float: left; margin: 0px 5px;">Student duplicated.</p><br /><br />
 </div> <?php }
 if (isset($_GET['edited'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-    <img style="float: left" src="../checkmark.png" />
+    <img style="float: left" src="../images/checkmark.png" />
     <p style="float: left; margin: 0px 5px;">Student edited.</p><br /><br />
 </div>
 <?php } 
@@ -137,6 +137,8 @@ Gender: <input size="50" type="text" name="gender" value="<?php echo $studentToE
 Cell Phone: <input size="50" type="number" name="cell_phone" value="<?php echo $studentToEdit['cell_phone']?>"><br />
 Email Address: <input size="50" type="email" name="email" value="<?php echo $studentToEdit['email']?>"><br />
 Linked Customer: <input size="50" type="number" name="linkedcustomer" value="<?php echo $studentToEdit['linkedcustomer']?>"><br />
+Internship Start Date: <input type="date" name="internship_start_date" value="<?php echo $studentToEdit['internship_start_date']?>"><br />
+Internship End Date: <input type="date" name="internship_end_date" value="<?php echo $studentToEdit['internship_end_date']?>"><br />
 <div class="roleBox">
     Student is a...<br /><br />
     Parent: <input  type="checkbox" <?php if($studentToEdit['is_parent'] == 1){echo "checked";}?> name="is_parent"><br />
@@ -147,6 +149,7 @@ Linked Customer: <input size="50" type="number" name="linkedcustomer" value="<?p
     Instructor: <input  type="checkbox" <?php if($studentToEdit['is_instructor'] == 1){echo "checked";}?> name="is_instructor"><br />
     Adult Volunteer: <input  type="checkbox" <?php if($studentToEdit['is_vol_adult'] == 1){echo "checked";}?> name="is_vol_adult"><br />
     Minor Volunteer: <input  type="checkbox" <?php if($studentToEdit['is_vol_minor'] == 1){echo "checked";}?> name="is_vol_minor"><br />
+    Intern: <input type="checkbox" <?php if($studentToEdit['is_Intern'] == 1){echo "checked";}?> name="is_Intern"><br />
 </div>
 <?php } ?><br />
 <input type="submit"><br />

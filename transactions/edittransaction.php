@@ -28,14 +28,21 @@ while ($getBottomID = $result5->fetch_assoc()) {
 if (isset($_GET['duplicated'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-	<img style="float: left" src="../checkmark.png" />
+	<img style="float: left" src="../images/checkmark.png" />
 	<p style="float: left; margin: 0px 5px;">Transaction duplicated.</p><br /><br />
 </div> <?php }
 if (isset($_GET['edited'])) { ?>
 <div style="outline: 1px solid green; padding: 5px;
     margin-bottom: 10px;">
-	<img style="float: left" src="../checkmark.png" />
+	<img style="float: left" src="../images/checkmark.png" />
 	<p style="float: left; margin: 0px 5px;">Transaction edited.</p><br /><br />
+</div>
+<?php }
+if (isset($_GET['inserted'])) { ?>
+<div style="outline: 1px solid green; padding: 5px;
+    margin-bottom: 10px;">
+    <img style="float: left" src="../images/checkmark.png" />
+    <p style="float: left; margin: 0px 5px;">Transaction inserted.</p><br /><br />
 </div>
 <?php } 
 
@@ -62,14 +69,19 @@ $sql = "SELECT * FROM " . $table_transactions . " where ID = '" . $cleanedID_cap
 // echo $sql;
 // exit;
 $result = $mysqli->query($sql);
-
+$transactionToEdit = $result->fetch_assoc();
+$sql2 = "SELECT * FROM " . $table_student . " where id = " . $transactionToEdit['StudentID'] . "";
+$result2 = $mysqli->query($sql2);
+$student = $result2->fetch_assoc(); 
+$sql3 = "SELECT * FROM " . $table_classes . " where id = " . $transactionToEdit['ClassID'] . "";
+$result3 = $mysqli->query($sql3);
+$class = $result3->fetch_assoc();
 $nextTransaction = $cleanedID_caps + 1;
 $prevTransaction = $cleanedID_caps - 1;
 
 // echo 'clean' . $cleanedID_caps;
 
-//list out input fields with DB info set for values
-while ($transactionToEdit = $result->fetch_assoc()) { ?>
+//list out input fields with DB info set for values ?>
 <h3>EDITING TRANSACTION: #<?php echo $transactionToEdit['ID']?><br />
 ==============
 </h3>
@@ -82,15 +94,19 @@ Edit next transaction</a><?php } ?>
 <br /><br />
 <a href="selecttransactiontoedit.php">Go back</a> | <a href="confirmdelete.php?ID=<?php echo $transactionToEdit['ID']?>">Delete this transaction</a><br /><br />
 <form method="post" action="processeditedtransaction.php">
+<p>Class Name: <?php echo $class['Class_Name']?><br />
+Student Name: <?php echo $student['fname'] . ' ' . $student['lname']?><br />
+</p>
 <input type="submit"><br />
 <input type="hidden" name="ID" value="<?php echo $transactionToEdit['ID']?>"><br />
 Student ID: <input type="number" size="50" name="StudentID" value="<?php echo $transactionToEdit['StudentID']?>"><br />
+Student Name: <?php echo $student['fname'] . ' ' . $student['lname']?><br />
 Class ID: <input type="number" size="50" name="ClassID" value="<?php echo $transactionToEdit['ClassID']?>"><br />
+Class Name: <?php echo $class['Class_Name']?><br />
 Time Signed Up: <input type="text" name="TimeSignedUp" value="<?php echo $transactionToEdit['TimeSignedUp']?>"><br />
-Paid Or Not: <input type="checkbox" name="PaidOrNot" <?php if($transactionToEdit['PaidOrNot'] == 1){echo "checked";}?>><br />
-Business Department Comments: <input type="text" size="50" name="BusinessDepartmentComments" value="<?php echo $transactionToEdit['BusinessDepartmentComments']?>"><br />
+Paid: <input type="checkbox" name="PaidOrNot" <?php if($transactionToEdit['PaidOrNot'] == 1){echo "checked";}?>><br />
+Business Department Comments: <textarea rows="4" cols="50" name="BusinessDepartmentComments"><?php echo $transactionToEdit['BusinessDepartmentComments']?></textarea><br />
 Amount Due: <input type="Number" name="AmountDue" value="<?php echo $transactionToEdit['AmountDue']?>"><br />
 Amount Paid: <input type="Number" name="AmountPaid" value="<?php echo $transactionToEdit['AmountPaid']?>"><br />
 </form>
-<?php } ?>
 </body>
