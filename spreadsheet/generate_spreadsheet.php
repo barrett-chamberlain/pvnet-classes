@@ -43,7 +43,7 @@ $objPHPExcel->getActiveSheet()
  
 // Initialise the Excel row number
  
-$rowCount1 = 1;
+$rowCount1 = 2;
 $column1 = 'A';
 $sql1 = "SHOW COLUMNS FROM classes";
 $result1 = mysqli_query($mysqli,$sql1);
@@ -72,7 +72,7 @@ while($row1 = mysqli_fetch_array($result1))
 //end of adding column names 
 //start foreach loop to get data
  
-$rowCount = 2;
+$rowCount = 3;
 foreach($result as $key => $values) 
 {
  //start of printing column names as names of MySQL fields 

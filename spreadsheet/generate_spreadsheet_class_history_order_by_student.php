@@ -20,15 +20,30 @@ $objPHPExcel = new PHPExcel();
 $objPHPExcel->setActiveSheetIndex(0);
  
 // Merge Columns for showing 'Student's Data' start---------------
-
+$objPHPExcel->setActiveSheetIndex(0)
+ ->mergeCells('A1:EB1');
  
-
+$objPHPExcel->getActiveSheet()
+ ->getCell('A1')
+ ->setValue("Class Data");
+ 
+$objPHPExcel->getActiveSheet()
+ ->getStyle('A1')
+ ->getAlignment()
+ ->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+ 
+$objPHPExcel->getActiveSheet()
+ ->getStyle('A1:EB1')
+ ->getFill()
+ ->setFillType(PHPExcel_Style_Fill::FILL_SOLID)
+ ->getStartColor()
+ ->setARGB('FF3399'); //FF3399 33F0FF F28A8C
  
 // Merge Columns for showing 'Student's Data' close--------------->
  
 // Initialise the Excel row number
  
-$rowCount1 = 1;
+$rowCount1 = 2;
 $column1 = 'A';
 $sql1 = "SHOW COLUMNS FROM " . $table_class_history . "";
 $result1 = mysqli_query($mysqli,$sql1);
@@ -57,7 +72,7 @@ while($row1 = mysqli_fetch_array($result1))
 //end of adding column names 
 //start foreach loop to get data
  
-$rowCount = 2;
+$rowCount = 3;
 foreach($result as $key => $values) 
 {
  //start of printing column names as names of MySQL fields 
@@ -75,7 +90,7 @@ foreach($result as $key => $values)
  
 // Redirect output to a client’s web browser (Excel5) 
 header('Content-Type: application/vnd.ms-excel'); 
-header('Content-Disposition: attachment;filename="Class_History_By_Student.xls"'); 
+header('Content-Disposition: attachment;filename="Class_History_Student_Spreadsheet_Export.xls"'); 
 header('Cache-Control: max-age=0'); 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5'); 
 $objWriter->save('php://output');

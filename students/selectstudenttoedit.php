@@ -84,16 +84,16 @@ if ($_GET['record'] == "sortasc") {
     $sql = "SELECT * FROM " . $table_student . " order by id asc";
 } 
 if ($_GET['sortfn'] == "sortdesc") {
-    $sql = "SELECT * FROM " . $table_student . " order by fname desc";
+    $sql = "SELECT * FROM " . $table_student . " order by firstname desc";
 } 
 if ($_GET['sortfn'] == "sortasc") {
-    $sql = "SELECT * FROM " . $table_student . " order by fname asc";
+    $sql = "SELECT * FROM " . $table_student . " order by firstname asc";
 } 
 if ($_GET['sortln'] == "sortdesc") {
-    $sql = "SELECT * FROM " . $table_student . " order by lname desc";
+    $sql = "SELECT * FROM " . $table_student . " order by lastname desc";
 } 
 if ($_GET['sortln'] == "sortasc") {
-    $sql = "SELECT * FROM " . $table_student . " order by lname asc";
+    $sql = "SELECT * FROM " . $table_student . " order by lastname asc";
 } 
 $result = $mysqli->query($sql); ?>
 <h3>SELECT A STUDENT TO MANAGE<br />
