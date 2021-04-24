@@ -70,6 +70,7 @@ if (isset($_GET['studentinserted'])) { ?>
 <p>
 <a href="customers/insertcustomer.php"><img class="icon" src="images/insert.png" height="32" width="32" />Insert a new customer</a><br /><br />
 <a href="customers/selectcustomertoedit.php"><img class="icon" src="images/manage.png" height="32" width="32" />Manage customers</a><br /><br />
+<a href="instructors/selectinstructortoedit.php"><img class="icon" src="images/manage.png" height="32" width="32" />Manage instructors</a><br /><br />
 </p>
 </div>
 <div class="dialogue">
@@ -92,8 +93,8 @@ if (isset($_GET['studentinserted'])) { ?>
 <p>
 <a href="classhistory/index.php"><img class="icon" src="images/history.png" height="32" width="32" />View class registration history</a><br /><br />
 
-<a href="spreadsheet/generate_spreadsheet.php"><img class="icon" src="images/spread.jpg" height="32" width="32" />Generate spreadsheet of all class data</a><br /><br />
-
+<a href="spreadsheet/index.php"><img class="icon" src="images/spread.jpg" height="32" width="32" />Generate spreadsheets</a><br /><br />
+<a href="statistics.php"><img class="icon" src="images/statistics.png" height="32" width="32" />View Statistics</a><br /><br />
 <a href="field_name_key.php"><img class="icon" src="images/dict.png" height="32" width="32" />Field Name Key</a><br /><br />
 <a href="documentation.php"><img class="icon" src="images/doc.png" height="32" width="32" />Documentation</a>
 </p>

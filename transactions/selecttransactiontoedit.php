@@ -54,7 +54,19 @@
 .className {
     float: left;
     padding-left: 1%;
-    wIDth: 60%;
+    border-right: 1px solID black;
+    wIDth: 40%;
+}
+.amountDue {
+    float: left;
+    padding-left: 1%;
+    border-right: 1px solID black;
+    wIDth: 8%;
+}
+.amountPaid {
+    float: left;
+    padding-left: 1%;
+    wIDth: 8%;
 }
 </style>
 <body style="font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif;">
@@ -94,6 +106,12 @@ $result = $mysqli->query($sql); ?>
     <div class="className">
         <p>Class Name</p>
     </div>
+    <div class="amountDue">
+        <p>Amount Due</p>
+    </div>
+    <div class="amountPaid">
+        <p>Amount Paid</p>
+    </div>
 </div>
 </div>
 <?php
@@ -112,7 +130,7 @@ $result3 = $mysqli->query($sql3);
 $class = $result3->fetch_assoc(); 
 ?>
 <div class="classOptions">
-<?php echo '<a href=viewtransactions.php?ID=' . $trans['ID'] .'>VU</a>' . ' | ' . '<a href=edittransaction.php?ID=' . $trans['ID'] .'>ED</a>' . ' | ' . '<a href=duplicatetransaction.php?ID=' . $trans['ID'] .'>DUP</a>' . ' | ' . '<a href=confirmdelete.php?ID=' . $trans['ID'] .'>DEL</a></div><div class="classRecord">' . ' # ' . $trans['ID'] . '</div><div class="classID">' . $student['fname'] . ' ' . $student['lname'] . '</div><div class="className">' . $class['Class_Name'] . '</div></div>';
+<?php echo '<a href=viewtransactions.php?ID=' . $trans['ID'] .'>VU</a>' . ' | ' . '<a href=edittransaction.php?ID=' . $trans['ID'] .'>ED</a>' . ' | ' . '<a href=duplicatetransaction.php?ID=' . $trans['ID'] .'>DUP</a>' . ' | ' . '<a href=confirmdelete.php?ID=' . $trans['ID'] .'>DEL</a></div><div class="classRecord">' . ' # ' . $trans['ID'] . '</div><div class="classID">' . $student['fname'] . ' ' . $student['lname'] . '</div><div class="className">' . $class['Class_Name'] . '</div><div class="amountDue">$' . $trans['AmountDue'] . '</div><div class="amountPaid">$' . $trans['AmountPaid'] . '</div></div>';
 $i++;
 }
 ?>

@@ -2,9 +2,11 @@
 require_once './Classes/PHPExcel.php';
 include '../_includes/connect.php';
 include 'readable_cols.php';
- 
+
 $result = array();
-$sql = "SELECT * FROM " . $table_classes . "";
+$sql = "SELECT * FROM " . $table_customer . " INNER JOIN " . $table_customer_contact . " ON " . $table_customer . ".id = " . $table_customer_contact . ".customer_id";
+// SELECT * FROM customers INNER JOIN customer_contact ON customers.id = customer_contact.customer_id;
+// echo $sql; exit;
 $result_sql = mysqli_query($mysqli, $sql);
 while ($rows = mysqli_fetch_assoc($result_sql))
 {
@@ -21,6 +23,9 @@ $objPHPExcel = new PHPExcel();
 $objPHPExcel->setActiveSheetIndex(0);
  
 // Merge Columns for showing 'Student's Data' start---------------
+
+ 
+
  
 // Merge Columns for showing 'Student's Data' close--------------->
  
@@ -28,13 +33,16 @@ $objPHPExcel->setActiveSheetIndex(0);
  
 $rowCount1 = 1;
 $column1 = 'A';
-$sql1 = "SHOW COLUMNS FROM classes";
+$sql1 = "SELECT column_name FROM information_schema.columns where TABLE_NAME = 'customers' or TABLE_NAME = 'customer_contact'";
+// $sql1 = "SHOW COLUMNS FROM " . $table_customer . "";
+// echo $sql1; exit;
 $result1 = mysqli_query($mysqli,$sql1);
-foreach ($class_cols as $class_cols_val)
+// print_r($result1); exit;
+// var_dump($result1); exit;
+foreach ($customer_cols as $customer_cols_val)
 {
  //echo $row1['Field']."<br>"; 
- $objPHPExcel->getActiveSheet()->setCellValue($column1.$rowCount1, $class_cols_val['class_cols']); 
- 
+ $objPHPExcel->getActiveSheet()->setCellValue($column1.$rowCount1, $customer_cols_val['customer_cols']); 
  
  $styleArray = array(
  'font' => array(
@@ -52,6 +60,7 @@ foreach ($class_cols as $class_cols_val)
   
  $column1++;
 }
+// exit;
 //end of adding column names 
 //start foreach loop to get data
  
@@ -73,7 +82,7 @@ foreach($result as $key => $values)
  
 // Redirect output to a client’s web browser (Excel5) 
 header('Content-Type: application/vnd.ms-excel'); 
-header('Content-Disposition: attachment;filename="Class_Info.xls"'); 
+header('Content-Disposition: attachment;filename="Customers.xls"'); 
 header('Cache-Control: max-age=0'); 
 $objWriter = PHPExcel_IOFactory::createWriter($objPHPExcel, 'Excel5'); 
 $objWriter->save('php://output');

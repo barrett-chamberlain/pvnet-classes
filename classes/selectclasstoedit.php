@@ -144,7 +144,7 @@ if($i % 2 == 0) {
 }
 ?>
 <div class="classOptions">
-<?php echo '<a href=viewclass.php?id=' . $classes['id'] .'>VU</a>' . ' | ' . '<a href=editclass.php?id=' . $classes['id'] .'>ED</a>' . ' | ' . '<a href=duplicateclass.php?id=' . $classes['id'] .'>DUP</a>' . ' | ' . '<a href=confirmdelete.php?id=' . $classes['id'] .'>DEL</a></div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['Class_ID'] . '</div><div class="className">' . $classes['Class_Name'] . '</div></div>';
+<?php echo '<a href=viewclass.php?id=' . $classes['id'] .'>VU</a>' . ' | ' . '<a href=editclass.php?id=' . $classes['id'] .'>ED</a>' . ' | ' . '<a href=duplicateclass.php?id=' . $classes['id'] .'>DUP</a>' . ' | ' . '<a href=confirmdelete.php?id=' . $classes['id'] .'>DEL</a>' . ' | ' . '<a href=viewroster.php?id=' . $classes['id'] .'>ROS</a></div><div class="classRecord">' . ' # ' . $classes['id'] . '</div><div class="classID">' . $classes['Class_ID'] . '</div><div class="className">' . $classes['Class_Name'] . '</div></div>';
 $i++;
 }
 ?>

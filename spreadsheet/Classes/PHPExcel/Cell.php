@@ -286,11 +286,11 @@ class PHPExcel_Cell
 //echo 'Returning fallback value of '.$this->calculatedValue.' for cell '.$this->getCoordinate().PHP_EOL;
                     return $this->calculatedValue; // Fallback for calculations referencing external files.
                 }
-//echo 'Calculation Exception: '.$ex->getMessage().PHP_EOL;
+// echo 'Calculation Exception: '.$ex->getMessage().PHP_EOL;
                 $result = '#N/A';
-                throw new PHPExcel_Calculation_Exception(
-                    $this->getWorksheet()->getTitle().'!'.$this->getCoordinate().' -> '.$ex->getMessage()
-                );
+                // throw new PHPExcel_Calculation_Exception(
+                    // $this->getWorksheet()->getTitle().'!'.$this->getCoordinate().' -> '.$ex->getMessage()
+                // );
             }
 
             if ($result === '#Not Yet Implemented') {

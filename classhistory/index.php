@@ -97,7 +97,7 @@ $result = $mysqli->query($sql); ?>
 </div>
 <a href="../index.php">Go back</a><br /><br />
 <div class="sortOptions">
-    <div class="controlSpacer">&nbsp;</div>
+    <div class="controlSpacer">&nbsp;</div><!-- controlSpacer -->
     <div class="sortRecord">
         <?php if ($_GET['record'] == "sortdesc") { ?>
             <a href="index.php?record=sortasc">SORT ↓</a>
@@ -106,7 +106,7 @@ $result = $mysqli->query($sql); ?>
         <?php } if (!isset($_GET['record'])) { ?>
             <a href="index.php?record=sortdesc">SORT</a>
         <?php } ?>
-    </div>
+    </div><!-- sortRecord -->
     <div class="sortfn">
         <?php if ($_GET['sortfn'] == "sortdesc") { ?>
             <a href="index.php?sortfn=sortasc">SORT ↓</a>
@@ -115,7 +115,7 @@ $result = $mysqli->query($sql); ?>
         <?php } if(!isset($_GET['sortfn'])) { ?>
             <a href="index.php?sortfn=sortasc">SORT</a>
         <?php }?>
-    </div>
+    </div><!-- sortfn -->
     <div class="sortln">
         <?php if ($_GET['sortln'] == "sortdesc") { ?>
             <a href="index.php?sortln=sortasc">SORT ↓</a>
@@ -124,9 +124,18 @@ $result = $mysqli->query($sql); ?>
         <?php } if(!isset($_GET['sortln'])) { ?>
             <a href="index.php?sortln=sortasc">SORT</a>
         <?php }?>
-    </div>
-
-</div>
+    </div><!-- sortln -->
+</div><!-- sortOptions -->
+<div class="sortOptions">
+    <div class="controlSpacer">&nbsp;
+    </div><!-- controlSpacer -->
+    <div class="sortRecord">Student First Name
+    </div><!-- sortRecord -->
+    <div class="sortfn">Student Last Name
+    </div><!-- sortfn -->
+    <div class="sortln">Class Name
+    </div><!-- sortln -->
+</div><!-- sortOptions -->
 <?php
 $i = 1;
 while ($classes = $result->fetch_assoc()) { 
@@ -137,7 +146,8 @@ if($i % 2 == 0) {
 }
 ?>
 <div class="classOptions">
-<?php echo '<a href=view.php?id=' . $classes['id'] .'>VIEW</a>' . '</div><div class="classRecord">' . $classes['fname'] . '</div><div class="classID">' . $classes['lname'] . '</div><div class="className">' . $classes['Class_Name'] . '</div></div>';
+<?php 
+if($classes['Seminars'] == 1) {echo '<a href=view.php?id=' . $classes['id'] .'>VIEW</a>' . '</div><div class="classRecord">' . $classes['firstname'] . '</div><div class="classID">' . $classes['lastname'] . '</div><div class="className">' . $classes['Class_Name'] . '</div></div>';} else {echo '<a href=view.php?id=' . $classes['id'] .'>VIEW</a>' . '</div><div class="classRecord">' . $classes['fname'] . '&nbsp;</div><div class="classID">' . $classes['lname'] . '&nbsp;</div><div class="className">' . $classes['Class_Name'] . '</div></div>';}
 $i++;
 }
 ?>
